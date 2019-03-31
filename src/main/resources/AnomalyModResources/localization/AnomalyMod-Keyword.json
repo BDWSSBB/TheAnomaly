@@ -1,0 +1,35 @@
+[
+  {
+    "PROPER_NAME": "Bad Sector",
+    "NAMES": [
+      "bad sector",
+      "bad_sector"
+    ],
+    "DESCRIPTION": "Bad Sectors are cost #b0 #yStatus cards that have #b1 #yImprobability, #yExhaust, and are #ySoulbound."
+  },
+  {
+    "NAMES": [
+      "dummy",
+      "dummies"
+    ],
+    "DESCRIPTION": "Dummies are cost #b0 cards that are #yEthereal and #yExhaust."
+  },
+  {
+    "NAMES": [
+      "gaping"
+    ],
+    "DESCRIPTION": "Gaping creatures take more damage equal to its amount from #yAttacks."
+  },
+  {
+    "NAMES": [
+      "improbability"
+    ],
+    "DESCRIPTION": "A lasting effect on the run. Higher #yImprobability leads to more #rchaotic and #rsevere consequences."
+  },
+  {
+    "NAMES": [
+      "xprobability"
+    ],
+    "DESCRIPTION": "Cost X card with #yImprobability. Uses Energy to reduce #yImprobability gain, up to the card's #yXprobability."
+  }
+]

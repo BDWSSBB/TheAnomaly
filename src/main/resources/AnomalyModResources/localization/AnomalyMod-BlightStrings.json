@@ -1,0 +1,68 @@
+{
+  "anomalyMod:ImprobabilityDrive": {
+    "NAME": "Improbability Drive",
+    "DESCRIPTION": [
+      "Stores your #yImprobability. Certain improbable effects reduce #yImprobability.",
+      " NL NL #yNext #yThreshold: #r",
+      " NL #yNext #yEffect: "
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveMalfunctionInfo": {
+    "NAME": "Malfunction",
+    "DESCRIPTION": [
+      "Whenever you defeat a Boss, add a #yBad #ySector card into your deck."
+    ]
+  },
+  "anomalyMod:ImprobabilityDrivePortableTerminalInfo": {
+    "NAME": "Portable Terminal",
+    "DESCRIPTION": [
+      "At the start of your turn, put any number of cards from your hand to the bottom of your draw pile and reduce their #yImprobability by #b",
+      " this combat.",
+      "I have ",
+      "!"
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveRandomBuffsInfo": {
+    "NAME": "Random Buffs",
+    "DESCRIPTION": [
+      "At the start of each combat, EVERYONE receives random buffs. Higher #yImprobability increases the buff power and variety.",
+      " NL NL #yBuff #yLevel: #r"
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveTryNewThingsInfo": {
+    "NAME": "Fatten Up",
+    "DESCRIPTION": [
+      "Gold rewards may be converted into card rewards. These card rewards have #b2 less cards to choose from. Bigger conversions give better rewards.",
+      " NL NL #yProbability: #r",
+      "%"
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveSpecialtyInfo": {
+    "NAME": "Specialty",
+    "DESCRIPTION": [
+      "Colored card rewards may have only #b1 card to choose from. These card rewards contain an #yupgraded card.",
+      " NL NL #yProbability: #r",
+      "%"
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveSurpriseElitesInfo": {
+    "NAME": "Surprise Elites",
+    "DESCRIPTION": [
+      "Certain rooms may contain an Elite combat instead. Higher #yImprobability allows more types of rooms to have Elite combats.",
+      " NL NL #yProbability: #r",
+      "% NL #yEligible #yRooms: ",
+      ", ",
+      "? Room",
+      "Normal Enemy",
+      "Shop",
+      "Rest Site",
+      "None"
+    ]
+  },
+  "anomalyMod:ImprobabilityDriveFutureInvadersInfo": {
+    "NAME": "Future Invaders (Deprecated)",
+    "DESCRIPTION": [
+      "DEPRECATED. PLEASE IGNORE THIS."
+    ]
+  }
+}

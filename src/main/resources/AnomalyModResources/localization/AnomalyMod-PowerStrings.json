@@ -1,0 +1,352 @@
+{
+  "anomalyMod:Apex": {
+    "NAME": "Apex",
+    "DESCRIPTIONS": [
+      "After you play #b",
+      " card, lose #b",
+      " cards, lose #b",
+      " #yStrength and #b",
+      " #yDexterity."
+    ]
+  },
+  "anomalyMod:AggressorSyntax": {
+    "NAME": "Aggressor Syntax",
+    "DESCRIPTIONS": [
+      "While the last #b",
+      " cards played this combat were #yAttacks, you have #b",
+      " #yStrength."
+    ]
+  },
+  "anomalyMod:Auditor": {
+    "NAME": "Auditor",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
+    ]
+  },
+  "anomalyMod:Blackout": {
+    "NAME": "Blackout",
+    "DESCRIPTIONS": [
+      "After you play #b",
+      " card this turn, end your turn.",
+      " cards this turn, end your turn."
+    ]
+  },
+  "anomalyMod:BonfireSyntax": {
+    "NAME": "Bonfire Syntax",
+    "DESCRIPTIONS": [
+      "While you have not played the same card type twice in a row for the last #b",
+      " cards played this combat, you have #b",
+      " #yStrength and #b",
+      " #yDexterity.",
+      " NL NL Last card type played:",
+      " #yAttack",
+      " #ySkill",
+      " #yPower",
+      " #yStatus",
+      " #rCurse",
+      " #y???",
+      " None"
+    ]
+  },
+  "anomalyMod:ClockworkCrawl": {
+    "NAME": "Clockwork Crawl",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " times you play #b",
+      " cards, draw #b1 card. ",
+      "After you play #b",
+      " card, draw #b1 card.",
+      " cards, draw #b1 card."
+    ]
+  },
+  "anomalyMod:ConicSands": {
+    "NAME": "Conic Sands",
+    "DESCRIPTIONS": [
+      "After you play #b1 card, ALL enemies lose #b1 #yStrength and gain #b",
+      "The next #b",
+      " times you play a card, ALL enemies lose #b1 #yStrength. After you play #b",
+      " cards, ALL enemies gain #b",
+      " #yStrength."
+    ]
+  },
+  "anomalyMod:DefensorSyntax": {
+    "NAME": "Defensor Syntax",
+    "DESCRIPTIONS": [
+      "While the last #b",
+      " cards played this combat were #ySkills, you have #b",
+      " #yDexterity."
+    ]
+  },
+  "anomalyMod:Discontinuity": {
+    "NAME": "Discontinuity",
+    "DESCRIPTIONS": [
+      "After you play #b",
+      " card, play ",
+      " cards, play ",
+      ".",
+      "Please don't softlock me."
+    ]
+  },
+  "anomalyMod:DelayedFlight": {
+    "NAME": "Delayed Flight",
+    "DESCRIPTIONS": [
+      "After you play #b",
+      " card, gain #b",
+      " cards, gain #b",
+      " #yBlock."
+    ]
+  },
+  "anomalyMod:DialMForMurder": {
+    "NAME": "Dial M for Murder",
+    "DESCRIPTIONS": [
+      "#yAttacks that cost #b2 or more are played twice."
+    ]
+  },
+  "anomalyMod:ExtraPockets": {
+    "NAME": "Extra Pockets",
+    "DESCRIPTIONS": [
+      "Raise your Max Hand Size by #b",
+      "."
+    ]
+  },
+  "anomalyMod:Fak3": {
+    "NAME": "Fak3",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " #ynon-Dummies you play add a #yDummy of the same card type into your hand."
+    ]
+  },
+  "anomalyMod:Filter": {
+    "NAME": "Filter",
+    "DESCRIPTIONS": [
+      "Add ",
+      " into your hand and reduce its #yImprobability by #b",
+      " this combat next turn."
+    ]
+  },
+  "anomalyMod:FluxCapacitor": {
+    "NAME": "Flux Capacitor",
+    "DESCRIPTIONS": [
+      "Up to #b",
+      " [E] is conserved between turns."
+    ]
+  },
+  "anomalyMod:FreeForm": {
+    "NAME": "Free Form",
+    "DESCRIPTIONS": [
+      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less Improbability to play.",
+      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less Improbability #b",
+      " times to play."
+    ]
+  },
+  "anomalyMod:ImitatorSyntax": {
+    "NAME": "Imitator Syntax",
+    "DESCRIPTIONS": [
+      "Register every #b",
+      " card you play. While you have registered a #ySkill, you have #b",
+      " #yDexterity. Otherwise, you have #b",
+      " #yStrength.",
+      " NL NL Current Mode:",
+      " #yStrength",
+      " #yDexterity",
+      " None"
+    ]
+  },
+  "anomalyMod:Improblemble": {
+    "NAME": "Improblemble",
+    "DESCRIPTIONS": [
+      "Deals #b",
+      "% more base attack damage."
+    ]
+  },
+  "anomalyMod:Minimalist": {
+    "NAME": "Minimalist",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " [E] and discard #b",
+      " card.",
+      " cards."
+    ]
+  },
+  "anomalyMod:Multithreading": {
+    "NAME": "Multithreading",
+    "DESCRIPTIONS": [
+      "Play a copy of ",
+      " next turn.",
+      " for #b",
+      " turns."
+    ]
+  },
+  "anomalyMod:Normalized": {
+    "NAME": "Normalized",
+    "DESCRIPTIONS": [
+      "Negate the next #b",
+      " #yImprobability you would gain."
+    ]
+  },
+  "anomalyMod:Polyrhythm": {
+    "NAME": "Polyrhythm",
+    "DESCRIPTIONS": [
+      "Every #b7th card you play deals double damage. Every #b8th card you play gains double #yBlock."
+    ]
+  },
+  "anomalyMod:Procrastinate": {
+    "NAME": "Procrastinate",
+    "DESCRIPTIONS": [
+      "Add and play ",
+      " next turn."
+    ]
+  },
+  "anomalyMod:Projector": {
+    "NAME": "Projector",
+    "DESCRIPTIONS": [
+      "Deals #b50% more attack damage. Cancelled this turn if attacked #b",
+      " time in a single turn.",
+      " times in a single turn."
+    ]
+  },
+  "anomalyMod:Rebooter": {
+    "NAME": "Rebooter",
+    "DESCRIPTIONS": [
+      "When it would otherwise die, heals to #b50% of its Max HP and deals no attack damage this turn.",
+      "Deals no attack damage this turn."
+    ]
+  },
+  "anomalyMod:RedFlag": {
+    "NAME": "Red Flag",
+    "DESCRIPTIONS": [
+      "Whenever dealt attack damage from at least #b",
+      " #yAttacks, deals #b50% more attack damage this turn.",
+      " NL NL Deals #b",
+      "% more attack damage this turn."
+    ]
+  },
+  "anomalyMod:RedWorld": {
+    "NAME": "Red World",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yImprobability and #b",
+      " #yStrength."
+    ]
+  },
+  "anomalyMod:ScissorCuts": {
+    "NAME": "Gaping",
+    "DESCRIPTIONS": [
+      "Receives #b",
+      " more damage from #yAttacks."
+    ]
+  },
+  "anomalyMod:SixthRevision": {
+    "NAME": "Sixth Revision",
+    "DESCRIPTIONS": [
+      "At the start of your turn, shuffle up to #b",
+      " card from your discard pile into your draw pile and #yUpgrade it.",
+      " cards from your discard pile into your draw pile and #yUpgrade them."
+    ]
+  },
+  "anomalyMod:SmoothSailing": {
+    "NAME": "Smooth Sailing",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " additional [E] next turn.",
+      " additional [E] in #b",
+      " turns."
+    ]
+  },
+  "anomalyMod:SpikeStrip": {
+    "NAME": "Spike Strip",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ynon-Attack card, gains #b",
+      " #yBlock. When attacked while having leftover #yBlock, deals #b",
+      " damage back."
+    ]
+  },
+  "anomalyMod:SpikierStrip": {
+    "NAME": "Spikier Strip",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yImprobability, gains #ySpike #yStrip equal to #yImprobability gained."
+    ]
+  },
+  "anomalyMod:ShellLoaded": {
+    "NAME": "Shell-Loaded",
+    "DESCRIPTIONS": [
+      "While the last #b",
+      " cards played this combat were not #ySkills, cards gain double #yBlock."
+    ]
+  },
+  "anomalyMod:SpringLoaded": {
+    "NAME": "Spring-Loaded",
+    "DESCRIPTIONS": [
+      "While the last #b",
+      " cards played this combat were not #yAttacks, cards deal double damage."
+    ]
+  },
+  "anomalyMod:Starched": {
+    "NAME": "Starched",
+    "DESCRIPTIONS": [
+      "Every time you play #b",
+      " #ySkills, you may play a #ySkill in your hand."
+    ]
+  },
+  "anomalyMod:Stitched": {
+    "NAME": "Stitched",
+    "DESCRIPTIONS": [
+      "Every time you play #b",
+      " #yAttacks, you may play an #yAttack in your hand."
+    ]
+  },
+  "anomalyMod:Stutter": {
+    "NAME": "Stutter",
+    "DESCRIPTIONS": [
+      "Whenever you play a card this turn, gain #b",
+      " #yBlock."
+    ]
+  },
+  "anomalyMod:SystemHack": {
+    "NAME": "System Hack",
+    "DESCRIPTIONS": [
+      "Your next card has #b",
+      " less #yImprobability."
+    ]
+  },
+  "anomalyMod:Timeslip": {
+    "NAME": "Timeslip",
+    "DESCRIPTIONS": [
+      "At the start of your turn, put the bottom card of your draw pile into your hand.",
+      "At the start of your turn, put the bottom #b",
+      " cards of your draw pile into your hand."
+    ]
+  },
+  "anomalyMod:TrashChute": {
+    "NAME": "Trash Chute",
+    "DESCRIPTIONS": [
+      "At the start of your turn, put up to #b",
+      " card from your draw pile into your discard pile.",
+      " cards from your draw pile into your discard pile."
+    ]
+  },
+  "anomalyMod:Viscosity": {
+    "NAME": "Viscosity",
+    "DESCRIPTIONS": [
+      "Each turn, defer up to #b",
+      " attack damage you would receive until the end of your next turn."
+    ]
+  },
+  "anomalyMod:ViscosityDamage": {
+    "NAME": "Deferred Damage",
+    "DESCRIPTIONS": [
+      "At the end of this turn, take #b",
+      " damage."
+    ]
+  },
+  "anomalyMod:WhiteFlag": {
+    "NAME": "White Flag",
+    "DESCRIPTIONS": [
+      "Whenever dealt attack damage #b",
+      " times, takes no damage from your next #yAttack.",
+      " NL NL Takes no damage from your next #yAttack.",
+      " NL NL Takes no damage from your next #b",
+      " #yAttacks."
+    ]
+  }
+}

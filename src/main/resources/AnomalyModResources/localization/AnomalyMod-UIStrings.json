@@ -1,0 +1,57 @@
+{
+  "anomalyMod:BetterToHandAction": {
+    "TEXT": [
+      "Choose a Card to Put into Your Hand.",
+      "Choose ",
+      " Cards to Put into Your Hand."
+    ]
+  },
+  "anomalyMod:DrawPileToDiscardPileAction": {
+    "TEXT": [
+      "Choose a Card to Put into Your Discard Pile.",
+      "Choose ",
+      " Cards to Put into Your Discard Pile."
+    ]
+  },
+  "anomalyMod:ExcavateAction": {
+    "TEXT": [
+      "Choose a Card to Keep in Your Draw Pile.",
+      "Choose ",
+      " Cards to Keep in Your Draw Pile."
+    ]
+  },
+  "anomalyMod:JailbreakAction": {
+    "TEXT": [
+      "Jailbreak"
+    ]
+  },
+  "anomalyMod:JailbreakAnyAction": {
+    "TEXT": [
+      "Choose a Card to Jailbreak."
+    ]
+  },
+  "anomalyMod:PlayFromHandAction": {
+    "TEXT": [
+      "Play"
+    ]
+  },
+  "anomalyMod:PurgeAction": {
+    "TEXT": [
+      "Choose a Card to Purge.",
+      "Choose ",
+      " Cards to Purge."
+    ]
+  },
+  "anomalyMod:PurgeFromHandAction": {
+    "TEXT": [
+      "Purge"
+    ]
+  },
+  "anomalyMod:SixthRevisionAction": {
+    "TEXT": [
+      "Choose a Card to Revise.",
+      "Choose ",
+      " Cards to Revise."
+    ]
+  }
+}

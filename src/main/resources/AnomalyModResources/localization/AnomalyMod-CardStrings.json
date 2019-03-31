@@ -1,0 +1,372 @@
+{
+  "anomalyMod:StrikeAnomaly": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "anomalyMod:DefendAnomaly": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "anomalyMod:Derail": {
+    "NAME": "Derail",
+    "DESCRIPTION": "If the enemy intends to attack, apply !M! Weak. NL Otherwise, apply !M! Vulnerable."
+  },
+  "anomalyMod:DualAction": {
+    "NAME": "Dual Action",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Gain !B! Block. NL Deal !D! damage."
+  },
+  "anomalyMod:Apex": {
+    "NAME": "Apex",
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL After you play !anomalyMod:M2! cards, lose !M! Strength and !M! Dexterity."
+  },
+  "anomalyMod:Backdoor": {
+    "NAME": "Backdoor",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of Skills last played in a row this turn.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "anomalyMod:BadSector": {
+    "NAME": "Bad Sector",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Exhaust. NL Soulbound."
+  },
+  "anomalyMod:Blackout": {
+    "NAME": "Blackout",
+    "DESCRIPTION": "Autoplay. NL Stun ALL enemies for !M! turn. After you play !anomalyMod:M2! cards this turn, end your turn. NL Exhaust."
+  },
+  "anomalyMod:BlastPipe": {
+    "NAME": "Blast Pipe",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Enemy loses !M! Strength this turn. NL Apply !anomalyMod:M2! Vulnerable. NL Exhaust."
+  },
+  "anomalyMod:Blender": {
+    "NAME": "Blender",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage to ALL enemies !M! times.",
+    "EXTENDED_DESCRIPTION": [
+      "Centrifuge",
+      "I wonder... NL Will it blend?"
+    ]
+  },
+  "anomalyMod:Blink": {
+    "NAME": "Blink",
+    "DESCRIPTION": "Gain !B! Block. NL Put the bottom card of your draw pile into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Blank",
+      "Blank The Evil"
+    ]
+  },
+  "anomalyMod:BudgetPack": {
+    "NAME": "Budget Pack",
+    "DESCRIPTION": "Draw cards until all cards in your hand cost at least !M! in total. NL Draw !anomalyMod:M2! card."
+  },
+  "anomalyMod:ClockworkCrawl": {
+    "NAME": "Clockwork Crawl",
+    "DESCRIPTION": "The next !M! times you play !anomalyMod:M2! cards, draw 1 card."
+  },
+  "anomalyMod:ClusterCrunch": {
+    "NAME": "Cluster Crunch",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever this kills an enemy, deal !D! damage again to a random enemy."
+  },
+  "anomalyMod:Collision": {
+    "NAME": "Collision",
+    "DESCRIPTION": "Deal damage equal to double your Block. NL Lose all Block.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to double your Block. NL Lose half your Block.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "anomalyMod:ConicSands": {
+    "NAME": "Conic Sands",
+    "DESCRIPTION": "The next !M! times you play a card, ALL enemies lose 1 Strength. NL After you play !M! cards, ALL enemies gain !M! Strength."
+  },
+  "anomalyMod:Crank": {
+    "NAME": "Crank",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Gain !M! Strength. NL Gain !anomalyMod:M2! Dexterity."
+  },
+  "anomalyMod:Decoy": {
+    "NAME": "Decoy",
+    "DESCRIPTION": "Unplayable. NL If this card is discarded from your hand, gain [E] next turn and draw !M! card next turn.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL If this card is discarded from your hand, gain [E] [E] next turn and draw !M! cards next turn.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "anomalyMod:DeepDitch": {
+    "NAME": "Deep Ditch",
+    "DESCRIPTION": "Deal !D! damage. NL Vulnerable affects this card twice."
+  },
+  "anomalyMod:DeimosDown": {
+    "NAME": "Deimos Down",
+    "DESCRIPTION": "Retain. NL Xprobability !anomalyMod:I!. NL Deal !D! damage to ALL enemies. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "We don't use that moon anyway."
+    ]
+  },
+  "anomalyMod:DelayedFlight": {
+    "NAME": "Delayed Flight",
+    "DESCRIPTION": "After you play !M! cards, gain !B! Block."
+  },
+  "anomalyMod:DialMForMurder": {
+    "NAME": "Dial M for Murder",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Attacks that cost 2 or more are played twice."
+  },
+  "anomalyMod:Disable": {
+    "NAME": "Disable",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage, apply !M! Weak, and apply !M! Vulnerable to ALL enemies."
+  },
+  "anomalyMod:Discontinuity": {
+    "NAME": "Discontinuity",
+    "DESCRIPTION": "The last card you played from now is played again after you play !M! cards.",
+    "UPGRADE_DESCRIPTION": "Retain. NL The last card you played from now is played again after you play !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Play ",
+      ".)"
+    ]
+  },
+  "anomalyMod:DoOver": {
+    "NAME": "Do-Over",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Shuffle ALL your cards into your draw pile. NL Put !M! cards from your draw pile into your hand. Exhaust."
+  },
+  "anomalyMod:DummyCard": {
+    "NAME": "Dummy",
+    "DESCRIPTION": "Ethereal. NL Exhaust. NL Exhausts at the end of your turn from anywhere."
+  },
+  "anomalyMod:DumpsterDive": {
+    "NAME": "Dumpster Dive",
+    "DESCRIPTION": "Discard your hand. NL Put a card from your discard pile into your hand for each card discarded. NL Exhaust."
+  },
+  "anomalyMod:EmergencyExit": {
+    "NAME": "Emergency Exit",
+    "DESCRIPTION": "Retain. NL Xprobability !anomalyMod:I!. NL Gain !B! Block. NL Exhaust."
+  },
+  "anomalyMod:EscapeAttempt": {
+    "NAME": "Escape Attempt",
+    "DESCRIPTION": "Gain !B! Block twice. NL Discard !M! cards."
+  },
+  "anomalyMod:Excavate": {
+    "NAME": "Excavate",
+    "DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaustive !stslib:ex!."
+  },
+  "anomalyMod:ExtraPockets": {
+    "NAME": "Extra Pockets",
+    "DESCRIPTION": "Raise your Max Hand Size by !M!. NL At the end of your turn, Retain up to !M! card.",
+    "UPGRADE_DESCRIPTION": "Raise your Max Hand Size by !M!. NL At the end of your turn, Retain up to !M! cards."
+  },
+  "anomalyMod:Fak3": {
+    "NAME": "Fak3",
+    "DESCRIPTION": "Gain !B! Block. NL The next !M! non-Dummies you play add a Dummy of the same card type into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "F4k3"
+    ]
+  },
+  "anomalyMod:Fault": {
+    "NAME": "Fault",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
+  },
+  "anomalyMod:Featherweight": {
+    "NAME": "Featherweight",
+    "DESCRIPTION": "Retain. NL Discard up to X cards. NL Next turn, gain [E] [E] for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Discard up to X cards. NL Next turn, gain [E] [E] for each card discarded. Retain your hand this turn."
+  },
+  "anomalyMod:Filter": {
+    "NAME": "Filter",
+    "DESCRIPTION": "Purge ANY card. NL Next turn, add it into your hand and reduce its Improbability by !M! this combat. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "The Solution",
+      "Is Dilution"
+    ]
+  },
+  "anomalyMod:FluxCapacitor": {
+    "NAME": "Flux Capacitor",
+    "DESCRIPTION": "Up to !M! Energy is conserved between turns."
+  },
+  "anomalyMod:FreeForm": {
+    "NAME": "Free Form",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL At the start of your turn, choose 1 of 3 random cards with 1 less Improbability to play."
+  },
+  "anomalyMod:Gape": {
+    "NAME": "Gape",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL If the enemy has Vulnerable, it loses 1 Vulnerable and apply !M! Gaping."
+  },
+  "anomalyMod:Gravekeep": {
+    "NAME": "Gravekeep",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage !M! times."
+  },
+  "anomalyMod:Hook": {
+    "NAME": "Hook",
+    "DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand. NL Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Line and Sinker"
+    ]
+  },
+  "anomalyMod:Hurdle": {
+    "NAME": "Hurdle",
+    "DESCRIPTION": "Unplayable. NL Retain. NL If this card is discarded from your hand, gain !B! Block and gain !B! Block next turn.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "anomalyMod:Hyperdrift": {
+    "NAME": "Hyperdrift",
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your draw pile into your hand."
+  },
+  "anomalyMod:Invad3r": {
+    "NAME": "Invad3r",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !anomalyMod:M2! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "Inv4d3r"
+    ]
+  },
+  "anomalyMod:Invalidate": {
+    "NAME": "Invalidate",
+    "DESCRIPTION": "Retain. NL Remove all your debuffs. NL Gain Improbability equal to the number of debuffs removed.",
+    "EXTENDED_DESCRIPTION": [
+      "#rNOPE."
+    ]
+  },
+  "anomalyMod:Invert": {
+    "NAME": "Invert",
+    "DESCRIPTION": "Reverse your draw pile. NL Draw !M! cards.",
+    "EXTENDED_DESCRIPTION": [
+      "Invertigo"
+    ]
+  },
+  "anomalyMod:Jailbreak": {
+    "NAME": "Jailbreak",
+    "DESCRIPTION": "Upgrade and reduce the Improbability of a card in your hand by !M! this combat. NL Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Upgrade and reduce the Improbability of ANY card by !M! this combat. NL Exhaustive !stslib:ex!."
+  },
+  "anomalyMod:Krieg": {
+    "NAME": "Krieg",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Deal !M! damage to ALL enemies."
+  },
+  "anomalyMod:Maladaptation": {
+    "NAME": "Maladaptation",
+    "DESCRIPTION": "Discard a card. NL If you discard a Skill, apply !M! Vulnerable. NL Otherwise, apply !M! Weak."
+  },
+  "anomalyMod:Minimalist": {
+    "NAME": "Minimalist",
+    "DESCRIPTION": "At the start of your turn, gain [E] and discard 1 card."
+  },
+  "anomalyMod:Multithreading": {
+    "NAME": "Multithreading",
+    "DESCRIPTION": "Exhaust a card. NL At the start of your next !M! turns, play a copy of it."
+  },
+  "anomalyMod:NegativeReception": {
+    "NAME": "Negative Reception",
+    "DESCRIPTION": "Retain. NL Deal !D! damage. Discard all Status cards, Curses, and cards with Improbability. Draw 1 card for each card discarded.",
+    "EXTENDED_DESCRIPTION": [
+      "Retain. NL Deal !D! damage. Discard all Status cards, Curses, and cards with Improbability. Gain [E] and draw 1 card for each card discarded."
+    ]
+  },
+  "anomalyMod:Overdrive": {
+    "NAME": "Overdrive",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Gain [E] [E]. NL Set this card's Improbability to 1 this combat.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Improbability !anomalyMod:I!. NL Gain [E] [E]. NL Set this card's Improbability to 1 this combat."
+  },
+  "anomalyMod:Pincushion": {
+    "NAME": "Pincushion",
+    "DESCRIPTION": "Xprobability !anomalyMod:I!. NL Deal !D! damage !anomalyMod:M2! times. NL Apply !M! Gaping !anomalyMod:M2! times. NL Exhaust."
+  },
+  "anomalyMod:Polyrhythm": {
+    "NAME": "Polyrhythm",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Every 7th card played deals double damage. NL Every 8th card played gains double Block."
+  },
+  "anomalyMod:PopcornFunction": {
+    "NAME": "Popcorn Function",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage to a random enemy !M! times."
+  },
+  "anomalyMod:Preloader": {
+    "NAME": "Preloader",
+    "DESCRIPTION": "Exhaust. NL Startup: Gain [E] and draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Exhaust. NL Startup: Gain [E] [E] and draw !M! card."
+  },
+  "anomalyMod:Procrastinate": {
+    "NAME": "Procrastinate",
+    "DESCRIPTION": "Purge a card. NL Next turn, add and play it. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Purge a card. NL Next turn, add and play it."
+  },
+  "anomalyMod:RedWorld": {
+    "NAME": "Red World",
+    "DESCRIPTION": "At the start of your turn, gain 1 Improbability and !M! Strength."
+  },
+  "anomalyMod:Riftwalk": {
+    "NAME": "Riftwalk",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Gain !B! Block !M! times. NL Apply !anomalyMod:M2! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      "Shiftwalk"
+    ]
+  },
+  "anomalyMod:SawBones": {
+    "NAME": "Saw Bones",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL If the enemy has Weak, it loses 1 Weak and !M! Strength."
+  },
+  "anomalyMod:Seeker": {
+    "NAME": "Seeker",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, draw !M! additional card."
+  },
+  "anomalyMod:SixthRevision": {
+    "NAME": "Sixth Revision",
+    "DESCRIPTION": "At the start of your turn, you may shuffle a card from your discard pile into your draw pile and Upgrade it."
+  },
+  "anomalyMod:SmoothSailing": {
+    "NAME": "Smooth Sailing",
+    "DESCRIPTION": "At the start of your next !M! turns, gain [E].",
+    "EXTENDED_DESCRIPTION": [
+      "Ha Ha Not Really"
+    ]
+  },
+  "anomalyMod:SocketSlice": {
+    "NAME": "Socket Slice",
+    "DESCRIPTION": "Deal !D! damage. NL If the last 2 cards you played this combat were Attacks, apply !M! Weak.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Will apply Weak.)",
+      " NL (Play ",
+      " more Attack.)",
+      " more Attacks.)"
+    ]
+  },
+  "anomalyMod:Stutter": {
+    "NAME": "Stutter",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. Whenever you play a card this turn, gain !M! Block."
+  },
+  "anomalyMod:SystemHack": {
+    "NAME": "System Hack",
+    "DESCRIPTION": "Retain. NL Deal !D! damage. NL Your next card has !M! less Improbability."
+  },
+  "anomalyMod:TelomereFlake": {
+    "NAME": "Telomere Flake",
+    "DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put the top card and bottom card of your draw pile into your hand and Upgrade them."
+  },
+  "anomalyMod:Timeslip": {
+    "NAME": "Timeslip",
+    "DESCRIPTION": "At the start of your turn, put the bottom card of your draw pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, put the bottom card of your draw pile into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Timeless"
+    ]
+  },
+  "anomalyMod:Torment": {
+    "NAME": "Torment",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL ALL enemies lose !M! Strength. NL Apply !anomalyMod:M2! Weak to ALL enemies. NL Exhaust."
+  },
+  "anomalyMod:Trailmixing": {
+    "NAME": "Trailmixing",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Gain !B! Block. NL Deal !D! damage twice. NL Draw !M! cards."
+  },
+  "anomalyMod:TrashChute": {
+    "NAME": "Trash Chute",
+    "DESCRIPTION": "At the start of your turn, put up to !M! card from your draw pile into your discard pile.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, put up to !M! cards from your draw pile into your discard pile."
+  },
+  "anomalyMod:TrenchWarfare": {
+    "NAME": "Trench Warfare",
+    "DESCRIPTION": "Retain. NL Discard up to 3 cards. NL Gain !B! Block for each type of card discarded."
+  },
+  "anomalyMod:WarpDrive": {
+    "NAME": "Warp Drive",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Next turn, gain !B! Block."
+  }
+}

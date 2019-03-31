@@ -1,0 +1,112 @@
+{
+  "anomalyMod:AuditingHijack": {
+    "NAME": "Auditing Hijack",
+    "FLAVOR": "Finally...",
+    "DESCRIPTIONS": [
+      "Replaces #yControl #yHijack. NL NL Synergy: ",
+      "Synergy",
+      ": If you would put only #b1 card from your hand to the bottom of your draw pile, put it back into your hand and reduce its #yImprobability by #b",
+      " this combat instead."
+    ]
+  },
+  "anomalyMod:ControlHijack": {
+    "NAME": "Control Hijack",
+    "FLAVOR": "Normality restoration in process...",
+    "DESCRIPTIONS": [
+      "Synergy: ",
+      " NL NL Has a little note.",
+      "Synergy",
+      ": If you put only #b1 card from your hand to the bottom of your draw pile, reduce its #yImprobability by #b",
+      " this combat instead and draw #b1 card.",
+      "Note",
+      "\"The order of how you select cards with the #yPortable #yTerminal matters! Last selected card goes to the bottom of the draw pile.\" NL -Deimos"
+    ]
+  },
+  "anomalyMod:DeimosCap": {
+    "NAME": "Deimos's Cap",
+    "FLAVOR": "All that's left of him. He must be hurtling through some purgatory hell.",
+    "DESCRIPTIONS": [
+      "#yImprobability now always equals twice your floor number. If you would gain #yImprobability in combat, take damage equal to #b",
+      " times the #yImprobability instead."
+    ]
+  },
+  "anomalyMod:DummyFile": {
+    "NAME": "Dummy File",
+    "FLAVOR": "\"PLACEHOLDER\"",
+    "DESCRIPTIONS": [
+      "The first card you play each turn adds a #yDummy of the same card type into your hand."
+    ]
+  },
+  "anomalyMod:GreenRock": {
+    "NAME": "Green Rock",
+    "FLAVOR": ":rock3:",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yImprobability, gain #yBlock equal to #b",
+      " times the #yImprobability gained."
+    ]
+  },
+  "anomalyMod:Megachette": {
+    "NAME": "Megachette",
+    "FLAVOR": "Better than a machete.",
+    "DESCRIPTIONS": [
+      "The first time each #yAttack deals at least #b",
+      " unblocked attack damage to each enemy, apply #b",
+      " #yGaping."
+    ]
+  },
+  "anomalyMod:MowsetrapCar": {
+    "NAME": "Mowsetrap Car",
+    "FLAVOR": "A little wind-up car powered by a mowsetrap. Must be someone's project.",
+    "DESCRIPTIONS": [
+      "Every time you draw #b",
+      " cards with #yImprobability, draw #b",
+      " card next turn."
+    ]
+  },
+  "anomalyMod:MilkTea": {
+    "NAME": "Milk Tea",
+    "FLAVOR": "Coffee milk tea, 70% sugar and 30% ice.",
+    "DESCRIPTIONS": [
+      "The first time you gain #yImprobability each turn, gain [E] ."
+    ]
+  },
+  "anomalyMod:Nightshirt": {
+    "NAME": "Nightshirt",
+    "FLAVOR": "Time to never wear anything else for a whole two months.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yRetain all cards with #yImprobability."
+    ]
+  },
+  "anomalyMod:Overrider": {
+    "NAME": "Overrider",
+    "FLAVOR": "@Override public void use() {//...}",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yBad_Sector, draw #b",
+      " card."
+    ]
+  },
+  "anomalyMod:PotOfPetunias": {
+    "NAME": "Pot of Petunias",
+    "FLAVOR": "8,767,128 to 1 against.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add a copy of the last card played into your hand. It costs 0 this combat and #yExhausts.",
+      " NL Exhaust."
+    ]
+  },
+  "anomalyMod:Ratchet": {
+    "NAME": "Ratchet",
+    "FLAVOR": "It only turns clockwise. Let's dial this up to 11.",
+    "DESCRIPTIONS": [
+      "Gain [E] [E] at the start of your turn. Every #b",
+      " turns, gain #b",
+      " #yImprobability."
+    ]
+  },
+  "anomalyMod:WheeRemote": {
+    "NAME": "Whee Remote",
+    "FLAVOR": "Useful when riding the Gravitron.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, reverse your draw pile."
+    ]
+  }
+}

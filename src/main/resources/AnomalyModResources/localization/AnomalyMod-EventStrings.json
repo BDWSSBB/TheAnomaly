@@ -1,0 +1,14 @@
+{
+  "anomalyMod:Dedmos": {
+    "NAME": "Dedmos",
+    "DESCRIPTIONS": [
+      "As you are travelling, you find a corpse eviscerated into the floor by chains. Wait... is that Deimos? Why's his body here? Did he accidentally warp into the Spire as well? Poor soul, he definitely looks dead. NL NL You could take his cap to remember him, but you sense a #p@chaotic@ presence from it...",
+      "You don the cap. It's very styling actually. The room now seems to look #rred. You check to see if you're seeing things, but everything is #r~glowing~ #r~red~ now. NL NL This is not a good sign. You have an #p~uneasy~ feeling that the whole Spire is out to kill you. NL NL Try not to share the same fate as Deimos.",
+      "As styling as his cap is and as much as you'd like to keep a memory of him, you decide to leave his body at peace."
+    ],
+    "OPTIONS": [
+      "[Take] #gObtain #gDeimos's #gCap. #rPrepare #rto #rdie.",
+      "[Leave]"
+    ]
+  }
+}

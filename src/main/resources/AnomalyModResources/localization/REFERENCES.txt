@@ -1,0 +1,30 @@
+Another reference file like the one in Strawberry Spire. It's more about how some things came to be:
+
+CARDS
+    Blender: Reference to the "Will It Blend?" infomercial show.
+    Cluster Crunch: Picture is trucks from Clustertruck.
+    Conic Sands: A horrible pun on Comic Sans.
+    Deimos Down: Reference to the card Deimos Down from Terraforming Mars.
+    Dial M For Murder: While this is the name of a film, I got this from VVVVVV, which probably references the film.
+    Escape Attempt: Open Hexagon level name.
+    Fak3: Open Hexagon level name, again.
+    Filter: I got a lot of names from Open Hexagon.
+    Flux Capacitor: Reference to Flux Capacitors from Thermal Expansion, a Minecraft mod.
+    Hyperdrift: Reference to the game Hyperdrift.
+    Popcorn Function: Open Hexagon.
+    Saw Bones: The name of a unit in Calculords.
+    Smooth Sailing: Reference to the room "Plain Sailing From Here" in VVVVVV.
+    Stutter: Open Hexagon.
+    Timeslip: Another room in VVVVVV.
+    Trailmixing: Reference to the soundtrack Trailmixing from Far Too Loud.
+    Trench Warfare: Yet another room in VVVVVV. I got some stuff from that game too.
+
+RELICS
+    Deimos's Cap: The Anomaly is rather based on the Madness Combat series (while still having its own stuff). This is one reference to it.
+    Green Rock: Reference to my excessive use of the green derp rock as placeholder art. Please help me.
+    Megachette: Reference to the megachette in Madness Combat.
+    Milk Tea: What I would order in a milk tea store. I love milk tea.
+    Mowsetrap Car: I had to make one of these for a Physics class.
+    Nightshirt: The only thing I ever wear in university, along with some pants. At least 90% of the time.
+    Overrider: Reference to @Override, a java annotation.
+    Whee Remote: Reference to the room "Whee Sports" in VVVVVV.
