@@ -55,6 +55,8 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
     public ImprobabilityDrive() {
         super(ID, NAME, getDescription(), IMAGE_PATH, IMAGE_OUTLINE_PATH, true);
         this.counter = 0;
+        checkForSpawnInfoBlights();
+        changeDescription();
     }
 
     @Override
@@ -216,7 +218,7 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
 
     private void spawnInfoBlightCheck(String blightID, int effectMinimum, boolean extraRequirements) {
         if (!AbstractDungeon.player.hasBlight(blightID) && this.counter >= effectMinimum && extraRequirements) {
-            AbstractDungeon.effectsQueue.add(0, new ObtainBlightLater(BlightHelper.getBlight(blightID)));
+            AbstractDungeon.effectsQueue.add(new ObtainBlightLater(BlightHelper.getBlight(blightID), true));
         }
     }
 
@@ -419,6 +421,7 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
         return validRoom;
     }
 
+    // DEPRECATED
     public MonsterGroup rollFutureInvader(MonsterGroup oldGroup) {
 //        int initialCounter = this.counter;
 //        if (initialCounter >= FUTURE_INVADERS_IMPROBABILITY_MINIMUM && AnomalyMod.anomalyRNG.randomBoolean(getFutureInvadersChance(initialCounter))) {

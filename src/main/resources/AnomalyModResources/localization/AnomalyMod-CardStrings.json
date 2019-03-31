@@ -30,10 +30,6 @@
     "NAME": "Bad Sector",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Exhaust. NL Soulbound."
   },
-  "anomalyMod:Blackout": {
-    "NAME": "Blackout",
-    "DESCRIPTION": "Autoplay. NL Stun ALL enemies for !M! turn. After you play !anomalyMod:M2! cards this turn, end your turn. NL Exhaust."
-  },
   "anomalyMod:BlastPipe": {
     "NAME": "Blast Pipe",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Enemy loses !M! Strength this turn. NL Apply !anomalyMod:M2! Vulnerable. NL Exhaust."

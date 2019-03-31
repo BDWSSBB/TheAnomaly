@@ -21,9 +21,5 @@ public class ImprobabilityDriveSpawnPatch {
             AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, drive);
             drive.checkForSpawnInfoBlights();
         }
-
-        if (AbstractDungeon.player instanceof AnomalyCharacter && CardCrawlGame.playerName.equals("Aragolt") && !AbstractDungeon.player.hasBlight(AragoltsBane.ID)) {
-            //AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, new AragoltsBane());
-        }
     }
 }

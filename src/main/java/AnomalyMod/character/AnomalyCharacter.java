@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -43,7 +42,7 @@ public class AnomalyCharacter extends CustomPlayer {
             "AnomalyModResources/character/orbs/layer4D.png",
             "AnomalyModResources/character/orbs/layer5D.png"
     };
-    public static final String ORB_VFX_PATH = "AnomalyModResources/character/orbs/layer5.png";
+    public static final String ORB_VFX_PATH = "AnomalyModResources/character/orbs/energyWistfulVFX.png";
     public static final float[] LAYER_SPEEDS = {
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F
     };
@@ -112,14 +111,12 @@ public class AnomalyCharacter extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_FIRE", MathUtils.random(-0.2f, 0.2f));
-        CardCrawlGame.sound.playA("ATTACK_FAST", MathUtils.random(-0.2f, 0.2f));
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        CardCrawlGame.sound.playA("BLUNT_HEAVY", MathUtils.random(-0.1F, 0.1f));
     }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_FIRE";
+        return "BLUNT_HEAVY";
     }
 
     @Override

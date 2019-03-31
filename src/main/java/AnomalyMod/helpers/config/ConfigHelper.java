@@ -16,7 +16,7 @@ import java.util.Properties;
 
 public class ConfigHelper {
 
-    private static SpireConfig modConfig = null;
+    public static SpireConfig modConfig = null;
     private static ModPanel settingsPanel = null;
     public static CustomMusicConfig useCustomMusic;
     public static ModLabeledToggleButton customMusicOffButton;
@@ -28,6 +28,9 @@ public class ConfigHelper {
     public static ModLabeledToggleButton overrideJungleMusicOnButton;
     public static boolean useSpecialUpgradeNames;
     public static ModLabeledToggleButton upgradeNamesButton;
+    public static boolean shouldFightMe;
+    public static ModLabeledToggleButton fightMeButton;
+    public static boolean foughtAprilFoolsMe;
     private static final float X_START = 350.0F;
     private static final float Y_START = 750.0F;
     private static final float Y_SPACING = -50.0F;
@@ -39,7 +42,9 @@ public class ConfigHelper {
             Properties defaults = new Properties();
             defaults.put("customMusic", "ANOMALY_ONLY");
             defaults.put("customJungleMusic", "ANOMALY_ONLY");
-            defaults.put("upgradeNames", true);
+            defaults.put("upgradeNames", Boolean.toString(true));
+            defaults.put("fightMe", Boolean.toString(false));
+            defaults.put("foughtAprilFoolsMe", Boolean.toString(false));
             modConfig = new SpireConfig("TheAnomaly", "config", defaults);
         }
         catch (IOException e) {
@@ -89,6 +94,18 @@ public class ConfigHelper {
         else {
             useSpecialUpgradeNames = false;
         }
+        if (modConfig.getBool("fightMe")) {
+            shouldFightMe = true;
+        }
+        else {
+            shouldFightMe = false;
+        }
+        if (modConfig.getBool("foughtAprilFoolsMe")) {
+            foughtAprilFoolsMe = true;
+        }
+        else {
+            foughtAprilFoolsMe = false;
+        }
     }
 
     public static void initializeConfig() {
@@ -115,6 +132,26 @@ public class ConfigHelper {
                     }
                 });
         settingsPanel.addUIElement(customMusicOffButton);
+        if (LoadedModsHelper.jungleModLoaded) {
+            overrideJungleMusicOffButton = new ModLabeledToggleButton("Jungle: Off",
+                    currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                    overrideJungleMusic == CustomMusicConfig.OFF, settingsPanel, label -> {},
+                    button -> {
+                        overrideJungleMusic = CustomMusicConfig.OFF;
+                        resetOverrideJungleMusicButtons();
+                        button.enabled = true;
+                        if (modConfig != null) {
+                            modConfig.setString("customJungleMusic", "OFF");
+                            try {
+                                modConfig.save();
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+            settingsPanel.addUIElement(overrideJungleMusicOffButton);
+        }
         spaceY();
         customMusicAnomalyOnlyButton = new ModLabeledToggleButton("Anomaly only",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
@@ -134,6 +171,26 @@ public class ConfigHelper {
                     }
                 });
         settingsPanel.addUIElement(customMusicAnomalyOnlyButton);
+        if (LoadedModsHelper.jungleModLoaded) {
+            overrideJungleMusicAnomalyOnlyButton = new ModLabeledToggleButton("Jungle: Anomaly only",
+                    currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                    overrideJungleMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {},
+                    button -> {
+                        overrideJungleMusic = CustomMusicConfig.ANOMALY;
+                        resetOverrideJungleMusicButtons();
+                        button.enabled = true;
+                        if (modConfig != null) {
+                            modConfig.setString("customJungleMusic", "ANOMALY_ONLY");
+                            try {
+                                modConfig.save();
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+            settingsPanel.addUIElement(overrideJungleMusicAnomalyOnlyButton);
+        }
         spaceY();
         customMusicOnButton = new ModLabeledToggleButton("On",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
@@ -153,52 +210,9 @@ public class ConfigHelper {
                     }
                 });
         settingsPanel.addUIElement(customMusicOnButton);
-        spaceY();
-
-        // Override Jungle Music
         if (LoadedModsHelper.jungleModLoaded) {
-            settingsPanel.addUIElement(new ModLabel("Override Jungle Music (Independent of Custom Music)", currentX, currentY, settingsPanel, label -> {}));
-            spaceY();
-            overrideJungleMusicOffButton = new ModLabeledToggleButton("Off",
-                    currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                    overrideJungleMusic == CustomMusicConfig.OFF, settingsPanel, label -> {},
-                    button -> {
-                        overrideJungleMusic = CustomMusicConfig.OFF;
-                        resetOverrideJungleMusicButtons();
-                        button.enabled = true;
-                        if (modConfig != null) {
-                            modConfig.setString("customJungleMusic", "OFF");
-                            try {
-                                modConfig.save();
-                            }
-                            catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-            settingsPanel.addUIElement(overrideJungleMusicOffButton);
-            spaceY();
-            overrideJungleMusicAnomalyOnlyButton = new ModLabeledToggleButton("Anomaly only",
-                    currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                    overrideJungleMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {},
-                    button -> {
-                        overrideJungleMusic = CustomMusicConfig.ANOMALY;
-                        resetOverrideJungleMusicButtons();
-                        button.enabled = true;
-                        if (modConfig != null) {
-                            modConfig.setString("customJungleMusic", "ANOMALY_ONLY");
-                            try {
-                                modConfig.save();
-                            }
-                            catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-            settingsPanel.addUIElement(overrideJungleMusicAnomalyOnlyButton);
-            spaceY();
-            overrideJungleMusicOnButton = new ModLabeledToggleButton("On",
-                    currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
+            overrideJungleMusicOnButton = new ModLabeledToggleButton("Jungle: On",
+                    currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
                     overrideJungleMusic == CustomMusicConfig.ON, settingsPanel, label -> {},
                     button -> {
                         overrideJungleMusic = CustomMusicConfig.ON;
@@ -215,15 +229,16 @@ public class ConfigHelper {
                         }
                     });
             settingsPanel.addUIElement(overrideJungleMusicOnButton);
-            spaceY();
         }
+        spaceY();
 
         // Use special upgrade names on certain Anomaly cards
         spaceY();
         upgradeNamesButton = new ModLabeledToggleButton("Use special upgrade names for certain Anomaly cards.",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                useSpecialUpgradeNames = true, settingsPanel, label -> {},
+                useSpecialUpgradeNames, settingsPanel, label -> {},
                 button -> {
+                    useSpecialUpgradeNames = button.enabled;
                     if (modConfig != null) {
                         modConfig.setBool("upgradeNames", button.enabled);
                         try {
@@ -236,6 +251,28 @@ public class ConfigHelper {
                 });
         settingsPanel.addUIElement(upgradeNamesButton);
         spaceY();
+
+        // (I'm not ready to fight yet)
+//        // FIGHT ME
+//        if (LoadedModsHelper.strawberrySpireModLoaded) {
+//            fightMeButton = new ModLabeledToggleButton("Fight the evil dev.",
+//                    currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
+//                    shouldFightMe, settingsPanel, label -> {},
+//                    button -> {
+//                        shouldFightMe = button.enabled;
+//                        if (modConfig != null) {
+//                            modConfig.setBool("fightMe", button.enabled);
+//                            try {
+//                                modConfig.save();
+//                            }
+//                            catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    });
+//            settingsPanel.addUIElement(fightMeButton);
+//        }
+//        spaceY();
 
         BaseMod.registerModBadge(ImageMaster.loadImage("AnomalyModResources/anomaly/placeholderBadge.png"), "The Anomaly", "BDWSSBB", "TODO", settingsPanel);
     }

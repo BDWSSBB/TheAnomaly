@@ -5,7 +5,7 @@
     "DESCRIPTIONS": [
       "Replaces #yControl #yHijack. NL NL Synergy: ",
       "Synergy",
-      ": If you would put only #b1 card from your hand to the bottom of your draw pile, put it back into your hand and reduce its #yImprobability by #b",
+      ": If you choose only #b1 card, put it back into your hand and reduce its #yImprobability by #b",
       " this combat instead."
     ]
   },
@@ -16,8 +16,8 @@
       "Synergy: ",
       " NL NL Has a little note.",
       "Synergy",
-      ": If you put only #b1 card from your hand to the bottom of your draw pile, reduce its #yImprobability by #b",
-      " this combat instead and draw #b1 card.",
+      ": If you choose only #b1 card, reduce its #yImprobability by #b",
+      " this combat instead. If you choose at least #b2 cards, draw #b1 card.",
       "Note",
       "\"The order of how you select cards with the #yPortable #yTerminal matters! Last selected card goes to the bottom of the draw pile.\" NL -Deimos"
     ]

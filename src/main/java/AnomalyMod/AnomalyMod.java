@@ -10,6 +10,7 @@ import AnomalyMod.helpers.config.ConfigHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
 import AnomalyMod.patches.enums.PlayerClassEnum;
 import AnomalyMod.relics.*;
+import AnomalyMod.trololololo.TheEvilDevModels.AprilFoolsEvilDev;
 import AnomalyMod.trololololo.TheEvilDevModels.TheOriginalEvilDev;
 import basemod.*;
 import basemod.abstracts.CustomSavable;
@@ -50,12 +51,12 @@ public class AnomalyMod implements
     private static final String ATTACK_PORTRAIT = "AnomalyModResources/512/bgAttackWistful.png";
     private static final String SKILL_PORTRAIT = "AnomalyModResources/512/bgSkillWistful.png";
     private static final String POWER_PORTRAIT = "AnomalyModResources/512/bgPowerWistful.png";
-    private static final String ENERGY_ORB = "AnomalyModResources/character/placeholder/card_mystic_orb.png";
+    private static final String ENERGY_ORB = "AnomalyModResources/512/wistfulOrb.png";
     private static final String BIG_ATTACK_PORTRAIT= "AnomalyModResources/1024/bigAttackWistful.png";
     private static final String BIG_SKILL_PORTRAIT = "AnomalyModResources/1024/bigSkillWistful.png";
     private static final String BIG_POWER_PORTRAIT = "AnomalyModResources/1024/bigPowerWistful.png";
-    private static final String ENERGY_ORB_PORTRAIT = "AnomalyModResources/character/placeholder/big_card_mystic_orb.png";
-    private static final String CHARACTER_BUTTON = "AnomalyModResources/character/placeholder/crowbotButton.png";
+    private static final String ENERGY_ORB_PORTRAIT = "AnomalyModResources/1024/bigWistfulOrb.png";
+    private static final String CHARACTER_BUTTON = "AnomalyModResources/character/placeholder/characterButton.png";
     private static final String CHARACTER_PORTRAIT = "AnomalyModResources/character/placeholder/simpleAnomalyPortrait.jpg";
     private static final String SMALL_ENERGY_SYMBOL = "AnomalyModResources/character/placeholder/manaSymbol.png";
 
@@ -94,7 +95,6 @@ public class AnomalyMod implements
         BaseMod.addCard(new Apex());
         BaseMod.addCard(new Backdoor());
         BaseMod.addCard(new BadSector());
-        //BaseMod.addCard(new Blackout());
         BaseMod.addCard(new BlastPipe());
         BaseMod.addCard(new Blender());
         BaseMod.addCard(new Blink());
@@ -221,8 +221,11 @@ public class AnomalyMod implements
 
         BaseMod.addEvent(Dedmos.ID, Dedmos.class, Exordium.ID);
 
-        BaseMod.addMonster(TheOriginalEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[]{
+        BaseMod.addMonster(TheOriginalEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[] {
                 new TheOriginalEvilDev(0.0F, 0.0F)
+        }));
+        BaseMod.addMonster(AprilFoolsEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[] {
+                new AprilFoolsEvilDev(0.0F, 0.0F)
         }));
         HashMap<String, Sfx> map = (HashMap<String, Sfx>) ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
         map.put("JEVIL-ANYTHING", new Sfx("AnomalyModResources/trololololo/snd_joker_anything.wav", false));

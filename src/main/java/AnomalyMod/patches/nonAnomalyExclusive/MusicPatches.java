@@ -40,7 +40,12 @@ public class MusicPatches {
                     }
                 }
                 if (key.equals(TheBeyond.ID)) {
-                    __result = MainMusic.newMusic("AnomalyModResources/audio/music/Cheshyre_Expurgation.ogg");
+                    if (MathUtils.randomBoolean()) {
+                        __result = MainMusic.newMusic("AnomalyModResources/audio/music/Cheshyre_TheBanshee.ogg");
+                    }
+                    else {
+                        __result = MainMusic.newMusic("AnomalyModResources/audio/music/Cheshyre_Utopia.ogg");
+                    }
                 }
             }
             if (LoadedModsHelper.jungleModLoaded && (ConfigHelper.overrideJungleMusic == ConfigHelper.CustomMusicConfig.ON || (ConfigHelper.overrideJungleMusic == ConfigHelper.CustomMusicConfig.ANOMALY && AbstractDungeon.player instanceof AnomalyCharacter))) {

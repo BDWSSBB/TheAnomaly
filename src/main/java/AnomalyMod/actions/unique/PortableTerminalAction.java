@@ -18,7 +18,7 @@ public class PortableTerminalAction extends AbstractGameAction {
     private int improbabilityReductionAmount;
 
     public PortableTerminalAction(int improbabilityReductionAmount) {
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.player = AbstractDungeon.player;
         this.improbabilityReductionAmount = improbabilityReductionAmount;
@@ -45,7 +45,6 @@ public class PortableTerminalAction extends AbstractGameAction {
                     }
                     else if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-ControlHijack.CONTROL_HIJACK_IMPROBABILITY_LOSS, true);
-                        AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.player, 1));
                     }
                     else {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-this.improbabilityReductionAmount, true);
@@ -57,6 +56,9 @@ public class PortableTerminalAction extends AbstractGameAction {
                 else {
                     this.player.hand.moveToBottomOfDeck(c);
                 }
+            }
+            if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() >= 2) {
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.player, 1));
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();

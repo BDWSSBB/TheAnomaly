@@ -23,14 +23,6 @@
       "Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
     ]
   },
-  "anomalyMod:Blackout": {
-    "NAME": "Blackout",
-    "DESCRIPTIONS": [
-      "After you play #b",
-      " card this turn, end your turn.",
-      " cards this turn, end your turn."
-    ]
-  },
   "anomalyMod:BonfireSyntax": {
     "NAME": "Bonfire Syntax",
     "DESCRIPTIONS": [
