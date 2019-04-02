@@ -242,13 +242,6 @@
         "size": 45.453274
       }
     ],
-    "anomalyMod:ContinuityMishap": [
-      {
-        "x": 275.0,
-        "y": 155.0,
-        "size": 12.727922
-      }
-    ],
     "anomalyMod:Crank": [
       {
         "x": 392.0,
@@ -465,6 +458,13 @@
         "x": 235.0,
         "y": 351.0,
         "size": 12.165525
+      }
+    ],
+    "anomalyMod:Discontinuity": [
+      {
+        "x": 275.0,
+        "y": 155.0,
+        "size": 12.727922
       }
     ],
     "anomalyMod:DoOver": [

@@ -83,6 +83,7 @@ public class AprilFoolsEvilDev extends AbstractEvilDev {
     private static final float HB_W = 200.0F;
     private static final float HB_H = 260.0F;
     private static final int HP_MAX = 666;
+    public static boolean shouldUseSpecialMessage = false;
 
     public AprilFoolsEvilDev(float x, float y) {
         super(NAME, ID, HP_MAX, HB_X, HB_Y, HB_W, HB_H, "AnomalyModResources/character/placeholder/simpleAnomalyModelFlipped.png", x, y);
@@ -95,6 +96,7 @@ public class AprilFoolsEvilDev extends AbstractEvilDev {
 
     @Override
     public void usePreBattleAction() {
+        shouldUseSpecialMessage = true;
         ConfigHelper.foughtAprilFoolsMe = true;
         ConfigHelper.modConfig.setBool("foughtAprilFoolsMe", true);
         try {
@@ -268,7 +270,7 @@ public class AprilFoolsEvilDev extends AbstractEvilDev {
             this.setMove((byte) 7, Intent.DEFEND_BUFF);
         }
         else if (lastMove((byte) 7)) {
-            this.setMove((byte) 8, Intent.ATTACK, this.damage.get(1).base, 6, true);
+            this.setMove((byte) 8, Intent.ATTACK, this.damage.get(1).base, 5, true);
         }
         else if (lastMove((byte) 8)) {
             this.setMove((byte) 9, Intent.DEFEND_BUFF);
@@ -297,6 +299,7 @@ public class AprilFoolsEvilDev extends AbstractEvilDev {
             this.heal(1);
             return;
         }
+        shouldUseSpecialMessage = false;
         this.useFastShakeAnimation(5.0f);
         CardCrawlGame.screenShake.rumble(4.0f);
         super.die();
