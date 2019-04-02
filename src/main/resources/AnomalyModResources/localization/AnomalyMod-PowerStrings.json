@@ -232,8 +232,8 @@
     "NAME": "Sixth Revision",
     "DESCRIPTIONS": [
       "At the start of your turn, shuffle up to #b",
-      " card from your discard pile into your draw pile and #yUpgrade it.",
-      " cards from your discard pile into your draw pile and #yUpgrade them."
+      " #yupgradable card from your discard pile into your draw pile and #yUpgrade it.",
+      " #yupgradable cards from your discard pile into your draw pile and #yUpgrade them."
     ]
   },
   "anomalyMod:SmoothSailing": {

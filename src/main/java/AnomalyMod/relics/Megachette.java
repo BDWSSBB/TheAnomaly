@@ -18,9 +18,10 @@ public class Megachette extends AbstractAnomalyRelic {
     public static final String ID = "anomalyMod:Megachette";
     public static final Texture IMAGE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/placeholder.png");
     public static final Texture IMAGE_OUTLINE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/outline/placeholderOutline.png");
-    private static final int MINIMUM_DAMAGE_TO_ACTIVATE = 18;
-    private static final int GAPING_PER_ACTIVATE = 1;
+    private static final int MINIMUM_DAMAGE_TO_ACTIVATE = 22;
+    private static final int GAPING_PER_ACTIVATE = 2;
     private ArrayList<AbstractCreature> enemiesHitAlready = new ArrayList<>();
+    private boolean usedThisTurn = false;
 
     public Megachette() {
         super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.UNCOMMON, LandingSound.CLINK);
@@ -32,18 +33,38 @@ public class Megachette extends AbstractAnomalyRelic {
     }
 
     @Override
+    public void atPreBattle() {
+        this.pulse = true;
+        beginPulse();
+    }
+
+    @Override
+    public void atTurnStart() {
+        this.usedThisTurn = false;
+        this.enemiesHitAlready.clear();
+        this.pulse = true;
+        beginPulse();
+    }
+
+    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
-            this.enemiesHitAlready.clear();
+        if (card.type == AbstractCard.CardType.ATTACK && !this.enemiesHitAlready.isEmpty()) {
+            this.usedThisTurn = true;
         }
     }
 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (info.owner.equals(AbstractDungeon.player) && info.type == DamageInfo.DamageType.NORMAL && damageAmount >= MINIMUM_DAMAGE_TO_ACTIVATE && !this.enemiesHitAlready.contains(target)) {
+        if (info.owner.equals(AbstractDungeon.player) && info.type == DamageInfo.DamageType.NORMAL && damageAmount >= MINIMUM_DAMAGE_TO_ACTIVATE && !this.enemiesHitAlready.contains(target) && !this.usedThisTurn) {
+            this.pulse = false;
             this.enemiesHitAlready.add(target);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new ScissorCutsPower(target, GAPING_PER_ACTIVATE), GAPING_PER_ACTIVATE));
         }
+    }
+
+    @Override
+    public void onVictory() {
+        this.pulse = false;
     }
 
     @Override

@@ -4,6 +4,7 @@ import AnomalyMod.AnomalyMod;
 import AnomalyMod.actions.unique.PortableTerminalAction;
 import AnomalyMod.blights.improbabilityDriveInfo.*;
 import AnomalyMod.cards.status.BadSector;
+import AnomalyMod.helpers.WaitForIntentsToLoad;
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.helpers.improbabilityDriveBuffs.ImprobabilityDriveBuffHelper;
 import AnomalyMod.helpers.improbabilityDriveBuffs.enemy.*;
@@ -33,7 +34,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import java.util.ArrayList;
 
-public class ImprobabilityDrive extends AbstractAnomalyBlight {
+public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitForIntentsToLoad {
 
     public final static String ID = "anomalyMod:ImprobabilityDrive";
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);

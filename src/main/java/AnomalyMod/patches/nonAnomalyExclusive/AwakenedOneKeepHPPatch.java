@@ -1,5 +1,6 @@
 package AnomalyMod.patches.nonAnomalyExclusive;
 
+import AnomalyMod.character.AnomalyCharacter;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,9 +21,12 @@ public class AwakenedOneKeepHPPatch {
     }
 
     public static void Postfix(AwakenedOne __instance, String key) {
-        if (key.equals("REBIRTH") && __instance.maxHealth != retVal) {
-            AbstractDungeon.actionManager.addToBottom(new HealAction(__instance, __instance, retVal - __instance.maxHealth));
-            __instance.maxHealth = retVal;
+        // Containing to Anomaly for now.
+        if (AbstractDungeon.player instanceof AnomalyCharacter) {
+            if (key.equals("REBIRTH") && __instance.maxHealth != retVal) {
+                AbstractDungeon.actionManager.addToBottom(new HealAction(__instance, __instance, retVal - __instance.maxHealth));
+                __instance.maxHealth = retVal;
+            }
         }
     }
 }

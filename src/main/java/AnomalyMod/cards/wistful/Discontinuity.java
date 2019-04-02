@@ -46,10 +46,20 @@ public class Discontinuity extends AbstractAnomalyCard {
             }
         }
         if (cardName != null) {
-            this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + cardName + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            if (this.upgraded) {
+                this.rawDescription = UPGRADE_DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + cardName + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            }
+            else {
+                this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + cardName + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            }
         }
         else {
-            this.rawDescription = DESCRIPTION;
+            if (this.upgraded) {
+                this.rawDescription = UPGRADE_DESCRIPTION;
+            }
+            else {
+                this.rawDescription = DESCRIPTION;
+            }
         }
         initializeDescription();
         super.applyPowers();
@@ -57,7 +67,12 @@ public class Discontinuity extends AbstractAnomalyCard {
 
     @Override
     public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
+        if (this.upgraded) {
+            this.rawDescription = UPGRADE_DESCRIPTION;
+        }
+        else {
+            this.rawDescription = DESCRIPTION;
+        }
         this.initializeDescription();
     }
 

@@ -21,7 +21,7 @@
   },
   "anomalyMod:Backdoor": {
     "NAME": "Backdoor",
-    "DESCRIPTION": "Deal damage equal to !M! times the number of Skills last played in a row this turn.",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of Skills you have currently played in a row this turn.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -60,7 +60,7 @@
   },
   "anomalyMod:ClusterCrunch": {
     "NAME": "Cluster Crunch",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever this kills an enemy, deal !D! damage again to a random enemy."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever this kills an enemy, deal !D! damage again to the enemy with the least HP."
   },
   "anomalyMod:Collision": {
     "NAME": "Collision",
@@ -88,7 +88,7 @@
   },
   "anomalyMod:DeepDitch": {
     "NAME": "Deep Ditch",
-    "DESCRIPTION": "Deal !D! damage. NL Vulnerable affects this card twice."
+    "DESCRIPTION": "Deal !D! damage. NL Strength and Vulnerable affect this card twice."
   },
   "anomalyMod:DeimosDown": {
     "NAME": "Deimos Down",
@@ -111,8 +111,8 @@
   },
   "anomalyMod:Discontinuity": {
     "NAME": "Discontinuity",
-    "DESCRIPTION": "The last card you played from now is played again after you play !M! cards.",
-    "UPGRADE_DESCRIPTION": "Retain. NL The last card you played from now is played again after you play !M! cards.",
+    "DESCRIPTION": "After you play !M! cards, play a copy of the last card you played this combat from now.",
+    "UPGRADE_DESCRIPTION": "Retain. NL After you play !M! cards, play a copy of the last card you played this combat from now.",
     "EXTENDED_DESCRIPTION": [
       " NL (Play ",
       ".)"
@@ -304,7 +304,7 @@
   },
   "anomalyMod:SixthRevision": {
     "NAME": "Sixth Revision",
-    "DESCRIPTION": "At the start of your turn, you may shuffle a card from your discard pile into your draw pile and Upgrade it."
+    "DESCRIPTION": "At the start of your turn, you may shuffle an upgradable card from your discard pile into your draw pile and Upgrade it."
   },
   "anomalyMod:SmoothSailing": {
     "NAME": "Smooth Sailing",
@@ -333,8 +333,8 @@
   },
   "anomalyMod:TelomereFlake": {
     "NAME": "Telomere Flake",
-    "DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put the top card and bottom card of your draw pile into your hand and Upgrade them."
+    "DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them."
   },
   "anomalyMod:Timeslip": {
     "NAME": "Timeslip",

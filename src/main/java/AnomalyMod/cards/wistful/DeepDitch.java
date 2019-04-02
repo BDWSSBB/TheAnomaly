@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class DeepDitch extends AbstractAnomalyCard {
@@ -37,6 +38,16 @@ public class DeepDitch extends AbstractAnomalyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+    }
+
+    @Override
+    public float atDamageGiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        if (power.ID.equals(StrengthPower.POWER_ID)) {
+            return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
+        }
+        else {
+            return super.atDamageGiveWithPower(tmp, damageTypeForTurn, power);
+        }
     }
 
     @Override

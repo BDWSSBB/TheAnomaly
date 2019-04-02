@@ -60,8 +60,20 @@ public abstract class AbstractAnomalyCard extends CustomCard {
 
     }
 
+    public float atDamageGiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        return power.atDamageGive(tmp, damageTypeForTurn);
+    }
+
     public float atDamageReceiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
         return power.atDamageReceive(tmp, damageTypeForTurn);
+    }
+
+    public float atDamageFinalGiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        return power.atDamageFinalGive(tmp, damageTypeForTurn);
+    }
+
+    public float atDamageFinalReceiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        return power.atDamageFinalReceive(tmp, damageTypeForTurn);
     }
 
     public static class SecondMagicNumber extends DynamicVariable {

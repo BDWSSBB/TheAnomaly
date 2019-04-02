@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import java.util.ArrayList;
+
 public class PortableTerminalAction extends AbstractGameAction {
 
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("ForethoughtAction").TEXT;
@@ -18,7 +20,7 @@ public class PortableTerminalAction extends AbstractGameAction {
     private int improbabilityReductionAmount;
 
     public PortableTerminalAction(int improbabilityReductionAmount) {
-        this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
+        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.player = AbstractDungeon.player;
         this.improbabilityReductionAmount = improbabilityReductionAmount;
@@ -32,6 +34,18 @@ public class PortableTerminalAction extends AbstractGameAction {
                 return;
             }
             else {
+                ArrayList<AbstractCard> nonImprobableCards = new ArrayList<>();
+                for (AbstractCard c : this.player.hand.group) {
+                    if (!(c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0)) {
+                        nonImprobableCards.add(c);
+                    }
+                }
+                for (AbstractCard c : nonImprobableCards) {
+                    this.player.hand.removeCard(c);
+                }
+                for (AbstractCard c : nonImprobableCards) {
+                    this.player.hand.addToTop(c);
+                }
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 99, true, true);
             }
             tickDuration();
@@ -63,6 +77,7 @@ public class PortableTerminalAction extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             this.player.hand.refreshHandLayout();
+            this.player.hand.glowCheck();
         }
         this.tickDuration();
     }

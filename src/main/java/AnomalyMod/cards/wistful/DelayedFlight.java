@@ -23,7 +23,7 @@ public class DelayedFlight extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int BLOCK_AMOUNT = 11;
+    private static final int BLOCK_AMOUNT = 12;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC_NUMBER = 8;
 

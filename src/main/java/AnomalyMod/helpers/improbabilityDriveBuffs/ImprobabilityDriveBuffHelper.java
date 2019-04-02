@@ -1,8 +1,6 @@
 package AnomalyMod.helpers.improbabilityDriveBuffs;
 
 import AnomalyMod.AnomalyMod;
-import AnomalyMod.helpers.improbabilityDriveBuffs.enemy.IncreasedMaxHPBuffModule;
-import AnomalyMod.helpers.improbabilityDriveBuffs.player.ViscocityBuffModule;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;

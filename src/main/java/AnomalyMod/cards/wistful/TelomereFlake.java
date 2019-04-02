@@ -3,7 +3,6 @@ package AnomalyMod.cards.wistful;
 import AnomalyMod.actions.unique.TelomereFlakeAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,6 +26,7 @@ public class TelomereFlake extends AbstractAnomalyCard {
 
     public TelomereFlake() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class TelomereFlake extends AbstractAnomalyCard {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
-            AlwaysRetainField.alwaysRetain.set(this, true);
+            this.exhaust = false;
         }
     }
 }

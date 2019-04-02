@@ -30,10 +30,16 @@ public class SixthRevisionAction extends AbstractGameAction {
             else {
                 CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : this.player.discardPile.group) {
-                    temp.addToTop(c);
+                    if (c.canUpgrade()) {
+                        temp.addToTop(c);
+                    }
                 }
                 temp.sortAlphabetically(true);
                 temp.sortByRarityPlusStatusCardType(false);
+                if (temp.isEmpty()) {
+                    this.isDone = true;
+                    return;
+                }
                 if (this.numberOfCards == 1) {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
                 }

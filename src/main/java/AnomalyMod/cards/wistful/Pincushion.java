@@ -23,8 +23,8 @@ public class Pincushion extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final int IMPROBABILITY_NUMBER = 6;
-    private static final int ATTACK_DAMAGE = 4;
+    private static final int IMPROBABILITY_NUMBER = 7;
+    private static final int ATTACK_DAMAGE = 5;
     private static final int MAGIC_NUMBER = 2;
     private static final int SECOND_MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_SECOND_MAGIC_NUMBER = 1;

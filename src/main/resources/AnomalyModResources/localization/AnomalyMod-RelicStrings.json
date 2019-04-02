@@ -49,8 +49,8 @@
     "NAME": "Megachette",
     "FLAVOR": "Better than a machete.",
     "DESCRIPTIONS": [
-      "The first time each #yAttack deals at least #b",
-      " unblocked attack damage to each enemy, apply #b",
+      "The first time an #yAttack deals at least #b",
+      " unblocked attack damage each turn, apply #b",
       " #yGaping."
     ]
   },

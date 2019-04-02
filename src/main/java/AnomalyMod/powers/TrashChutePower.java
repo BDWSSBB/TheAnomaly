@@ -1,14 +1,14 @@
 package AnomalyMod.powers;
 
 import AnomalyMod.actions.common.DrawPileToDiscardPileAction;
-import AnomalyMod.actions.utility.NoFastModeWaitAction;
+import AnomalyMod.helpers.WaitForIntentsToLoad;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class TrashChutePower extends AbstractAnomalyPower {
+public class TrashChutePower extends AbstractAnomalyPower implements WaitForIntentsToLoad {
 
     public static final String POWER_ID = "anomalyMod:TrashChute";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -38,7 +38,7 @@ public class TrashChutePower extends AbstractAnomalyPower {
 
     @Override
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(0.4F));
+        flash();
         AbstractDungeon.actionManager.addToBottom(new DrawPileToDiscardPileAction(this.amount));
     }
 }

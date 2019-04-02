@@ -1,13 +1,14 @@
 package AnomalyMod.powers;
 
 import AnomalyMod.actions.unique.SixthRevisionAction;
+import AnomalyMod.helpers.WaitForIntentsToLoad;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SixthRevisionPower extends AbstractAnomalyPower {
+public class SixthRevisionPower extends AbstractAnomalyPower implements WaitForIntentsToLoad {
 
     public static final String POWER_ID = "anomalyMod:SixthRevision";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
