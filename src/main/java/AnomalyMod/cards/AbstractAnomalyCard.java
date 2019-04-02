@@ -36,17 +36,14 @@ public abstract class AbstractAnomalyCard extends CustomCard {
         this.upgradedSecondMagicNumber = true;
     }
 
-    public void upgradeImprobabilityNumber(int amount, boolean canGoBelowZero) {
-        this.baseImprobabilityNumber += amount;
-        if (this.baseImprobabilityNumber < 0 && !canGoBelowZero) {
-            this.baseSecondMagicNumber = 0;
-        }
+    public void upgradeImprobabilityNumber(int amount, boolean floorZero) {
+        this.changeImprobabilityNumber(amount, floorZero);
         this.improbabilityNumber = this.baseImprobabilityNumber;
         this.upgradedImprobabilityNumber = true;
     }
 
     public void upgradeImprobabilityNumber(int amount) {
-        this.upgradeImprobabilityNumber(amount, false);
+        this.upgradeImprobabilityNumber(amount, true);
     }
 
     public void changeImprobabilityNumber(int amount, boolean floorZero) {
