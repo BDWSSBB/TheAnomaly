@@ -20,14 +20,14 @@ public class Fak3 extends AbstractAnomalyCard {
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String UPGRADE_NAME = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/fak3.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int BLOCK_AMOUNT = 5;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK_AMOUNT = 10;
+    private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
