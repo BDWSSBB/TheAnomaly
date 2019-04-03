@@ -18,13 +18,13 @@ public class Megachette extends AbstractAnomalyRelic {
     public static final String ID = "anomalyMod:Megachette";
     public static final Texture IMAGE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/placeholder.png");
     public static final Texture IMAGE_OUTLINE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/outline/placeholderOutline.png");
-    private static final int MINIMUM_DAMAGE_TO_ACTIVATE = 22;
+    private static final int MINIMUM_DAMAGE_TO_ACTIVATE = 24;
     private static final int GAPING_PER_ACTIVATE = 2;
     private ArrayList<AbstractCreature> enemiesHitAlready = new ArrayList<>();
     private boolean usedThisTurn = false;
 
     public Megachette() {
-        super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.RARE, LandingSound.CLINK);
     }
 
     @Override
