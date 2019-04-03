@@ -1,6 +1,6 @@
 package AnomalyMod.actions.unique;
 
-import AnomalyMod.actions.common.PlayCardThatExistsAction;
+import AnomalyMod.actions.common.PlayCardAndKeepExistingAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -41,7 +41,7 @@ public class StarchedAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             if (!AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
-                AbstractDungeon.actionManager.addToTop(new PlayCardThatExistsAction(AbstractDungeon.handCardSelectScreen.selectedCards.getTopCard()));
+                AbstractDungeon.actionManager.addToTop(new PlayCardAndKeepExistingAction(AbstractDungeon.handCardSelectScreen.selectedCards.getTopCard()));
             }
             for (final AbstractCard c : this.notSkills) {
                 this.player.hand.addToTop(c);

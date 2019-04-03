@@ -1,4 +1,4 @@
-package AnomalyMod.actions.unique;
+package AnomalyMod.actions.common;
 
 import AnomalyMod.actions.utility.NoFastModeWaitAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -12,13 +12,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class UseProcrastinatePowerAction extends AbstractGameAction {
+public class PlayCardAndKeepExistingAction extends AbstractGameAction {
 
     private AbstractMonster target;
     private AbstractPlayer player;
     private AbstractCard card;
 
-    public UseProcrastinatePowerAction(AbstractCard card) {
+    public PlayCardAndKeepExistingAction(AbstractCard card) {
         this.target = AbstractDungeon.getRandomMonster();
         this.player = AbstractDungeon.player;
         this.card = card;

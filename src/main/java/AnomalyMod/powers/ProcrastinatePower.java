@@ -1,6 +1,6 @@
 package AnomalyMod.powers;
 
-import AnomalyMod.actions.unique.UseProcrastinatePowerAction;
+import AnomalyMod.actions.common.PlayCardAndKeepExistingAction;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -37,7 +37,7 @@ public class ProcrastinatePower extends AbstractAnomalyPower implements NonStack
     @Override
     public void atStartOfTurnPostDraw() {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new UseProcrastinatePowerAction(this.card.makeSameInstanceOf()));
+        AbstractDungeon.actionManager.addToBottom(new PlayCardAndKeepExistingAction(this.card.makeSameInstanceOf()));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
 }
