@@ -1,5 +1,6 @@
 package AnomalyMod.cards.wistful;
 
+import AnomalyMod.actions.common.ChangeImprobabilityAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -39,6 +40,7 @@ public class DeepDitch extends AbstractAnomalyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(this.improbabilityNumber));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
