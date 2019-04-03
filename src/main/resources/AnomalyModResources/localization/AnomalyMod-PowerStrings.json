@@ -12,23 +12,23 @@
   "anomalyMod:AggressorSyntax": {
     "NAME": "Aggressor Syntax",
     "DESCRIPTIONS": [
-      "While the last #b",
+      "#pRandom #pBuff: While the last #b",
       " cards played this combat were #yAttacks, you have #b",
-      " #yStrength."
+      " additional #yStrength."
     ]
   },
   "anomalyMod:Auditor": {
     "NAME": "Auditor",
     "DESCRIPTIONS": [
-      "Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
+      "#pRandom #pBuff: Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
     ]
   },
   "anomalyMod:BonfireSyntax": {
     "NAME": "Bonfire Syntax",
     "DESCRIPTIONS": [
-      "While you have not played the same card type twice in a row for the last #b",
+      "#pRandom #pBuff: While you have not played the same card type twice in a row for the last #b",
       " cards played this combat, you have #b",
-      " #yStrength and #b",
+      " additional #yStrength and #b",
       " #yDexterity.",
       " NL NL Last card type played:",
       " #yAttack",
@@ -64,9 +64,9 @@
   "anomalyMod:DefensorSyntax": {
     "NAME": "Defensor Syntax",
     "DESCRIPTIONS": [
-      "While the last #b",
+      "#pRandom #pBuff: While the last #b",
       " cards played this combat were #ySkills, you have #b",
-      " #yDexterity."
+      " additional #yDexterity."
     ]
   },
   "anomalyMod:Discontinuity": {
@@ -134,10 +134,10 @@
   "anomalyMod:ImitatorSyntax": {
     "NAME": "Imitator Syntax",
     "DESCRIPTIONS": [
-      "Register every #b",
+      "#pRandom #pBuff: Register every #b",
       " card you play. While you have registered a #ySkill, you have #b",
-      " #yDexterity. Otherwise, you have #b",
-      " #yStrength.",
+      " additional #yDexterity. Otherwise, you have #b",
+      " additional #yStrength.",
       " NL NL Current Mode:",
       " #yStrength",
       " #yDexterity",
@@ -147,7 +147,7 @@
   "anomalyMod:Improblemble": {
     "NAME": "Improblemble",
     "DESCRIPTIONS": [
-      "Deals #b",
+      "#pRandom #pBuff: Deals #b",
       "% more base attack damage."
     ]
   },
@@ -179,7 +179,7 @@
   "anomalyMod:Polyrhythm": {
     "NAME": "Polyrhythm",
     "DESCRIPTIONS": [
-      "Every #b7th card you play deals double damage. Every #b8th card you play gains double #yBlock."
+      "#pRandom #pBuff: Every #b7th card you play deals double damage. Every #b8th card you play gains double #yBlock."
     ]
   },
   "anomalyMod:Procrastinate": {
@@ -192,22 +192,15 @@
   "anomalyMod:Projector": {
     "NAME": "Projector",
     "DESCRIPTIONS": [
-      "Deals #b50% more attack damage. Cancelled this turn if attacked #b",
+      "#pRandom #pBuff: Deals #b50% more attack damage. Cancelled this turn if attacked #b",
       " time in a single turn.",
       " times in a single turn."
-    ]
-  },
-  "anomalyMod:Rebooter": {
-    "NAME": "Rebooter",
-    "DESCRIPTIONS": [
-      "When it would otherwise die, heals to #b50% of its Max HP and deals no attack damage this turn.",
-      "Deals no attack damage this turn."
     ]
   },
   "anomalyMod:RedFlag": {
     "NAME": "Red Flag",
     "DESCRIPTIONS": [
-      "Whenever dealt attack damage from at least #b",
+      "#pRandom #pBuff: Whenever dealt attack damage from at least #b",
       " #yAttacks, deals #b50% more attack damage this turn.",
       " NL NL Deals #b",
       "% more attack damage this turn."
@@ -248,7 +241,7 @@
   "anomalyMod:SpikeStrip": {
     "NAME": "Spike Strip",
     "DESCRIPTIONS": [
-      "Whenever you play a #ynon-Attack card, gains #b",
+      "#pRandom #pBuff: Whenever you play a #ynon-Attack card, gains #b",
       " #yBlock. When attacked while having leftover #yBlock, deals #b",
       " damage back."
     ]
@@ -256,34 +249,34 @@
   "anomalyMod:SpikierStrip": {
     "NAME": "Spikier Strip",
     "DESCRIPTIONS": [
-      "Whenever you gain #yImprobability, gains #ySpike #yStrip equal to #yImprobability gained."
+      "#pRandom #pBuff: Whenever you gain #yImprobability, gains #ySpike #yStrip equal to #yImprobability gained."
     ]
   },
   "anomalyMod:ShellLoaded": {
     "NAME": "Shell-Loaded",
     "DESCRIPTIONS": [
-      "While the last #b",
+      "#pRandom #pBuff: While the last #b",
       " cards played this combat were not #ySkills, cards gain double #yBlock."
     ]
   },
   "anomalyMod:SpringLoaded": {
     "NAME": "Spring-Loaded",
     "DESCRIPTIONS": [
-      "While the last #b",
+      "#pRandom #pBuff: While the last #b",
       " cards played this combat were not #yAttacks, cards deal double damage."
     ]
   },
   "anomalyMod:Starched": {
     "NAME": "Starched",
     "DESCRIPTIONS": [
-      "Every time you play #b",
+      "#pRandom #pBuff: Every time you play #b",
       " #ySkills, you may play a #ySkill in your hand."
     ]
   },
   "anomalyMod:Stitched": {
     "NAME": "Stitched",
     "DESCRIPTIONS": [
-      "Every time you play #b",
+      "#pRandom #pBuff: Every time you play #b",
       " #yAttacks, you may play an #yAttack in your hand."
     ]
   },
@@ -320,7 +313,7 @@
   "anomalyMod:Viscosity": {
     "NAME": "Viscosity",
     "DESCRIPTIONS": [
-      "Each turn, defer up to #b",
+      "#pRandom #pBuff: Each turn, defer up to #b",
       " attack damage you would receive until the end of your next turn."
     ]
   },
@@ -334,7 +327,7 @@
   "anomalyMod:WhiteFlag": {
     "NAME": "White Flag",
     "DESCRIPTIONS": [
-      "Whenever dealt attack damage #b",
+      "#pRandom #pBuff: Whenever dealt attack damage #b",
       " times, takes no damage from your next #yAttack.",
       " NL NL Takes no damage from your next #yAttack.",
       " NL NL Takes no damage from your next #b",
