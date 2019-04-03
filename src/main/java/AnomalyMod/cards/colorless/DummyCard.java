@@ -1,6 +1,7 @@
 package AnomalyMod.cards.colorless;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.actions.common.VanillaImprovements.FasterExhaustSpecificCardAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -75,13 +76,13 @@ public class DummyCard extends AbstractAnomalyCard {
     @Override
     public void triggerAtEndOfTurnFromAnywhere() {
         if (AbstractDungeon.player.drawPile.contains(this)) {
-            AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.drawPile));
+            AbstractDungeon.actionManager.addToTop(new FasterExhaustSpecificCardAction(this, AbstractDungeon.player.drawPile));
         }
         else if (AbstractDungeon.player.hand.contains(this)) {
             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         }
         else if (AbstractDungeon.player.discardPile.contains(this)) {
-            AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
+            AbstractDungeon.actionManager.addToTop(new FasterExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
         }
         else {
             AnomalyMod.logger.info("WARNING: Couldn't find Dummy to exhaust.");
