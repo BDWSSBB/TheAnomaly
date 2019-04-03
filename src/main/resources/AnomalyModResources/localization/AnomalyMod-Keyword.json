@@ -16,9 +16,9 @@
   },
   {
     "NAMES": [
-      "gaping"
+      "stapled"
     ],
-    "DESCRIPTION": "Gaping creatures take more damage equal to its amount from #yAttacks."
+    "DESCRIPTION": "Stapled creatures take more damage equal to its amount from #yAttacks."
   },
   {
     "NAMES": [

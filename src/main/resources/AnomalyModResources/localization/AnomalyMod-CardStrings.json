@@ -183,7 +183,7 @@
   },
   "anomalyMod:Gape": {
     "NAME": "Gape",
-    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL If the enemy has Vulnerable, it loses 1 Vulnerable and apply !M! Gaping."
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL If the enemy has Vulnerable, it loses 1 Vulnerable and apply !M! Stapled."
   },
   "anomalyMod:Gravekeep": {
     "NAME": "Gravekeep",
@@ -264,7 +264,7 @@
   },
   "anomalyMod:Pincushion": {
     "NAME": "Pincushion",
-    "DESCRIPTION": "Xprobability !anomalyMod:I!. NL Deal !D! damage !anomalyMod:M2! times. NL Apply !M! Gaping !anomalyMod:M2! times. NL Exhaust."
+    "DESCRIPTION": "Xprobability !anomalyMod:I!. NL Deal !D! damage !anomalyMod:M2! times. NL Apply !M! Stapled !anomalyMod:M2! times. NL Exhaust."
   },
   "anomalyMod:Polyrhythm": {
     "NAME": "Polyrhythm",

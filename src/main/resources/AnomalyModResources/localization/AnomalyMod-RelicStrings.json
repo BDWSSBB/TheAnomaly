@@ -51,7 +51,7 @@
     "DESCRIPTIONS": [
       "The first time an #yAttack deals at least #b",
       " unblocked attack damage each turn, apply #b",
-      " #yGaping."
+      " #yStapled."
     ]
   },
   "anomalyMod:MowsetrapCar": {
