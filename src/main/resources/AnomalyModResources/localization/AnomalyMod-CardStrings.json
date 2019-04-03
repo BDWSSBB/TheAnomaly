@@ -151,7 +151,7 @@
   },
   "anomalyMod:Fak3": {
     "NAME": "Fak3",
-    "DESCRIPTION": "Gain !B! Block. NL The next !M! non-Dummies you play add a Dummy of the same card type into your hand.",
+    "DESCRIPTION": "Gain !B! Block. NL The next !M! non-Dummies you play this turn add a Dummy of the same card type into your hand.",
     "EXTENDED_DESCRIPTION": [
       "F4k3"
     ]
