@@ -21,6 +21,10 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
 
     public ImprobabilityDriveRandomBuffsInfo() {
         super(ID, NAME, getDescription(), IMAGE_PATH, IMAGE_OUTLINE_PATH, true);
+    }
+
+    @Override
+    public void onEquip() {
         changeDescription();
     }
 
