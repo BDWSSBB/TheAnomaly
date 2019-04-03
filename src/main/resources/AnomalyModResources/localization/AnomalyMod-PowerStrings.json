@@ -222,7 +222,7 @@
     ]
   },
   "anomalyMod:ScissorCuts": {
-    "NAME": "Gaping",
+    "NAME": "Stapled",
     "DESCRIPTIONS": [
       "Receives #b",
       " more damage from #yAttacks."
