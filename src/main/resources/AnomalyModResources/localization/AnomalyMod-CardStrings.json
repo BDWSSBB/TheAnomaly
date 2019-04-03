@@ -88,7 +88,8 @@
   },
   "anomalyMod:DeepDitch": {
     "NAME": "Deep Ditch",
-    "DESCRIPTION": "Deal !D! damage. NL Strength and Vulnerable affect this card twice."
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Strength and Vulnerable affect this card twice.",
+    "UPGRADE_DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL ALL and ONLY positive damage-modifying powers affect this card twice."
   },
   "anomalyMod:DeimosDown": {
     "NAME": "Deimos Down",

@@ -23,15 +23,17 @@ public class DeepDitch extends AbstractAnomalyCard {
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/deepDitch.png";
     private static final int COST = 2;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = CARD_STRINGS.UPGRADE_DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final int ATTACK_DAMAGE = 16;
-    private static final int UPGRADE_PLUS_DAMAGE = 6;
+    private static final int IMPROBABILITY_NUMBER = 2;
+    private static final int ATTACK_DAMAGE = 18;
 
     public DeepDitch() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.improbabilityNumber = this.baseImprobabilityNumber = IMPROBABILITY_NUMBER;
         this.damage = this.baseDamage = ATTACK_DAMAGE;
     }
 
@@ -42,21 +44,71 @@ public class DeepDitch extends AbstractAnomalyCard {
 
     @Override
     public float atDamageGiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
-        if (power.ID.equals(StrengthPower.POWER_ID)) {
-            return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
+        if (this.upgraded) {
+            if (power.atDamageGive(tmp, damageTypeForTurn) > tmp) {
+                return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return tmp;
+            }
         }
         else {
-            return super.atDamageGiveWithPower(tmp, damageTypeForTurn, power);
+            if (power.ID.equals(StrengthPower.POWER_ID)) {
+                return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return super.atDamageGiveWithPower(tmp, damageTypeForTurn, power);
+            }
         }
     }
 
     @Override
     public float atDamageReceiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
-        if (power.ID.equals(VulnerablePower.POWER_ID)) {
-            return power.atDamageReceive(power.atDamageReceive(tmp, damageTypeForTurn), damageTypeForTurn);
+        if (this.upgraded) {
+            if (power.atDamageReceive(tmp, damageTypeForTurn) > tmp) {
+                return power.atDamageReceive(power.atDamageReceive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return tmp;
+            }
         }
         else {
-            return super.atDamageReceiveWithPower(tmp, damageTypeForTurn, power);
+            if (power.ID.equals(VulnerablePower.POWER_ID)) {
+                return power.atDamageReceive(power.atDamageReceive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return super.atDamageReceiveWithPower(tmp, damageTypeForTurn, power);
+            }
+        }
+    }
+
+    @Override
+    public float atDamageFinalGiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        if (this.upgraded) {
+            if (power.atDamageFinalGive(tmp, damageTypeForTurn) > tmp) {
+                return power.atDamageFinalGive(power.atDamageFinalGive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return tmp;
+            }
+        }
+        else {
+            return super.atDamageFinalGiveWithPower(tmp, damageTypeForTurn, power);
+        }
+    }
+
+    @Override
+    public float atDamageFinalReceiveWithPower(float tmp, DamageInfo.DamageType damageTypeForTurn, AbstractPower power) {
+        if (this.upgraded) {
+            if (power.atDamageFinalReceive(tmp, damageTypeForTurn) > tmp) {
+                return power.atDamageFinalReceive(power.atDamageFinalReceive(tmp, damageTypeForTurn), damageTypeForTurn);
+            }
+            else {
+                return tmp;
+            }
+        }
+        else {
+            return super.atDamageFinalReceiveWithPower(tmp, damageTypeForTurn, power);
         }
     }
 
@@ -69,7 +121,8 @@ public class DeepDitch extends AbstractAnomalyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

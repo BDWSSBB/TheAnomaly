@@ -22,14 +22,6 @@ public class ImprobabilityDriveCardRewardPatch {
 
         public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result) {
             if (AbstractDungeon.player.hasBlight(ImprobabilityDrive.ID) && ((ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID)).convertingGoldToCard) {
-//                if (!__result.isEmpty()) {
-//                    __result.remove(0);
-//                }
-//                // Too lazy to do something better. Sorry.
-//                // TODO: Move the less cards stuff to some patch.
-//                if (!__result.isEmpty()) {
-//                    __result.remove(0);
-//                }
                 for (int i = 0; i < 2; i++) {
                     if (!__result.isEmpty()) {
                         __result.remove(AnomalyMod.anomalyRNG.random(0, __result.size() - 1));
