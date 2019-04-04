@@ -35,13 +35,13 @@ public class PlayCardAndKeepExistingAction extends AbstractGameAction {
         this.card.lighten(false);
         this.card.drawScale = 0.12f;
         this.card.targetDrawScale = 0.75f;
+        this.card.freeToPlayOnce = true;
         if (!card.canUse(AbstractDungeon.player, this.target)) {
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
             AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
             AbstractDungeon.actionManager.addToTop(new NoFastModeWaitAction(0.4f));
         }
         else {
-            this.card.freeToPlayOnce = true;
             this.card.applyPowers();
             AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.target));
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
