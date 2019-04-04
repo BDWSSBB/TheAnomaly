@@ -30,7 +30,7 @@ public class DeepDitch extends AbstractAnomalyCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int IMPROBABILITY_NUMBER = 2;
-    private static final int ATTACK_DAMAGE = 18;
+    private static final int ATTACK_DAMAGE = 20;
 
     public DeepDitch() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
