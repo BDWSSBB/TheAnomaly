@@ -1,11 +1,13 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
 import AnomalyMod.actions.unique.StarchedAction;
+import AnomalyMod.actions.utility.NoFastModeWaitAction;
 import AnomalyMod.powers.AbstractAnomalyPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -40,6 +42,7 @@ public class StarchedPower extends AbstractAnomalyPower {
             if (this.amount == 0) {
                 flash();
                 this.amount = SKILLS_PER_PLAY;
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(Settings.ACTION_DUR_FAST));
                 AbstractDungeon.actionManager.addToBottom(new StarchedAction());
             }
         }
