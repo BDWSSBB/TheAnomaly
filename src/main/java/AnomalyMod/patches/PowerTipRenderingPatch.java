@@ -18,7 +18,7 @@ import javassist.expr.MethodCall;
 
 import java.util.ArrayList;
 
-// This is experimental, so I'm containing it to Anomaly.
+// This is experimental, so I'm containing it to Anomaly. Refer to this code at your own risk.
 public class PowerTipRenderingPatch {
 
     @SpirePatch(
