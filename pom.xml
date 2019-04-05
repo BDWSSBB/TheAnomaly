@@ -3,7 +3,7 @@
 
     <groupId>TheAnomalyMod</groupId>
     <artifactId>TheAnomaly</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <packaging>jar</packaging>
 
     <dependencies>
