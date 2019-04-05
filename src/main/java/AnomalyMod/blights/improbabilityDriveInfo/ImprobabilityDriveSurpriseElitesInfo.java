@@ -27,6 +27,7 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
 
     public ImprobabilityDriveSurpriseElitesInfo() {
         super(ID, NAME, getDescription(), IMAGE_PATH, IMAGE_OUTLINE_PATH, true);
+        this.counter = 0;
     }
 
     @Override
@@ -36,6 +37,9 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
 
     @Override
     public void onEnterRoom(AbstractRoom room) {
+        if (ImprobabilityDrive.getImprobability() >= SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM) {
+            this.counter += 2;
+        }
         changeDescription();
     }
 
@@ -56,7 +60,7 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     }
 
     private static float getPercent() {
-        return getSurpriseElitesChance(ImprobabilityDrive.getImprobability()) * 100.0F;
+        return getSurpriseElitesChance() * 100.0F;
     }
 
     private static String getEligibleRooms() {
@@ -87,9 +91,31 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
 
     public static void rollSurpriseElite() {
         int initialCounter = ImprobabilityDrive.getImprobability();
-        if (isValidRoomForSurpriseElite(initialCounter) && AnomalyMod.anomalyRNG.randomBoolean(getSurpriseElitesChance(initialCounter))) {
-            ImprobabilityDrive.changeImprobability(getSurpriseElitesImprobabilityChange(initialCounter));
-            AbstractDungeon.nextRoom.room = new MonsterRoomElite();
+        if (isValidRoomForSurpriseElite(initialCounter)) {
+            ImprobabilityDriveSurpriseElitesInfo blight = (ImprobabilityDriveSurpriseElitesInfo) AbstractDungeon.player.getBlight(ImprobabilityDriveSurpriseElitesInfo.ID);
+            if (AnomalyMod.anomalyRNG.randomBoolean(getSurpriseElitesChance())) {
+                blight.counter /= 5;
+                blight.counter -= 4;
+                if (blight.counter < 0) {
+                    blight.counter = 0;
+                }
+                ImprobabilityDrive.changeImprobability(getSurpriseElitesImprobabilityChange(initialCounter));
+                AbstractDungeon.nextRoom.room = new MonsterRoomElite();
+            }
+            else {
+                if (AbstractDungeon.nextRoom.room instanceof EventRoom) {
+                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM - 7;
+                }
+                else if (AbstractDungeon.nextRoom.room.getClass().equals(MonsterRoom.class)) {
+                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_MONSTER_ROOM_IMPROBABILITY_MINIMUM - 7;
+                }
+                else if (AbstractDungeon.nextRoom.room instanceof ShopRoom) {
+                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_SHOP_ROOM_IMPROBABILITY_MINIMUM - 7;
+                }
+                else if (AbstractDungeon.nextRoom.room instanceof RestRoom) {
+                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_REST_ROOM_IMPROBABILITY_MINIMUM - 7;
+                }
+            }
         }
     }
 
@@ -115,19 +141,15 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
         if (AbstractDungeon.id == null || AbstractDungeon.id.equals(TheEnding.ID)) {
             validRoom = false;
         }
-        if (AbstractDungeon.currMapNode == null || AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
-            validRoom = false;
-        }
         return validRoom;
     }
 
-    private static float getSurpriseElitesChance(int initialCounter) {
-        if (!isValidRoomForSurpriseElite(initialCounter)) {
+    private static float getSurpriseElitesChance() {
+        if (!AbstractDungeon.player.hasBlight(ImprobabilityDriveSurpriseElitesInfo.ID)) {
             return 0.0F;
         }
-        else {
-            return Math.min(-0.3F + (float) initialCounter * 0.01F, 0.5F);
-        }
+        ImprobabilityDriveSurpriseElitesInfo blight = (ImprobabilityDriveSurpriseElitesInfo) AbstractDungeon.player.getBlight(ImprobabilityDriveSurpriseElitesInfo.ID);
+        return (float) blight.counter / 100.0F;
     }
 
     private static int getSurpriseElitesImprobabilityChange(int initialCounter) {

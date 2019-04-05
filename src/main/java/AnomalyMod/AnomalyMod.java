@@ -221,9 +221,6 @@ public class AnomalyMod implements
 
         BaseMod.addEvent(Dedmos.ID, Dedmos.class, Exordium.ID);
 
-        BaseMod.addMonster(TheOriginalEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[] {
-                new TheOriginalEvilDev(0.0F, 0.0F)
-        }));
         BaseMod.addMonster(AprilFoolsEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[] {
                 new AprilFoolsEvilDev(0.0F, 0.0F)
         }));
