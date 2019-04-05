@@ -1,12 +1,15 @@
 package AnomalyMod.blights.improbabilityDriveInfo;
 
 import AnomalyMod.blights.AbstractAnomalyBlight;
+import AnomalyMod.cards.status.BadSector;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.BlightStrings;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 public class ImprobabilityDriveMalfunctionInfo extends AbstractAnomalyBlight {
 
@@ -23,5 +26,13 @@ public class ImprobabilityDriveMalfunctionInfo extends AbstractAnomalyBlight {
             this.tips.add(new PowerTip(TipHelper.capitalize("bad sector"), GameDictionary.keywords.get("bad sector")));
         }
         this.initializeTips();
+    }
+
+    @Override
+    public void onBossDefeat() {
+        if (!Settings.isEndless) {
+            this.flash();
+            AbstractDungeon.topLevelEffects.add(new ShowCardAndObtainEffect(new BadSector().makeCopy(), Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+        }
     }
 }

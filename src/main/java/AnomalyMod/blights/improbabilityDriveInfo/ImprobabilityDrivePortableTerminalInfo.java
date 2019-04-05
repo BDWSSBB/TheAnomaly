@@ -1,5 +1,6 @@
 package AnomalyMod.blights.improbabilityDriveInfo;
 
+import AnomalyMod.actions.unique.PortableTerminalAction;
 import AnomalyMod.blights.AbstractAnomalyBlight;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,5 +28,10 @@ public class ImprobabilityDrivePortableTerminalInfo extends AbstractAnomalyBligh
         if (AbstractDungeon.player.hasRelic(GamblingChip.ID)) {
             AbstractDungeon.actionManager.addToTop(new TalkAction(true, DESCRIPTION[2] + new GamblingChip().name + DESCRIPTION[3], 0.0F, 2.0F));
         }
+    }
+
+    @Override
+    public void atStartOfTurnPostPostDraw() {
+        AbstractDungeon.actionManager.addToBottom(new PortableTerminalAction(ImprobabilityDrivePortableTerminalInfo.IMPROBABILITY_LOSS));
     }
 }

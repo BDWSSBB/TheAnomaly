@@ -89,7 +89,7 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
                 AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[4], 2.5F,2.5F));
                 ImprobabilityDrive drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
                 if (drive != null) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpikeStripPower(this, (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)), (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)));
+                    //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpikeStripPower(this, (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)), (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)));
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpikierStripPower(this)));
                 break;
