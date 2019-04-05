@@ -45,6 +45,7 @@ public class ImprobabilityDriveTryNewThingsInfo extends AbstractAnomalyBlight {
     }
 
     private void changeDescription() {
+        this.counter = (int) (getConvertGoldChance(ImprobabilityDrive.getImprobability()) * 100.0F);
         this.description = getDescription();
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
