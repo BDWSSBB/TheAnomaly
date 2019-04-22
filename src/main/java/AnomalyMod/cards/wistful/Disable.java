@@ -27,9 +27,9 @@ public class Disable extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final int IMPROBABILITY_NUMBER = 1;
-    private static final int ATTACK_DAMAGE = 4;
-    private static final int MAGIC_NUMBER = 1;
+    private static final int IMPROBABILITY_NUMBER = 2;
+    private static final int ATTACK_DAMAGE = 6;
+    private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     public Disable() {
@@ -37,6 +37,7 @@ public class Disable extends AbstractAnomalyCard {
         this.improbabilityNumber = this.baseImprobabilityNumber = IMPROBABILITY_NUMBER;
         this.damage = this.baseDamage = ATTACK_DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC_NUMBER;
+        this.exhaust = true;
         this.isMultiDamage = true;
     }
 
