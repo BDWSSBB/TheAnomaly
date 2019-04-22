@@ -29,9 +29,9 @@ public class ApplyDebuffAndInverseAction extends AbstractGameAction {
     @Override
     public void update() {
         if (this.target != null && !this.target.hasPower(ArtifactPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.source, inversePower, inversePowerAmount));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.source, this.inversePower, this.inversePowerAmount));
         }
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.source, debuff, debuffAmount));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.source, this.debuff, this.debuffAmount));
         this.isDone = true;
     }
 }

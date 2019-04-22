@@ -32,11 +32,11 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (this.player.drawPile.isEmpty()) {
+            if (this.player.drawPile.isEmpty() || this.numberOfCards <= 0) {
                 this.isDone = true;
                 return;
             }
-            else if (this.player.drawPile.size() <= this.numberOfCards) {
+            else if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {
                 ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
                 for (AbstractCard c : this.player.drawPile.group) {
                     cardsToMove.add(c);

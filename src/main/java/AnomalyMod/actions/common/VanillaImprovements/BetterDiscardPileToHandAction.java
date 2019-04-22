@@ -33,11 +33,11 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (this.player.discardPile.isEmpty()) {
+            if (this.player.discardPile.isEmpty() || this.numberOfCards > 0) {
                 this.isDone = true;
                 return;
             }
-            else if (this.player.discardPile.size() <= this.numberOfCards) {
+            else if (this.player.discardPile.size() <= this.numberOfCards && !this.optional) {
                 ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
                 for (AbstractCard c : this.player.discardPile.group) {
                     cardsToMove.add(c);
