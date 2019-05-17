@@ -19,8 +19,8 @@ public class ImprobabilityDriveTryNewThingsInfo extends AbstractAnomalyBlight {
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
     public static final String NAME = BLIGHT_STRINGS.NAME;
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
-    public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
-    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/blights/fattenUp.png";
+    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/blights/outline/fattenUp.png";
     public static final int CONVERT_GOLD_IMPROBABILITY_MINIMUM = 12;
     public static int cardRewardStrength = 0;
     public static boolean convertingGoldToCard = false;

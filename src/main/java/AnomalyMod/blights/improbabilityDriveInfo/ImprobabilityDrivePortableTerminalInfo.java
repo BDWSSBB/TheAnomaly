@@ -14,8 +14,8 @@ public class ImprobabilityDrivePortableTerminalInfo extends AbstractAnomalyBligh
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
     public static final String NAME = BLIGHT_STRINGS.NAME;
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
-    public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
-    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/blights/portableTerminal.png";
+    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/blights/outline/portableTerminal.png";
     public static final int IMPROBABILITY_LOSS = 1;
 
     public ImprobabilityDrivePortableTerminalInfo() {

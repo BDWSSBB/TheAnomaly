@@ -1,5 +1,6 @@
 package AnomalyMod.actions.common.VanillaImprovements;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.ArrayList;
 
 // This is really just a fix to the vanilla action so the card isn't responsible for checking the discard pile.
-// Also organizes card by alphabet for better UX.
 public class BetterDiscardPileToHandAction extends AbstractGameAction {
 
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("anomalyMod:BetterToHandAction").TEXT;
@@ -33,7 +33,7 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            if (this.player.discardPile.isEmpty() || this.numberOfCards > 0) {
+            if (this.player.discardPile.isEmpty() || this.numberOfCards <= 0) {
                 this.isDone = true;
                 return;
             }
@@ -43,32 +43,30 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
                     cardsToMove.add(c);
                 }
                 for (AbstractCard c : cardsToMove) {
-                    this.player.discardPile.moveToHand(c, this.player.discardPile);
+                    if (this.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
+                        this.player.hand.addToHand(c);
+                        this.player.discardPile.removeCard(c);
+                    }
+                    c.lighten(false);
                 }
                 this.isDone = true;
                 return;
             }
             else {
-                CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-                for (AbstractCard c : this.player.discardPile.group) {
-                    temp.addToTop(c);
-                }
-                temp.sortAlphabetically(true);
-                temp.sortByRarityPlusStatusCardType(false);
                 if (this.numberOfCards == 1) {
                     if (this.optional) {
-                        AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
+                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[0]);
                     }
                     else {
-                        AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, TEXT[0], false);
+                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[0], false);
                     }
                 }
                 else {
                     if (this.optional) {
-                        AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
+                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
                     }
                     else {
-                        AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
+                        AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
                     }
                 }
                 tickDuration();
@@ -77,7 +75,17 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                this.player.discardPile.moveToHand(c, this.player.discardPile);
+                if (this.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
+                    this.player.hand.addToHand(c);
+                    this.player.discardPile.removeCard(c);
+                }
+                c.lighten(false);
+                c.unhover();
+            }
+            for (AbstractCard c : this.player.discardPile.group) {
+                c.unhover();
+                c.target_x = CardGroup.DISCARD_PILE_X;
+                c.target_y = CardGroup.DISCARD_PILE_Y;
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();

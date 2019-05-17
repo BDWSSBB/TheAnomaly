@@ -11,7 +11,6 @@ import AnomalyMod.patches.enums.CardColorEnum;
 import AnomalyMod.patches.enums.PlayerClassEnum;
 import AnomalyMod.relics.*;
 import AnomalyMod.trololololo.TheEvilDevModels.AprilFoolsEvilDev;
-import AnomalyMod.trololololo.TheEvilDevModels.TheOriginalEvilDev;
 import basemod.*;
 import basemod.abstracts.CustomSavable;
 import basemod.interfaces.*;

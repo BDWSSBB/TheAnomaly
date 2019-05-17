@@ -18,8 +18,8 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
     public static final String NAME = BLIGHT_STRINGS.NAME;
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
-    public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
-    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/blights/surpriseElites.png";
+    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/character/placeholder/empty128x128.png";
     public static final int SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM = 40;
     public static final int SURPRISE_ELITES_MONSTER_ROOM_IMPROBABILITY_MINIMUM = 50;
     public static final int SURPRISE_ELITES_SHOP_ROOM_IMPROBABILITY_MINIMUM = 70;

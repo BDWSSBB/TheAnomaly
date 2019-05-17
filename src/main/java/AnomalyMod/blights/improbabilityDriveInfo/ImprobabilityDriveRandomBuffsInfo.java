@@ -29,8 +29,8 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
     public static final String NAME = BLIGHT_STRINGS.NAME;
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
-    public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
-    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/blights/randomBuffs.png";
+    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/character/placeholder/empty128x128.png";
 
     public ImprobabilityDriveRandomBuffsInfo() {
         super(ID, NAME, getDescription(), IMAGE_PATH, IMAGE_OUTLINE_PATH, true);
@@ -52,6 +52,7 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
     }
 
     private void changeDescription() {
+        this.counter = (int) (getPowerLevel() * 10.0F);
         this.description = getDescription();
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
