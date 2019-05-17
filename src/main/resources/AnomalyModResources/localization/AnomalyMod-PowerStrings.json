@@ -200,7 +200,7 @@
   "anomalyMod:RedFlag": {
     "NAME": "Red Flag",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever dealt attack damage from at least #b",
+      "#pRandom #pBuff: Whenever dealt attack damage from #b",
       " #yAttacks, deals #b50% more attack damage this turn.",
       " NL NL Deals #b",
       "% more attack damage this turn."
