@@ -1,6 +1,7 @@
 package AnomalyMod.actions.unique;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.helpers.config.ConfigHelper;
 import AnomalyMod.relics.ControlHijack;
 import AnomalyMod.relics.AuditingHijack;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -34,17 +35,19 @@ public class PortableTerminalAction extends AbstractGameAction {
                 return;
             }
             else {
-                ArrayList<AbstractCard> nonImprobableCards = new ArrayList<>();
-                for (AbstractCard c : this.player.hand.group) {
-                    if (!(c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0)) {
-                        nonImprobableCards.add(c);
+                if (ConfigHelper.makePortableTerminalMoveCards) {
+                    ArrayList<AbstractCard> nonImprobableCards = new ArrayList<>();
+                    for (AbstractCard c : this.player.hand.group) {
+                        if (!(c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0)) {
+                            nonImprobableCards.add(c);
+                        }
                     }
-                }
-                for (AbstractCard c : nonImprobableCards) {
-                    this.player.hand.removeCard(c);
-                }
-                for (AbstractCard c : nonImprobableCards) {
-                    this.player.hand.addToTop(c);
+                    for (AbstractCard c : nonImprobableCards) {
+                        this.player.hand.removeCard(c);
+                    }
+                    for (AbstractCard c : nonImprobableCards) {
+                        this.player.hand.addToTop(c);
+                    }
                 }
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 99, true, true);
             }

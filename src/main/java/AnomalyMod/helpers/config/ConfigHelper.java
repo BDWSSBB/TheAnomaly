@@ -28,6 +28,8 @@ public class ConfigHelper {
     public static ModLabeledToggleButton overrideJungleMusicOnButton;
     public static boolean useSpecialUpgradeNames;
     public static ModLabeledToggleButton upgradeNamesButton;
+    public static boolean makePortableTerminalMoveCards;
+    public static ModLabeledToggleButton portableTerminalMovesCardsButton;
     public static boolean shouldFightMe;
     public static ModLabeledToggleButton fightMeButton;
     public static boolean foughtAprilFoolsMe;
@@ -43,6 +45,7 @@ public class ConfigHelper {
             defaults.put("customMusic", "ANOMALY_ONLY");
             defaults.put("customJungleMusic", "ANOMALY_ONLY");
             defaults.put("upgradeNames", Boolean.toString(true));
+            defaults.put("portableTerminalMoveCards", Boolean.toString(true));
             defaults.put("fightMe", Boolean.toString(false));
             defaults.put("foughtAprilFoolsMe", Boolean.toString(false));
             modConfig = new SpireConfig("TheAnomaly", "config", defaults);
@@ -88,24 +91,10 @@ public class ConfigHelper {
                 break;
             }
         }
-        if (modConfig.getBool("upgradeNames")) {
-            useSpecialUpgradeNames = true;
-        }
-        else {
-            useSpecialUpgradeNames = false;
-        }
-        if (modConfig.getBool("fightMe")) {
-            shouldFightMe = true;
-        }
-        else {
-            shouldFightMe = false;
-        }
-        if (modConfig.getBool("foughtAprilFoolsMe")) {
-            foughtAprilFoolsMe = true;
-        }
-        else {
-            foughtAprilFoolsMe = false;
-        }
+        useSpecialUpgradeNames = modConfig.getBool("upgradeNames");
+        makePortableTerminalMoveCards = modConfig.getBool("portableTerminalMoveCards");
+        shouldFightMe = modConfig.getBool("fightMe");
+        foughtAprilFoolsMe = modConfig.getBool("foughtAprilFoolsMe");
     }
 
     public static void initializeConfig() {
@@ -250,6 +239,25 @@ public class ConfigHelper {
                     }
                 });
         settingsPanel.addUIElement(upgradeNamesButton);
+        spaceY();
+
+        // Portable Terminal moves Improb cards to the left (for easy sorting)
+        portableTerminalMovesCardsButton = new ModLabeledToggleButton("Have Portable Terminal move cards with Improbability to the left for sorting.",
+                currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                makePortableTerminalMoveCards, settingsPanel, label -> {},
+                button -> {
+                    makePortableTerminalMoveCards = button.enabled;
+                    if (modConfig != null) {
+                        modConfig.setBool("portableTerminalMoveCards", button.enabled);
+                        try {
+                            modConfig.save();
+                        }
+                        catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(portableTerminalMovesCardsButton);
         spaceY();
 
         // (I'm not ready to fight yet)
