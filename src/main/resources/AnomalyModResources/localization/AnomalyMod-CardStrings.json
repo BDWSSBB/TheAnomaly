@@ -217,7 +217,7 @@
   },
   "anomalyMod:Invalidate": {
     "NAME": "Invalidate",
-    "DESCRIPTION": "Retain. NL Remove all your debuffs. NL Gain Improbability equal to the number of debuffs removed.",
+    "DESCRIPTION": "Retain. NL Gain 1 Improbability. NL Remove all your debuffs.",
     "EXTENDED_DESCRIPTION": [
       "#rNOPE."
     ]

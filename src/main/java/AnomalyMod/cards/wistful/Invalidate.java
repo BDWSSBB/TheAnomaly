@@ -1,11 +1,10 @@
 package AnomalyMod.cards.wistful;
 
-import AnomalyMod.actions.unique.InvalidateAction;
+import AnomalyMod.actions.common.ChangeImprobabilityAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,10 +33,8 @@ public class Invalidate extends AbstractAnomalyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (MathUtils.randomBoolean(0.02F)) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, CARD_STRINGS.EXTENDED_DESCRIPTION[0], 0.1F, 2.0F));
-        }
-        AbstractDungeon.actionManager.addToBottom(new InvalidateAction());
+        AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(1));
+        AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(p));
     }
 
     @Override
