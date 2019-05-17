@@ -141,8 +141,7 @@
   },
   "anomalyMod:Excavate": {
     "NAME": "Excavate",
-    "DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaust."
   },
   "anomalyMod:ExtraPockets": {
     "NAME": "Extra Pockets",
