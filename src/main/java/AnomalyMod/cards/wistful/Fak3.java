@@ -26,7 +26,7 @@ public class Fak3 extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int BLOCK_AMOUNT = 10;
+    private static final int BLOCK_AMOUNT = 11;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
