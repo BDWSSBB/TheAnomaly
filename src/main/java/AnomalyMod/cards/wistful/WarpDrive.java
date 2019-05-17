@@ -18,15 +18,15 @@ public class WarpDrive extends AbstractAnomalyCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/warpDrive.png";
-    private static final int COST = 4;
+    private static final int COST = 3;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int IMPROBABILITY_NUMBER = 2;
-    private static final int BLOCK_AMOUNT = 45;
-    private static final int UPGRADE_PLUS_BLOCK = 15;
+    private static final int IMPROBABILITY_NUMBER = 1;
+    private static final int BLOCK_AMOUNT = 33;
+    private static final int UPGRADE_PLUS_BLOCK = 12;
 
     public WarpDrive() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
