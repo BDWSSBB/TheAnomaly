@@ -5,6 +5,7 @@ import AnomalyMod.actions.unique.JailbreakAnyAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,17 +26,19 @@ public class Jailbreak extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
+    private static final int BLOCK_AMOUNT = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int MAGIC_NUMBER = 1;
-    private static final int EXHAUSTIVE_AMOUNT = 2;
 
     public Jailbreak() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.block = this.baseBlock = BLOCK_AMOUNT;
         this.magicNumber = this.baseMagicNumber = MAGIC_NUMBER;
-        ExhaustiveVariable.setBaseValue(this, EXHAUSTIVE_AMOUNT);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new JailbreakAnyAction(this.magicNumber));
         }
@@ -55,6 +58,7 @@ public class Jailbreak extends AbstractAnomalyCard {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
+            this.upgradeBlock(UPGRADE_PLUS_BLOCK);
         }
     }
 }

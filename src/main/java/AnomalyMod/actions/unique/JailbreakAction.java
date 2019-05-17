@@ -29,11 +29,11 @@ public class JailbreakAction extends AbstractGameAction {
             }
             else if (this.player.hand.size() == 1) {
                 AbstractCard card = this.player.hand.getTopCard();
-                if (card.canUpgrade()) {
-                    card.upgrade();
-                }
-                if (card instanceof AbstractAnomalyCard) {
+                if (card instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) card).baseImprobabilityNumber > 0) {
                     ((AbstractAnomalyCard) card).changeImprobabilityNumber(-this.improbReductionAmount, true);
+                }
+                else if (card.canUpgrade()) {
+                    card.upgrade();
                 }
             }
             else {
@@ -44,11 +44,11 @@ public class JailbreakAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                if (c.canUpgrade()) {
-                    c.upgrade();
-                }
-                if (c instanceof AbstractAnomalyCard) {
+                if (c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0) {
                     ((AbstractAnomalyCard) c).changeImprobabilityNumber(-this.improbReductionAmount, true);
+                }
+                else if (c.canUpgrade()) {
+                    c.upgrade();
                 }
                 this.player.hand.addToTop(c);
             }

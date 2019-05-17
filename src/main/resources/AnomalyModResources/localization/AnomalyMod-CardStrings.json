@@ -231,8 +231,8 @@
   },
   "anomalyMod:Jailbreak": {
     "NAME": "Jailbreak",
-    "DESCRIPTION": "Upgrade and reduce the Improbability of a card in your hand by !M! this combat. NL Exhaustive !stslib:ex!.",
-    "UPGRADE_DESCRIPTION": "Upgrade and reduce the Improbability of ANY card by !M! this combat. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Gain !B! Block. NL Choose a card. NL If it has Improbability, reduce its Improbability by !M!. Otherwise, Upgrade it.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Choose ANY card. NL If it has Improbability, reduce its Improbability by !M!. Otherwise, Upgrade it."
   },
   "anomalyMod:Krieg": {
     "NAME": "Krieg",
