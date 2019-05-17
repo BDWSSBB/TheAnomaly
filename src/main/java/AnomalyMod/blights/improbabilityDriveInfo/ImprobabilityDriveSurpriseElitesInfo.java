@@ -39,6 +39,9 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     public void onEnterRoom(AbstractRoom room) {
         if (ImprobabilityDrive.getImprobability() >= SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM) {
             this.counter += 2;
+            if (this.counter > 100) {
+                this.counter = 100;
+            }
         }
         changeDescription();
     }
@@ -114,6 +117,9 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
                 }
                 else if (AbstractDungeon.nextRoom.room instanceof RestRoom) {
                     blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_REST_ROOM_IMPROBABILITY_MINIMUM - 7;
+                }
+                if (blight.counter > 100) {
+                    blight.counter = 100;
                 }
             }
         }
