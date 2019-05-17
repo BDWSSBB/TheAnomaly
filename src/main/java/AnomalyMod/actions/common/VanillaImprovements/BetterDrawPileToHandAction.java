@@ -1,5 +1,6 @@
 package AnomalyMod.actions.common.VanillaImprovements;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -42,7 +43,13 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
                     cardsToMove.add(c);
                 }
                 for (AbstractCard c : cardsToMove) {
-                    this.player.drawPile.moveToHand(c, this.player.drawPile);
+                    if (this.player.hand.size() == BaseMod.MAX_HAND_SIZE) {
+                        this.player.drawPile.moveToDiscardPile(c);
+                        this.player.createHandIsFullDialog();
+                    }
+                    else {
+                        this.player.drawPile.moveToHand(c, this.player.drawPile);
+                    }
                 }
                 this.isDone = true;
                 return;
@@ -76,7 +83,13 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                this.player.drawPile.moveToHand(c, this.player.drawPile);
+                if (this.player.hand.size() == BaseMod.MAX_HAND_SIZE) {
+                    this.player.drawPile.moveToDiscardPile(c);
+                    this.player.createHandIsFullDialog();
+                }
+                else {
+                    this.player.drawPile.moveToHand(c, this.player.drawPile);
+                }
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
