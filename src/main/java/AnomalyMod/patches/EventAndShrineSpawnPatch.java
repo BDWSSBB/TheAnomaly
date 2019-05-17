@@ -43,20 +43,15 @@ public class EventAndShrineSpawnPatch {
                 if (AbstractDungeon.player.gold < (int) ReflectionHacks.getPrivateStatic(Beggar.class, "GOLD_COST")) {
                     tmp.remove(Beggar.ID);
                 }
-                int highestRelativeFloor = -1;
-                for (ArrayList<MapRoomNode> aM : AbstractDungeon.map) {
-                    for (MapRoomNode m : aM) {
-                        if (highestRelativeFloor < m.y) {
-                            highestRelativeFloor = m.y;
-                        }
-                    }
-                }
+
                 if (AbstractDungeon.currMapNode != null && AbstractDungeon.currMapNode.y < getHalfOfHighestRelativeFloor()) {
+                    // This thing should really only be seen top half of act 2. Double slavers for no reward is cancer.
                     tmp.remove(Colosseum.ID);
                 }
 
                 // Act 3 changes:
                 if (AbstractDungeon.currMapNode != null && AbstractDungeon.currMapNode.y < getHalfOfHighestRelativeFloor()) {
+                    // Same issue with Colosseum.
                     tmp.remove(MysteriousSphere.ID);
                 }
             }
@@ -105,8 +100,12 @@ public class EventAndShrineSpawnPatch {
         public static void Insert(Random rng, ArrayList<String> tmp) {
             // Changes to vanilla spawning:
             if (AbstractDungeon.player instanceof AnomalyCharacter) {
+                // BAD GAME DESIGN (at least the wheel one)
                 tmp.remove(GremlinMatchGame.ID);
                 tmp.remove(GremlinWheelGame.ID);
+
+                // Especially hurts for him, don't bother.
+                tmp.remove(KnowingSkull.ID);
             }
         }
 
