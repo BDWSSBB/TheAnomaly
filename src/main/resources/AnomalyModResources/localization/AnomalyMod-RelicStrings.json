@@ -60,7 +60,7 @@
     "DESCRIPTIONS": [
       "Every time you draw #b",
       " cards with #yImprobability, draw #b",
-      " card next turn."
+      " additional card next turn."
     ]
   },
   "anomalyMod:MilkTea": {
