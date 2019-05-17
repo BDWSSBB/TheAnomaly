@@ -53,4 +53,18 @@ public class DynamicVariablesPatch {
             ((AbstractAnomalyCard) card).improbabilityNumber = (int) cardImprobability;
         }
     }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "resetAttributes"
+    )
+    public static class resetAttributesPatch {
+
+        public static void Prefix(AbstractCard __instance) {
+            if (__instance instanceof AbstractAnomalyCard) {
+                ((AbstractAnomalyCard) __instance).improbabilityNumber = ((AbstractAnomalyCard) __instance).baseImprobabilityNumber;
+                ((AbstractAnomalyCard) __instance).isImprobabilityNumberModified = false;
+            }
+        }
+    }
 }
