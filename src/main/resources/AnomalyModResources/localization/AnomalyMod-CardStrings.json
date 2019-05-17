@@ -276,7 +276,7 @@
   "anomalyMod:Preloader": {
     "NAME": "Preloader",
     "DESCRIPTION": "Exhaust. NL Startup: Gain [E] and draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Exhaust. NL Startup: Gain [E] [E] and draw !M! card."
+    "UPGRADE_DESCRIPTION": "Exhaust. NL Startup: Gain [E] and draw !M! cards."
   },
   "anomalyMod:Procrastinate": {
     "NAME": "Procrastinate",

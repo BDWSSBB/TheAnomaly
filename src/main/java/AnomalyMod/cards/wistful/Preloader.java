@@ -26,6 +26,7 @@ public class Preloader extends AbstractAnomalyCard implements StartupCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final int MAGIC_NUMBER = 1;
+    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     public Preloader() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -36,12 +37,7 @@ public class Preloader extends AbstractAnomalyCard implements StartupCard {
 
     @Override
     public boolean atBattleStartPreDraw() {
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(2));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
-        }
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
         return true;
     }
@@ -61,6 +57,7 @@ public class Preloader extends AbstractAnomalyCard implements StartupCard {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
+            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
         }
     }
 }
