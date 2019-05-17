@@ -2,9 +2,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.player;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StitchedPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class StitchedBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -13,6 +11,6 @@ public class StitchedBuffModule extends AbstractImprobabilityDriveBuffModule {
     }
 
     public void doAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new StitchedPower(this.target)));
+        this.target.addPower(new StitchedPower(this.target));
     }
 }

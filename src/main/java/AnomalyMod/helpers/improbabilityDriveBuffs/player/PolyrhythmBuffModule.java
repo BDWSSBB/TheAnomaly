@@ -2,9 +2,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.player;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.PolyrhythmPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class PolyrhythmBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -13,6 +11,6 @@ public class PolyrhythmBuffModule extends AbstractImprobabilityDriveBuffModule {
     }
 
     public void doAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new PolyrhythmPower(this.target)));
+        this.target.addPower(new PolyrhythmPower(this.target));
     }
 }

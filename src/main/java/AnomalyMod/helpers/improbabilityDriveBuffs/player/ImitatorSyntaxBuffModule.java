@@ -2,9 +2,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.player;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.ImitatorSyntax;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ImitatorSyntaxBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -14,7 +12,7 @@ public class ImitatorSyntaxBuffModule extends AbstractImprobabilityDriveBuffModu
 
     public void doAction() {
         if (this.totalAmount > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new ImitatorSyntax(this.target,(int) this.totalAmount, 5), (int) this.totalAmount));
+            this.target.addPower(new ImitatorSyntax(this.target,(int) this.totalAmount, 5));
         }
     }
 }

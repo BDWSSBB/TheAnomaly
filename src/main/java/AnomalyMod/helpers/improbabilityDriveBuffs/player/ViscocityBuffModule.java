@@ -2,9 +2,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.player;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.ViscosityPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ViscocityBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -19,7 +17,7 @@ public class ViscocityBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public void doAction() {
         if (this.totalAmount> 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new ViscosityPower(this.target, (int) this.totalAmount), (int) this.totalAmount));
+            this.target.addPower(new ViscosityPower(this.target, (int) this.totalAmount));
         }
     }
 }

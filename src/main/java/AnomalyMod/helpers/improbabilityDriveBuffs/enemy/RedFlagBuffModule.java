@@ -2,8 +2,6 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.enemy;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.RedFlagPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class RedFlagBuffModule extends AbstractImprobabilityDriveBuffModule {
@@ -13,6 +11,6 @@ public class RedFlagBuffModule extends AbstractImprobabilityDriveBuffModule {
     }
 
     public void doAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new RedFlagPower(this.target)));
+        this.target.addPower(new RedFlagPower(this.target));
     }
 }

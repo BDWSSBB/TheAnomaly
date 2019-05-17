@@ -2,8 +2,6 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.enemy;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.ImproblemblePower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ImproblembleBuffModule extends AbstractImprobabilityDriveBuffModule {
@@ -14,7 +12,7 @@ public class ImproblembleBuffModule extends AbstractImprobabilityDriveBuffModule
 
     public void doAction() {
         if (this.totalAmount > 0) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new ImproblemblePower(this.target, (int) this.totalAmount), (int) this.totalAmount));
+            this.target.addPower(new ImproblemblePower(this.target, (int) this.totalAmount));
         }
     }
 }

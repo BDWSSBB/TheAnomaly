@@ -2,9 +2,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.player;
 
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.SpringLoadedPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class SpringLoadedBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -13,6 +11,6 @@ public class SpringLoadedBuffModule extends AbstractImprobabilityDriveBuffModule
     }
 
     public void doAction() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, null, new SpringLoadedPower(this.target)));
+        this.target.addPower(new SpringLoadedPower(this.target));
     }
 }
