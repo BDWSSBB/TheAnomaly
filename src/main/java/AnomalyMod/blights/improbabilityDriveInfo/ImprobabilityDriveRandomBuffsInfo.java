@@ -149,10 +149,10 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
                 }
             }
             if (m instanceof Transient) {
-                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 1.0F / 3.0F, 1.0F, 0.0F, 0, 1.0F / 3.0F));
+                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 0.0F, 0, 1.0F / 3.0F));
             }
             else {
-                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 1.0F / 3.0F, 1.0F, 1.0F, 0, 1.0F / 3.0F));
+                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 1.0F, 0, 1.0F / 3.0F));
             }
             buffsToUse.add(new ImproblembleBuffModule(m, 1, 1.0F, 1.0F));
             if (powerLevel >= 3.0F) {
