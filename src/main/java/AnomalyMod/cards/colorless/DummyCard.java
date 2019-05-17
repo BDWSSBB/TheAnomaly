@@ -40,7 +40,6 @@ public class DummyCard extends AbstractAnomalyCard {
             this.loadCardImage(POWER_IMAGE_PATH);
             this.textureImg = POWER_IMAGE_PATH;
         }
-        this.isEthereal = true;
         this.exhaust = true;
     }
 

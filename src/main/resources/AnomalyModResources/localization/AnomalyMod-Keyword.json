@@ -12,7 +12,7 @@
       "dummy",
       "dummies"
     ],
-    "DESCRIPTION": "Dummies are cost #b0 cards that are #yEthereal, #yExhaust, and #yExhaust at the end of your turn from anywhere."
+    "DESCRIPTION": "Dummies are cost #b0 cards that #yExhaust and only exist for this turn."
   },
   {
     "NAMES": [
