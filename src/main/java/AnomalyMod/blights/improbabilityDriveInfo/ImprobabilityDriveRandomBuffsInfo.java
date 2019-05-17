@@ -80,8 +80,12 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
         ArrayList<AbstractImprobabilityDriveBuffModule> buffsToUse = new ArrayList<>();
         buffsToUse.add(new ViscocityBuffModule(AbstractDungeon.player, 6, 1.0F, 0.0F, 2, 0.5F));
         if (powerLevel >= 2.0F && AbstractDungeon.miscRng.randomBoolean()) {
-            buffsToUse.add(new BonfireSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
-            buffsToUse.add(new ImitatorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
+            if (AbstractDungeon.miscRng.randomBoolean()) {
+                buffsToUse.add(new BonfireSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
+            }
+            else {
+                buffsToUse.add(new ImitatorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
+            }
         }
         else {
             buffsToUse.add(new AggressorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
