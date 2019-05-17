@@ -72,7 +72,7 @@ public class PortableTerminalAction extends AbstractGameAction {
                 }
             }
             if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() >= 2) {
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.player, 1));
+                AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.player, 1));
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
