@@ -1,7 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyPower;
-import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.SpikeStripPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SpikierStripPower extends AbstractAnomalyPower {
+public class SpikierStripPower extends AbstractAnomalyPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:SpikierStrip";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -32,6 +32,8 @@ public class SpikierStripPower extends AbstractAnomalyPower {
 
     @Override
     public void onActuallyGainImprobability(int improbabilityGained) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpikeStripPower(this.owner, improbabilityGained), improbabilityGained));
+        if (improbabilityGained > 0) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SpikeStripPower(this.owner, improbabilityGained), improbabilityGained));
+        }
     }
 }

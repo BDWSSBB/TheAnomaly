@@ -24,8 +24,7 @@ public class DerailAction extends AbstractGameAction {
         if (!this.target.isDeadOrEscaped()) {
             if (this.target.intent == AbstractMonster.Intent.ATTACK || this.target.intent == AbstractMonster.Intent.ATTACK_BUFF || this.target.intent == AbstractMonster.Intent.ATTACK_DEBUFF || this.target.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new WeakPower(this.target, this.powerAmount, false), this.powerAmount));
-            }
-            else {
+            } else {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new VulnerablePower(this.target, this.powerAmount, false), this.powerAmount));
             }
         }

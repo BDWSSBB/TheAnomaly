@@ -1,7 +1,7 @@
 package AnomalyMod.actions.unique.xCost;
 
 import AnomalyMod.actions.common.ChangeImprobabilityAction;
-import AnomalyMod.powers.ScissorCutsPower;
+import AnomalyMod.powers.StapledPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.ChemicalX;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class PincushionAction extends AbstractGameAction {
 
@@ -45,7 +44,7 @@ public class PincushionAction extends AbstractGameAction {
         }
         int energyToUse = Math.min(effect, this.energyOnUse);
         for (int i = 0; i < this.secondMagicNumber; i++) {
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new ScissorCutsPower(this.target, this.magicNumber), this.magicNumber, true));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new StapledPower(this.target, this.magicNumber), this.magicNumber, true));
         }
         for (int i = 0; i < this.secondMagicNumber; i++) {
             AbstractDungeon.actionManager.addToTop(new DamageAction(this.target, this.info, AbstractGameAction.AttackEffect.BLUNT_LIGHT, true));

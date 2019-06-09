@@ -19,8 +19,7 @@ public class ShellLoadedPowerCorrectionAction extends AbstractGameAction {
     public void update() {
         if (this.powerInstance.amount == 0) {
             this.powerInstance.shouldGainDoubleBlock = true;
-        }
-        else {
+        } else {
             this.powerInstance.shouldGainDoubleBlock = false;
         }
         for (AbstractCard c : this.player.hand.group) {

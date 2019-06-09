@@ -2,6 +2,7 @@ package AnomalyMod.cards.wistful;
 
 import AnomalyMod.actions.unique.SocketSliceAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -46,26 +47,23 @@ public class SocketSlice extends AbstractAnomalyCard {
     public void applyPowers() {
         int findIt = 0;
         boolean foundIt = false;
-        for (int i = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1; i >= 0; i--) {
-            if (AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).type == AbstractCard.CardType.ATTACK) {
+        for (int i = CardPlayHelper.cardsActuallyPlayedThisCombat.size() - 1; i >= 0; i--) {
+            if (CardPlayHelper.cardsActuallyPlayedThisCombat.get(i).type == AbstractCard.CardType.ATTACK) {
                 findIt++;
                 if (findIt == 2) {
                     foundIt = true;
                     break;
                 }
-            }
-            else if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).dontTriggerOnUseCard) {
+            } else {
                 break;
             }
         }
         if (foundIt) {
             this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-        }
-        else {
+        } else {
             if (2 - findIt == 1) {
                 this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[1] + (2 - findIt) + CARD_STRINGS.EXTENDED_DESCRIPTION[2];
-            }
-            else {
+            } else {
                 this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[1] + (2 - findIt) + CARD_STRINGS.EXTENDED_DESCRIPTION[3];
             }
         }

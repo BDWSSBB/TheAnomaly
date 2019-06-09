@@ -1,14 +1,14 @@
 package AnomalyMod.powers;
 
 import AnomalyMod.actions.unique.SixthRevisionAction;
-import AnomalyMod.helpers.WaitForIntentsToLoad;
+import AnomalyMod.actions.utility.WaitTillIntentsLoadAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SixthRevisionPower extends AbstractAnomalyPower implements WaitForIntentsToLoad {
+public class SixthRevisionPower extends AbstractAnomalyPower {
 
     public static final String POWER_ID = "anomalyMod:SixthRevision";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -30,8 +30,7 @@ public class SixthRevisionPower extends AbstractAnomalyPower implements WaitForI
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }
     }
@@ -39,6 +38,7 @@ public class SixthRevisionPower extends AbstractAnomalyPower implements WaitForI
     @Override
     public void atStartOfTurn() {
         flash();
+        AbstractDungeon.actionManager.addToBottom(new WaitTillIntentsLoadAction());
         AbstractDungeon.actionManager.addToBottom(new SixthRevisionAction(this.amount));
     }
 }

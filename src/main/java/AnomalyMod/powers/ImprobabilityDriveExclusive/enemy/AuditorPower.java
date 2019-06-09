@@ -1,5 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class AuditorPower extends AbstractAnomalyPower {
+public class AuditorPower extends AbstractAnomalyPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:Auditor";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

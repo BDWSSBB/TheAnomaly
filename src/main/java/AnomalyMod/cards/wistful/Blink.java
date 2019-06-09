@@ -53,8 +53,7 @@ public class Blink extends AbstractAnomalyCard {
             if (ConfigHelper.useSpecialUpgradeNames) {
                 if (MathUtils.randomBoolean(0.002F) && AbstractDungeon.id != null) {
                     this.name = JOKE_UPGRADE_NAME;
-                }
-                else {
+                } else {
                     this.name = UPGRADE_NAME;
                 }
                 initializeTitle();

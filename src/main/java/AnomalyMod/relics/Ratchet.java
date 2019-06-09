@@ -12,8 +12,8 @@ public class Ratchet extends AbstractAnomalyRelic {
     public static final String ID = "anomalyMod:Ratchet";
     public static final Texture IMAGE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/placeholder.png");
     public static final Texture IMAGE_OUTLINE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/outline/placeholderOutline.png");
-    private static final int IMPROBABILITY_INTERVAL = 2;
-    private static final int IMPROBABILITY_GAIN = 1;
+    private static final int IMPROBABILITY_INTERVAL = 3;
+    private static final int IMPROBABILITY_GAIN = 2;
 
     public Ratchet() {
         super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.BOSS, LandingSound.HEAVY);
@@ -22,7 +22,7 @@ public class Ratchet extends AbstractAnomalyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0]+ IMPROBABILITY_INTERVAL + DESCRIPTIONS[1] + IMPROBABILITY_GAIN + DESCRIPTIONS[2];
+        return DESCRIPTIONS[0] + IMPROBABILITY_INTERVAL + DESCRIPTIONS[1] + IMPROBABILITY_GAIN + DESCRIPTIONS[2];
     }
 
     @Override

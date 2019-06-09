@@ -35,12 +35,7 @@ public class ImprobabilityDriveTryNewThingsInfo extends AbstractAnomalyBlight {
     }
 
     @Override
-    public void onEnterRoom(AbstractRoom room) {
-        changeDescription();
-    }
-
-    @Override
-    public void onActuallyGainImprobability(int improbabilityGained) {
+    public void updateDescriptionFromImprobabilityChange() {
         changeDescription();
     }
 
@@ -62,23 +57,26 @@ public class ImprobabilityDriveTryNewThingsInfo extends AbstractAnomalyBlight {
 
     public static void convertGoldToRewards() {
         int initialCounter = ImprobabilityDrive.getImprobability();
-        if (initialCounter >= CONVERT_GOLD_IMPROBABILITY_MINIMUM && AnomalyMod.anomalyRNG.randomBoolean(getConvertGoldChance(initialCounter))) {
+
+        // I just use cardRng for this stuff to avoid the mess of save and load problems with my own RNG.
+        if (initialCounter >= CONVERT_GOLD_IMPROBABILITY_MINIMUM && AbstractDungeon.cardRng.randomBoolean(getConvertGoldChance(initialCounter))) {
             cardRewardStrength = 0;
             ArrayList<RewardItem> rewardsToRemove = new ArrayList<>();
             for (RewardItem r : AbstractDungeon.combatRewardScreen.rewards) {
-                if (r.type == RewardItem.RewardType.GOLD || r.type == RewardItem.RewardType.STOLEN_GOLD) {
+                if (r.goldAmt > 0 || r.bonusGold > 0) {
                     rewardsToRemove.add(r);
                 }
             }
             for (RewardItem r : rewardsToRemove) {
                 AbstractDungeon.combatRewardScreen.rewards.remove(r);
-                cardRewardStrength += r.goldAmt;
+                cardRewardStrength += r.goldAmt + r.bonusGold;
             }
             if (cardRewardStrength > 0) {
                 convertingGoldToCard = true;
                 AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem());
                 convertingGoldToCard = false;
             }
+            cardRewardStrength = 0;
         }
         // Sometimes there are empty card rewards (e.g. Busted Crown), so this should do another check.
         ArrayList<RewardItem> emptyRewards = new ArrayList<>();
@@ -96,8 +94,7 @@ public class ImprobabilityDriveTryNewThingsInfo extends AbstractAnomalyBlight {
     private static float getConvertGoldChance(int initialCounter) {
         if (initialCounter < CONVERT_GOLD_IMPROBABILITY_MINIMUM) {
             return 0.0F;
-        }
-        else {
+        } else {
             int translatedInitialCounter = initialCounter + 3;
             return (-7.0F / 10.0F) + ((3.0F * translatedInitialCounter + 30.0F) / (2.0F * translatedInitialCounter + 70.0F));
         }

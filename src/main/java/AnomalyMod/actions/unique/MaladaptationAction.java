@@ -1,5 +1,6 @@
 package AnomalyMod.actions.unique;
 
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -30,20 +31,17 @@ public class MaladaptationAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             if (this.player.hand.isEmpty()) {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new WeakPower(this.target, this.debuffAmount, false), this.debuffAmount));
-            }
-            else if (this.player.hand.size() == 1) {
+            } else if (this.player.hand.size() == 1) {
                 AbstractCard tempCard = this.player.hand.getBottomCard();
                 if (tempCard.type == AbstractCard.CardType.SKILL) {
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new VulnerablePower(this.target, this.debuffAmount, false), this.debuffAmount));
-                }
-                else {
+                } else {
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new WeakPower(this.target, this.debuffAmount, false), this.debuffAmount));
                 }
                 this.player.hand.moveToDiscardPile(tempCard);
                 tempCard.triggerOnManualDiscard();
                 GameActionManager.incrementDiscard(false);
-            }
-            else {
+            } else {
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false);
                 tickDuration();
                 return;
@@ -56,14 +54,11 @@ public class MaladaptationAction extends AbstractGameAction {
                 GameActionManager.incrementDiscard(false);
                 if (c.type == AbstractCard.CardType.SKILL) {
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new VulnerablePower(this.target, this.debuffAmount, false), this.debuffAmount));
-                }
-                else {
+                } else {
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.player, new WeakPower(this.target, this.debuffAmount, false), this.debuffAmount));
                 }
             }
-            AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            this.player.hand.refreshHandLayout();
+            CardPlayHelper.standardHandActionResetProtocol();
         }
         tickDuration();
     }

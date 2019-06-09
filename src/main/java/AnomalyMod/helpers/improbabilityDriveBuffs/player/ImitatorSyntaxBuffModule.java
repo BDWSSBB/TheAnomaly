@@ -12,7 +12,7 @@ public class ImitatorSyntaxBuffModule extends AbstractImprobabilityDriveBuffModu
 
     public void doAction() {
         if (this.totalAmount > 0) {
-            this.target.addPower(new ImitatorSyntax(this.target,(int) this.totalAmount, 5));
+            this.target.addPower(new ImitatorSyntax(this.target, (int) this.totalAmount, 5));
         }
     }
 }

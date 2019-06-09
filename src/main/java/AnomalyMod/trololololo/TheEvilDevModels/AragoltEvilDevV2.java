@@ -4,7 +4,6 @@ import AnomalyMod.actions.utility.NoFastModeTalkAction;
 import AnomalyMod.actions.utility.NoFastModeWaitAction;
 import AnomalyMod.blights.ImprobabilityDrive;
 import AnomalyMod.cards.wistful.DeimosDown;
-import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.SpikeStripPower;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.SpikierStripPower;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.WhiteFlagPower;
 import AnomalyMod.trololololo.ImmuneToStunPower;
@@ -36,7 +35,6 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
     Notes for fight:
     - Innate abilities include:
      - Time Maze
-     - Lazy Mountain (+100% more damage taken per card played this combat)
      - Converts buffs to "debuffs" (except Lazy Mountain)
     - 666x666 move has a train sound with it
     - The actual insta-kill move should do what cracked hourglass does
@@ -77,16 +75,16 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
     public void takeTurn() {
         switch (this.nextMove) {
             case (byte) 1: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[0], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[1], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[2], 3.0F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[0], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[1], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[2], 3.0F, 2.5F));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("JEVIL-ANYTHING"));
                 AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(2.0F));
                 break;
             }
             case (byte) 2: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[3], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[4], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[3], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[4], 2.5F, 2.5F));
                 ImprobabilityDrive drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
                 if (drive != null) {
                     //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new SpikeStripPower(this, (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)), (int) (drive.getRandomBuffsPowerLevel(drive.counter) * 2)));
@@ -95,29 +93,28 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
                 break;
             }
             case (byte) 3: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[5], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[6], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[5], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[6], 2.5F, 2.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 50));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new WhiteFlagPower(this)));
                 break;
             }
             case (byte) 4: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[7], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[7], 2.5F, 2.5F));
                 int emptySpace = BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
                 if (emptySpace > 6) {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new DeimosDown(), 6));
-                }
-                else {
+                } else {
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new DeimosDown(), emptySpace));
                     AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new DeimosDown(), 6 - emptySpace, false, true));
                 }
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[8], 1.0F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[8], 1.0F, 2.5F));
                 break;
             }
             case (byte) 5: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[9], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[10], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[11], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[9], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[10], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[11], 2.5F, 2.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 50));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ThornsPower(this, 1), 1));
                 break;
@@ -127,24 +124,23 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
                     for (int i = 0; i < 9; i++) {
                         AbstractDungeon.actionManager.addToBottom(new SpawnRelicAction("hubris:Spice"));
                     }
-                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[13], 1.0F,2.5F));
-                }
-                else {
-                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[12], 2.5F,2.5F));
+                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[13], 1.0F, 2.5F));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[12], 2.5F, 2.5F));
                 }
                 break;
             }
             case (byte) 7: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[14], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[15], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[14], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[15], 2.5F, 2.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 50));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ArtifactPower(this, 2), 2));
                 break;
             }
             case (byte) 8: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[16], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[17], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[18], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[16], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[17], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[18], 2.5F, 2.5F));
                 ArrayList<AbstractCard> cursesToAdd = new ArrayList<>();
                 for (int i = 0; i < 50 && cursesToAdd.size() < 4; i++) {
                     AbstractCard c = AbstractDungeon.returnRandomCurse();
@@ -159,30 +155,29 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
                 break;
             }
             case (byte) 9: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[19], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[20], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[21], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[19], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[20], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[21], 2.5F, 2.5F));
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, 50));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ThornsPower(this, 1), 1));
                 break;
             }
             case (byte) 10: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[22], 2.5F,2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[22], 2.5F, 2.5F));
                 if (Loader.isModLoaded("hubris")) {
                     AbstractDungeon.actionManager.addToBottom(new SpawnRelicAction("hubris:CrackedHourglass"));
-                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[24], 1.5F,1.5F));
+                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[24], 1.5F, 1.5F));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[23], 2.5F, 2.5F));
                 }
-                else {
-                    AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[23], 2.5F,2.5F));
-                }
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[25], 1.5F,1.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[26], 1.5F,1.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[25], 1.5F, 1.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[26], 1.5F, 1.5F));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, ObnoxiousPower.POWER_ID));
                 break;
             }
             case (byte) 11: {
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[27], 1.5F,1.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[28], 1.0F,1.0F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[27], 1.5F, 1.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[28], 1.0F, 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("JEVIL-BYEBYE"));
                 AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(1.0F));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("CHOO-CHOO"));
@@ -197,14 +192,14 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
                     AbstractRelic hourglass = AbstractDungeon.player.getRelic("hubris:CrackedHourglass");
                     hourglass.atBattleStart();
                 }
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[29], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[30], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[31], 1.5F,1.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[29], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[30], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[31], 1.5F, 1.5F));
                 AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(2.0F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[32], 1.5F,1.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[33], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[34], 2.5F,2.5F));
-                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[35], 1.0F,1.0F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[32], 1.5F, 1.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[33], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[34], 2.5F, 2.5F));
+                AbstractDungeon.actionManager.addToBottom(new NoFastModeTalkAction(this, DIALOG[35], 1.0F, 1.0F));
                 AbstractDungeon.actionManager.addToBottom(new NoFastModeWaitAction(66666.6F));
                 break;
             }
@@ -216,38 +211,27 @@ public class AragoltEvilDevV2 extends AbstractEvilDev {
     public void getMove(int num) {
         if (lastMove((byte) 1)) {
             this.setMove((byte) 2, Intent.BUFF);
-        }
-        else if (lastMove((byte) 2)) {
+        } else if (lastMove((byte) 2)) {
             this.setMove((byte) 3, Intent.DEFEND_BUFF);
-        }
-        else if (lastMove((byte) 3)) {
+        } else if (lastMove((byte) 3)) {
             this.setMove((byte) 4, Intent.STRONG_DEBUFF);
-        }
-        else if (lastMove((byte) 4)) {
+        } else if (lastMove((byte) 4)) {
             this.setMove((byte) 5, Intent.DEFEND_BUFF);
-        }
-        else if (lastMove((byte) 5)) {
+        } else if (lastMove((byte) 5)) {
             this.setMove((byte) 6, Intent.STRONG_DEBUFF);
-        }
-        else if (lastMove((byte) 6)) {
+        } else if (lastMove((byte) 6)) {
             this.setMove((byte) 7, Intent.DEFEND_BUFF);
-        }
-        else if (lastMove((byte) 7)) {
+        } else if (lastMove((byte) 7)) {
             this.setMove((byte) 8, Intent.STRONG_DEBUFF);
-        }
-        else if (lastMove((byte) 8)) {
+        } else if (lastMove((byte) 8)) {
             this.setMove((byte) 9, Intent.DEFEND_BUFF);
-        }
-        else if (lastMove((byte) 9)) {
+        } else if (lastMove((byte) 9)) {
             this.setMove((byte) 10, Intent.STRONG_DEBUFF);
-        }
-        else if (lastMove((byte) 10)) {
+        } else if (lastMove((byte) 10)) {
             this.setMove((byte) 11, Intent.ATTACK, 666, 666, true);
-        }
-        else if (lastMove((byte) 11)) {
+        } else if (lastMove((byte) 11)) {
             this.setMove((byte) 12, Intent.MAGIC);
-        }
-        else {
+        } else {
             this.setMove((byte) 1, Intent.UNKNOWN);
         }
     }

@@ -1,6 +1,6 @@
 package AnomalyMod.relics;
 
-import AnomalyMod.powers.ScissorCutsPower;
+import AnomalyMod.powers.StapledPower;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -58,7 +58,7 @@ public class Megachette extends AbstractAnomalyRelic {
         if (info.owner.equals(AbstractDungeon.player) && info.type == DamageInfo.DamageType.NORMAL && damageAmount >= MINIMUM_DAMAGE_TO_ACTIVATE && !this.enemiesHitAlready.contains(target) && !this.usedThisTurn) {
             this.pulse = false;
             this.enemiesHitAlready.add(target);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new ScissorCutsPower(target, GAPING_PER_ACTIVATE), GAPING_PER_ACTIVATE));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new StapledPower(target, GAPING_PER_ACTIVATE), GAPING_PER_ACTIVATE));
         }
     }
 

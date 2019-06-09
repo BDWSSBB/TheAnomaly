@@ -19,8 +19,7 @@ public class SpringLoadedPowerCorrectionAction extends AbstractGameAction {
     public void update() {
         if (this.powerInstance.amount == 0) {
             this.powerInstance.shouldDoDoubleDamage = true;
-        }
-        else {
+        } else {
             this.powerInstance.shouldDoDoubleDamage = false;
         }
         for (AbstractCard c : this.player.hand.group) {

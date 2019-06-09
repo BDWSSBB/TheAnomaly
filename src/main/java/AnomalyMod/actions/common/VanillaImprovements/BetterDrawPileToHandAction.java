@@ -36,8 +36,7 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
             if (this.player.drawPile.isEmpty() || this.numberOfCards <= 0) {
                 this.isDone = true;
                 return;
-            }
-            else if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {
+            } else if (this.player.drawPile.size() <= this.numberOfCards && !this.optional) {
                 ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
                 for (AbstractCard c : this.player.drawPile.group) {
                     cardsToMove.add(c);
@@ -46,15 +45,13 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
                     if (this.player.hand.size() == BaseMod.MAX_HAND_SIZE) {
                         this.player.drawPile.moveToDiscardPile(c);
                         this.player.createHandIsFullDialog();
-                    }
-                    else {
+                    } else {
                         this.player.drawPile.moveToHand(c, this.player.drawPile);
                     }
                 }
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : this.player.drawPile.group) {
                     temp.addToTop(c);
@@ -64,16 +61,13 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
                 if (this.numberOfCards == 1) {
                     if (this.optional) {
                         AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
-                    }
-                    else {
+                    } else {
                         AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, TEXT[0], false);
                     }
-                }
-                else {
+                } else {
                     if (this.optional) {
                         AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
-                    }
-                    else {
+                    } else {
                         AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
                     }
                 }
@@ -86,8 +80,7 @@ public class BetterDrawPileToHandAction extends AbstractGameAction {
                 if (this.player.hand.size() == BaseMod.MAX_HAND_SIZE) {
                     this.player.drawPile.moveToDiscardPile(c);
                     this.player.createHandIsFullDialog();
-                }
-                else {
+                } else {
                     this.player.drawPile.moveToHand(c, this.player.drawPile);
                 }
             }

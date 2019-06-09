@@ -2,6 +2,7 @@ package AnomalyMod.cards.wistful;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
+import AnomalyMod.powers.SmoothSailingPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
 
 public class Decoy extends AbstractAnomalyCard {
 
@@ -46,10 +46,9 @@ public class Decoy extends AbstractAnomalyCard {
     @Override
     public void triggerOnManualDiscard() {
         if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedPower(AbstractDungeon.player, 2), this.magicNumber));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedPower(AbstractDungeon.player, 1), this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SmoothSailingPower(AbstractDungeon.player, 2, 1), this.magicNumber));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SmoothSailingPower(AbstractDungeon.player, 1, 1), this.magicNumber));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawCardNextTurnPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
     }

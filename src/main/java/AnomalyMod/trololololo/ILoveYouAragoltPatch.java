@@ -1,8 +1,6 @@
 package AnomalyMod.trololololo;
 
-import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 
 @SpirePatch(

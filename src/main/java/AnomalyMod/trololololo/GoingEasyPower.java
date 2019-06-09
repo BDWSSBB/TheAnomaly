@@ -31,8 +31,7 @@ public class GoingEasyPower extends AbstractAnomalyPower {
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
             return damage * 2.0F;
-        }
-        else {
+        } else {
             return damage;
         }
     }

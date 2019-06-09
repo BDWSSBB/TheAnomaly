@@ -1,6 +1,7 @@
 package AnomalyMod.actions.unique;
 
 import AnomalyMod.actions.common.PlayCardAndKeepExistingAction;
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,8 +32,7 @@ public class StitchedAction extends AbstractGameAction {
             if (this.notAttacks.size() == this.player.hand.size()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 this.player.hand.group.removeAll(this.notAttacks);
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, true, true);
                 tickDuration();
@@ -46,9 +46,7 @@ public class StitchedAction extends AbstractGameAction {
             for (final AbstractCard c : this.notAttacks) {
                 this.player.hand.addToTop(c);
             }
-            AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            this.player.hand.refreshHandLayout();
+            CardPlayHelper.standardHandActionResetProtocol();
         }
         tickDuration();
     }

@@ -12,7 +12,7 @@
   "anomalyMod:AggressorSyntax": {
     "NAME": "Aggressor Syntax",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: While the last #b",
+      "While the last #b",
       " cards played this combat were #yAttacks, you have #b",
       " additional #yStrength."
     ]
@@ -20,14 +20,14 @@
   "anomalyMod:Auditor": {
     "NAME": "Auditor",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
+      "Whenever you gain #yImprobability, gains #yStrength equal to #yImprobability gained."
     ]
   },
   "anomalyMod:BonfireSyntax": {
     "NAME": "Bonfire Syntax",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: While you have not played the same card type twice in a row for the last #b",
-      " cards played this combat, you have #b",
+      "While you have not played the same card type twice in a row for the last #b",
+      " cards this combat, you have #b",
       " additional #yStrength and #b",
       " #yDexterity.",
       " NL NL Last card type played:",
@@ -64,9 +64,25 @@
   "anomalyMod:DefensorSyntax": {
     "NAME": "Defensor Syntax",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: While the last #b",
+      "While the last #b",
       " cards played this combat were #ySkills, you have #b",
       " additional #yDexterity."
+    ]
+  },
+  "anomalyMod:Disable": {
+    "NAME": "Disabled",
+    "DESCRIPTIONS": [
+      "#yWeak and #yVulnerable are twice as effective this turn.",
+      "#yWeak and #yVulnerable are twice as effective for #b",
+      " turns.",
+      " (Receive ",
+      "% more this turn.)",
+      "% more for #b",
+      " turns.)",
+      " (Deal ",
+      "% less this turn.)",
+      "% less for #b",
+      " turns.)"
     ]
   },
   "anomalyMod:Discontinuity": {
@@ -91,7 +107,19 @@
   "anomalyMod:DialMForMurder": {
     "NAME": "Dial M for Murder",
     "DESCRIPTIONS": [
-      "#yAttacks that cost #b2 or more are played twice."
+      "The first #yAttack you play each turn that costs #b2 or more is played twice.",
+      "The first #b",
+      " #yAttacks you play each turn that cost #b2 or more are played twice."
+    ]
+  },
+  "anomalyMod:ExpirationDate": {
+    "NAME": "Expiration Date",
+    "DESCRIPTIONS": [
+      "At the end of this turn, lose #b",
+      "At the end of #b",
+      " turns, lose #b",
+      " #yStrength and #b",
+      " #yDexterity."
     ]
   },
   "anomalyMod:ExtraPockets": {
@@ -104,6 +132,7 @@
   "anomalyMod:Fak3": {
     "NAME": "Fak3",
     "DESCRIPTIONS": [
+      "The next #ynon-Dummy you play this turn add a #yDummy of the same card type into your hand.",
       "The next #b",
       " #ynon-Dummies you play this turn add a #yDummy of the same card type into your hand."
     ]
@@ -111,9 +140,9 @@
   "anomalyMod:Filter": {
     "NAME": "Filter",
     "DESCRIPTIONS": [
-      "Add ",
+      "Next turn, add ",
       " into your hand and reduce its #yImprobability by #b",
-      " this combat next turn."
+      " this combat."
     ]
   },
   "anomalyMod:FluxCapacitor": {
@@ -126,15 +155,23 @@
   "anomalyMod:FreeForm": {
     "NAME": "Free Form",
     "DESCRIPTIONS": [
-      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less Improbability to play.",
-      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less Improbability #b",
+      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less #yImprobability to play.",
+      "At the start of your turn, choose #b1 of #b3 random cards with #b1 less #yImprobability #b",
       " times to play."
+    ]
+  },
+  "anomalyMod:Hellegance": {
+    "NAME": "Hellegance",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yImprobability, gain #b",
+      " [E] and draw #b",
+      " cards."
     ]
   },
   "anomalyMod:ImitatorSyntax": {
     "NAME": "Imitator Syntax",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Register every #b",
+      "Register every #b",
       " card you play. While you have registered a #ySkill, you have #b",
       " additional #yDexterity. Otherwise, you have #b",
       " additional #yStrength.",
@@ -147,17 +184,8 @@
   "anomalyMod:Improblemble": {
     "NAME": "Improblemble",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Deals #b",
+      "Deals #b",
       "% more base attack damage."
-    ]
-  },
-  "anomalyMod:Minimalist": {
-    "NAME": "Minimalist",
-    "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " [E] and discard #b",
-      " card.",
-      " cards."
     ]
   },
   "anomalyMod:Multithreading": {
@@ -169,17 +197,10 @@
       " turns."
     ]
   },
-  "anomalyMod:Normalized": {
-    "NAME": "Normalized",
-    "DESCRIPTIONS": [
-      "Negate the next #b",
-      " #yImprobability you would gain."
-    ]
-  },
   "anomalyMod:Polyrhythm": {
     "NAME": "Polyrhythm",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Every #b7th card you play deals double damage. Every #b8th card you play gains double #yBlock."
+      "Every #b7th card you play deals double damage. Every #b8th card you play gains double #yBlock."
     ]
   },
   "anomalyMod:Procrastinate": {
@@ -192,18 +213,16 @@
   "anomalyMod:Projector": {
     "NAME": "Projector",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Deals #b50% more attack damage. Cancelled this turn if attacked #b",
-      " time in a single turn.",
-      " times in a single turn."
+      "Deals #b50% more attack damage. Cancelled this turn when attacked #b",
+      " time.",
+      " times."
     ]
   },
   "anomalyMod:RedFlag": {
     "NAME": "Red Flag",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever dealt attack damage from #b",
-      " #yAttacks, deals #b50% more attack damage this turn.",
-      " NL NL Deals #b",
-      "% more attack damage this turn."
+      "Whenever dealt attack damage from #b",
+      " #yAttacks, deals #b50% more attack damage this turn."
     ]
   },
   "anomalyMod:RedWorld": {
@@ -214,11 +233,11 @@
       " #yStrength."
     ]
   },
-  "anomalyMod:ScissorCuts": {
-    "NAME": "Stapled",
+  "anomalyMod:ShellLoaded": {
+    "NAME": "Shell-Loaded",
     "DESCRIPTIONS": [
-      "Receives #b",
-      " more damage from #yAttacks."
+      "While the last #b",
+      " cards played this combat were not #ySkills, cards gain double #yBlock."
     ]
   },
   "anomalyMod:SixthRevision": {
@@ -233,15 +252,15 @@
     "NAME": "Smooth Sailing",
     "DESCRIPTIONS": [
       "Gain #b",
-      " additional [E] next turn.",
-      " additional [E] in #b",
+      " [E] next turn.",
+      " [E] in #b",
       " turns."
     ]
   },
   "anomalyMod:SpikeStrip": {
     "NAME": "Spike Strip",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever you play a #ynon-Attack card, gains #b",
+      "Whenever you play a #ynon-Attack card, gains #b",
       " #yBlock. When attacked while having leftover #yBlock, deals #b",
       " damage back."
     ]
@@ -249,35 +268,35 @@
   "anomalyMod:SpikierStrip": {
     "NAME": "Spikier Strip",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever you gain #yImprobability, gains #ySpike #yStrip equal to #yImprobability gained."
-    ]
-  },
-  "anomalyMod:ShellLoaded": {
-    "NAME": "Shell-Loaded",
-    "DESCRIPTIONS": [
-      "#pRandom #pBuff: While the last #b",
-      " cards played this combat were not #ySkills, cards gain double #yBlock."
+      "Whenever you gain #yImprobability, gains #ySpike #yStrip equal to #yImprobability gained."
     ]
   },
   "anomalyMod:SpringLoaded": {
     "NAME": "Spring-Loaded",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: While the last #b",
+      "While the last #b",
       " cards played this combat were not #yAttacks, cards deal double damage."
     ]
   },
   "anomalyMod:Starched": {
     "NAME": "Starched",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Every time you play #b",
-      " #ySkills, you may play a #ySkill in your hand."
+      "Every #b",
+      "th #ySkill you play is free."
+    ]
+  },
+  "anomalyMod:Stapled": {
+    "NAME": "Stapled",
+    "DESCRIPTIONS": [
+      "Receives #b",
+      " more damage from #yAttacks."
     ]
   },
   "anomalyMod:Stitched": {
     "NAME": "Stitched",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Every time you play #b",
-      " #yAttacks, you may play an #yAttack in your hand."
+      "Every #b",
+      "th #yAttack you play is free."
     ]
   },
   "anomalyMod:Stutter": {
@@ -313,7 +332,7 @@
   "anomalyMod:Viscosity": {
     "NAME": "Viscosity",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Each turn, defer up to #b",
+      "Each turn, defer up to #b",
       " attack damage you would receive until the end of your next turn."
     ]
   },
@@ -327,11 +346,9 @@
   "anomalyMod:WhiteFlag": {
     "NAME": "White Flag",
     "DESCRIPTIONS": [
-      "#pRandom #pBuff: Whenever dealt attack damage #b",
+      "Whenever dealt attack damage #b",
       " times, takes no damage from your next #yAttack.",
-      " NL NL Takes no damage from your next #yAttack.",
-      " NL NL Takes no damage from your next #b",
-      " #yAttacks."
+      " NL NL Takes no damage from your next #yAttack."
     ]
   }
 }

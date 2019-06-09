@@ -16,7 +16,7 @@ public class ViscocityBuffModule extends AbstractImprobabilityDriveBuffModule {
     }
 
     public void doAction() {
-        if (this.totalAmount> 0) {
+        if (this.totalAmount > 0) {
             this.target.addPower(new ViscosityPower(this.target, (int) this.totalAmount));
         }
     }

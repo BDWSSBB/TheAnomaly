@@ -13,7 +13,7 @@ public class GreenRock extends AbstractAnomalyRelic {
     public static final String ID = "anomalyMod:GreenRock";
     public static final Texture IMAGE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/placeholder.png");
     public static final Texture IMAGE_OUTLINE_PATH = ImageMaster.loadImage("AnomalyModResources/relics/outline/placeholderOutline.png");
-    private static final int BLOCK_PER_IMPROBABILITY = 4;
+    private static final int BLOCK_PER_IMPROBABILITY = 3;
 
     public GreenRock() {
         super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.UNCOMMON, LandingSound.SOLID);

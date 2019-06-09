@@ -53,28 +53,23 @@ public class FilterAction extends AbstractGameAction {
             if (temp.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else if (temp.size() == 1) {
+            } else if (temp.size() == 1) {
                 for (AbstractCard c : temp.group) {
                     if (this.cardsInDraw.contains(c)) {
                         AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                         this.player.drawPile.removeCard(c);
-                    }
-                    else if (this.cardsInHand.contains(c)) {
+                    } else if (this.cardsInHand.contains(c)) {
                         AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                         this.player.hand.removeCard(c);
-                    }
-                    else if (this.cardsInDiscard.contains(c)) {
+                    } else if (this.cardsInDiscard.contains(c)) {
                         AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                         this.player.discardPile.removeCard(c);
-                    }
-                    else {
+                    } else {
                         AnomalyMod.logger.info("WTF? Where'd it go?!");
                     }
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new FilterPower(this.player, this.improbReductionAmount, c), this.improbReductionAmount));
                 }
-            }
-            else {
+            } else {
                 AbstractDungeon.gridSelectScreen.open(temp, 1, TEXT[0], false);
             }
             tickDuration();
@@ -85,16 +80,13 @@ public class FilterAction extends AbstractGameAction {
                 if (this.cardsInDraw.contains(c)) {
                     AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                     this.player.drawPile.removeCard(c);
-                }
-                else if (this.cardsInHand.contains(c)) {
+                } else if (this.cardsInHand.contains(c)) {
                     AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                     this.player.hand.removeCard(c);
-                }
-                else if (this.cardsInDiscard.contains(c)) {
+                } else if (this.cardsInDiscard.contains(c)) {
                     AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                     this.player.discardPile.removeCard(c);
-                }
-                else {
+                } else {
                     AnomalyMod.logger.info("WTF? Where'd it go?!");
                 }
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new FilterPower(this.player, this.improbReductionAmount, c), this.improbReductionAmount));

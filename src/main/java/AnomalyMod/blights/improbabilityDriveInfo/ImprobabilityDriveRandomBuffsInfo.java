@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.localization.BlightStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Transient;
 import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 
 import java.text.DecimalFormat;
@@ -42,12 +41,7 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
     }
 
     @Override
-    public void onEnterRoom(AbstractRoom room) {
-        changeDescription();
-    }
-
-    @Override
-    public void onActuallyGainImprobability(int improbabilityGained) {
+    public void updateDescriptionFromImprobabilityChange() {
         changeDescription();
     }
 
@@ -60,7 +54,7 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
     }
 
     private static String getDescription() {
-        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.##").format(getPowerLevel());
+        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.##").format(getPowerLevel()) + DESCRIPTION[2];
     }
 
     private static float getPowerLevel() { // Never over 9000 unless you're some maniac.
@@ -78,18 +72,16 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
 
     private static void buffPlayer(float powerLevel) {
         ArrayList<AbstractImprobabilityDriveBuffModule> buffsToUse = new ArrayList<>();
-        buffsToUse.add(new ViscocityBuffModule(AbstractDungeon.player, 6, 1.0F, 0.0F, 2, 0.5F));
+        buffsToUse.add(new ViscocityBuffModule(AbstractDungeon.player, 4, 1.0F, 0.0F, 3, 0.75F));
         if (powerLevel >= 2.0F && AbstractDungeon.miscRng.randomBoolean()) {
             if (AbstractDungeon.miscRng.randomBoolean()) {
                 buffsToUse.add(new BonfireSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
-            }
-            else {
+            } else {
                 buffsToUse.add(new ImitatorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
             }
-        }
-        else {
-            buffsToUse.add(new AggressorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
-            buffsToUse.add(new DefensorSyntaxBuffModule(AbstractDungeon.player, 2, 1.0F, 1.0F));
+        } else {
+            buffsToUse.add(new AggressorSyntaxBuffModule(AbstractDungeon.player, 2, 2.0F / 3.0F, 1.5F));
+            buffsToUse.add(new DefensorSyntaxBuffModule(AbstractDungeon.player, 2, 2.0F / 3.0F, 1.5F));
         }
         if (powerLevel >= 4.0F) {
             switch (AbstractDungeon.miscRng.random(0, 2)) {
@@ -112,8 +104,7 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
                     break;
                 }
             }
-        }
-        else if (powerLevel >= 3.0F) {
+        } else if (powerLevel >= 3.0F) {
             switch (AbstractDungeon.miscRng.random(0, 1)) {
                 case 0: {
                     buffsToUse.add(new StitchedBuffModule(AbstractDungeon.player, 1.0F - 1.0F / (float) Math.sqrt(2.0F)));
@@ -141,29 +132,26 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
             if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && m.type == AbstractMonster.EnemyType.BOSS && AbstractDungeon.id.equals(TheBeyond.ID) && !AbstractDungeon.player.hasRelic(DeimosCap.ID)) {
                 buffsToUse.add(new AuditorBuffModule(m, 1.0F / 3.0F));
             }
-            if (m instanceof CorruptHeart) {
+            if (m instanceof CorruptHeart && !AbstractDungeon.player.hasRelic(DeimosCap.ID)) {
                 buffsToUse.add(new SpikierStripBuffModule(m, 1.0F / 3.0F));
             }
             if (powerLevel >= 2.0F && ((AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss && m.type == AbstractMonster.EnemyType.BOSS) || AbstractDungeon.miscRng.randomBoolean(0.6F))) {
                 if (AbstractDungeon.miscRng.randomBoolean()) {
                     buffsToUse.add(new RedFlagBuffModule(m, 1.0F / 3.0F));
-                }
-                else {
+                } else {
                     buffsToUse.add(new WhiteFlagBuffModule(m, 1.0F / 3.0F));
                 }
             }
             if (m instanceof Transient) {
-                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 0.0F, 0, 1.0F / 3.0F));
-            }
-            else {
-                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 1.0F, 0, 1.0F / 3.0F));
+                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 0.0F, 0, 0.25F));
+            } else {
+                buffsToUse.add(new IncreasedMaxHPBuffModule(m, 0.3F, 1.0F, 1.0F, 0, 0.25F));
             }
             buffsToUse.add(new ImproblembleBuffModule(m, 1, 1.0F, 1.0F));
             if (powerLevel >= 3.0F) {
                 if (m instanceof CorruptHeart || AbstractDungeon.miscRng.randomBoolean()) {
                     buffsToUse.add(new SpikeStripBuffModule(m, 3, 1.0F, 1.0F));
-                }
-                else {
+                } else {
                     buffsToUse.add(new ProjectorBuffModule(m, 2, 1.0F, 1.0F));
                 }
             }
@@ -172,7 +160,7 @@ public class ImprobabilityDriveRandomBuffsInfo extends AbstractAnomalyBlight {
     }
 
     private static float getRandomBuffsPowerLevel(int initialCounter) {
-        return (float) Math.pow((float) initialCounter / 40, 2) + (float) initialCounter / 20 + 0.5F;
+        return (float) Math.pow((float) initialCounter / 40, 2) + (float) initialCounter / 20 + 1.0F;
     }
 
     private static int getRandomBuffsImprobabilityChange(int initialCounter) {

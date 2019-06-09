@@ -1,5 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SpikeStripPower extends AbstractAnomalyTwoAmountPower {
+public class SpikeStripPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:SpikeStrip";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

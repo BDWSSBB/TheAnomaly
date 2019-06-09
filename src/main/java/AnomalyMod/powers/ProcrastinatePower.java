@@ -37,7 +37,7 @@ public class ProcrastinatePower extends AbstractAnomalyPower implements NonStack
     @Override
     public void atStartOfTurnPostDraw() {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new PlayCardAndKeepExistingAction(this.card.makeSameInstanceOf()));
+        AbstractDungeon.actionManager.addToBottom(new PlayCardAndKeepExistingAction(this.card.makeSameInstanceOf(), false));
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
 }

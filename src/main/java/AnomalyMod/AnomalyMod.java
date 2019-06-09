@@ -11,7 +11,8 @@ import AnomalyMod.patches.enums.CardColorEnum;
 import AnomalyMod.patches.enums.PlayerClassEnum;
 import AnomalyMod.relics.*;
 import AnomalyMod.trololololo.TheEvilDevModels.AprilFoolsEvilDev;
-import basemod.*;
+import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomSavable;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -51,7 +52,7 @@ public class AnomalyMod implements
     private static final String SKILL_PORTRAIT = "AnomalyModResources/512/bgSkillWistful.png";
     private static final String POWER_PORTRAIT = "AnomalyModResources/512/bgPowerWistful.png";
     private static final String ENERGY_ORB = "AnomalyModResources/512/wistfulOrb.png";
-    private static final String BIG_ATTACK_PORTRAIT= "AnomalyModResources/1024/bigAttackWistful.png";
+    private static final String BIG_ATTACK_PORTRAIT = "AnomalyModResources/1024/bigAttackWistful.png";
     private static final String BIG_SKILL_PORTRAIT = "AnomalyModResources/1024/bigSkillWistful.png";
     private static final String BIG_POWER_PORTRAIT = "AnomalyModResources/1024/bigPowerWistful.png";
     private static final String ENERGY_ORB_PORTRAIT = "AnomalyModResources/1024/bigWistfulOrb.png";
@@ -119,6 +120,7 @@ public class AnomalyMod implements
         BaseMod.addCard(new EmergencyExit());
         BaseMod.addCard(new EscapeAttempt());
         BaseMod.addCard(new Excavate());
+        BaseMod.addCard(new ExpirationDate());
         BaseMod.addCard(new ExtraPockets());
         BaseMod.addCard(new Fak3());
         BaseMod.addCard(new Fault());
@@ -128,6 +130,7 @@ public class AnomalyMod implements
         BaseMod.addCard(new FreeForm());
         BaseMod.addCard(new Gravekeep());
         BaseMod.addCard(new Gape());
+        BaseMod.addCard(new Hellegance());
         BaseMod.addCard(new Hook());
         BaseMod.addCard(new Hurdle());
         BaseMod.addCard(new Hyperdrift());
@@ -137,7 +140,6 @@ public class AnomalyMod implements
         BaseMod.addCard(new Jailbreak());
         BaseMod.addCard(new Krieg());
         BaseMod.addCard(new Maladaptation());
-        BaseMod.addCard(new Minimalist());
         BaseMod.addCard(new Multithreading());
         BaseMod.addCard(new NegativeReception());
         BaseMod.addCard(new Overdrive());
@@ -178,7 +180,7 @@ public class AnomalyMod implements
     public void receiveEditKeywords() { // I believe this is kio's black magic that I'm afraid of.
         final Gson gson = new Gson();
         final String json = Gdx.files.internal("AnomalyModResources/localization/AnomalyMod-Keyword.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        final Keyword[] keywords = (Keyword[])gson.fromJson(json, (Class)Keyword[].class);
+        final Keyword[] keywords = (Keyword[]) gson.fromJson(json, (Class) Keyword[].class);
         if (keywords != null) {
             for (final Keyword keyword : keywords) {
                 BaseMod.addKeyword(keyword.NAMES, keyword.DESCRIPTION);
@@ -220,7 +222,7 @@ public class AnomalyMod implements
 
         BaseMod.addEvent(Dedmos.ID, Dedmos.class, Exordium.ID);
 
-        BaseMod.addMonster(AprilFoolsEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[] {
+        BaseMod.addMonster(AprilFoolsEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new AprilFoolsEvilDev(0.0F, 0.0F)
         }));
         HashMap<String, Sfx> map = (HashMap<String, Sfx>) ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
@@ -243,8 +245,7 @@ public class AnomalyMod implements
         if (loaded != null) {
             logger.info("Loaded integer: " + loaded.counter);
             anomalyRNG.counter = loaded.counter;
-        }
-        else {
+        } else {
             logger.info("loaded = null");
         }
     }
@@ -253,8 +254,7 @@ public class AnomalyMod implements
         logger.info("generateSeeds was called");
         if (Settings.seed != null) {
             anomalyRNG = new Random(Settings.seed);
-        }
-        else {
+        } else {
             logger.info("generateSeeds called with null Settings.seed");
             anomalyRNG = new Random();
         }

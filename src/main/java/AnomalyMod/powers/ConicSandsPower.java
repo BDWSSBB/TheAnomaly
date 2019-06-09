@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class ConicSandsPower extends AbstractAnomalyTwoAmountPower implements NonStackablePower{
+public class ConicSandsPower extends AbstractAnomalyTwoAmountPower implements NonStackablePower {
 
     public static final String POWER_ID = "anomalyMod:ConicSands";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -35,8 +35,7 @@ public class ConicSandsPower extends AbstractAnomalyTwoAmountPower implements No
     public void updateDescription() {
         if (this.amount2 == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[4];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[1] + this.amount2 + DESCRIPTIONS[2] + this.amount2 + DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[4];
         }
     }

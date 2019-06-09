@@ -36,8 +36,7 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
             if (this.player.discardPile.isEmpty() || this.numberOfCards <= 0) {
                 this.isDone = true;
                 return;
-            }
-            else if (this.player.discardPile.size() <= this.numberOfCards && !this.optional) {
+            } else if (this.player.discardPile.size() <= this.numberOfCards && !this.optional) {
                 ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
                 for (AbstractCard c : this.player.discardPile.group) {
                     cardsToMove.add(c);
@@ -51,21 +50,17 @@ public class BetterDiscardPileToHandAction extends AbstractGameAction {
                 }
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 if (this.numberOfCards == 1) {
                     if (this.optional) {
                         AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[0]);
-                    }
-                    else {
+                    } else {
                         AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[0], false);
                     }
-                }
-                else {
+                } else {
                     if (this.optional) {
                         AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
-                    }
-                    else {
+                    } else {
                         AbstractDungeon.gridSelectScreen.open(this.player.discardPile, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
                     }
                 }

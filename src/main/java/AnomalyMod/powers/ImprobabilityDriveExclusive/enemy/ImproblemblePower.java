@@ -1,5 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyPower;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -7,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ImproblemblePower extends AbstractAnomalyPower {
+public class ImproblemblePower extends AbstractAnomalyPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:Improblemble";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -34,9 +35,8 @@ public class ImproblemblePower extends AbstractAnomalyPower {
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            return damage * (1 + (float) DAMAGE_PERCENTAGE_PER_AMOUNT * (float)this.amount * 0.01F);
-        }
-        else {
+            return damage * (1 + (float) DAMAGE_PERCENTAGE_PER_AMOUNT * (float) this.amount * 0.01F);
+        } else {
             return damage;
         }
     }

@@ -18,8 +18,8 @@ public class ImprobabilityDriveSpecialtyInfo extends AbstractAnomalyBlight {
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
     public static final String NAME = BLIGHT_STRINGS.NAME;
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
-    public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
-    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/blights/specialty.png";
+    public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/blights/outline/specialty.png";
     public static final int SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM = 20;
 
     public ImprobabilityDriveSpecialtyInfo() {
@@ -59,10 +59,13 @@ public class ImprobabilityDriveSpecialtyInfo extends AbstractAnomalyBlight {
 
     public static void specializeCardRewards() {
         int initialCounter = ImprobabilityDrive.getImprobability();
+
+        // I just use cardRng for this stuff to avoid the mess of save and load problems with my own RNG.
         for (RewardItem r : AbstractDungeon.combatRewardScreen.rewards) {
-            if (r.type == RewardItem.RewardType.CARD && r.cards.size() > 1 && initialCounter >= SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM && AnomalyMod.anomalyRNG.randomBoolean(getSingleCardChoiceChance(initialCounter))) {
+            if (r.type == RewardItem.RewardType.CARD && r.cards.size() > 1 && initialCounter >= SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM && AbstractDungeon.cardRng.randomBoolean(getSingleCardChoiceChance(initialCounter))) {
                 while (r.cards.size() > 1) {
-                    r.cards.remove(r.cards.size() - 1);
+                    // Because people just usually add cards to the end, we gotta remove at random.
+                    r.cards.remove(AbstractDungeon.cardRng.random(0, r.cards.size() - 1));
                 }
                 r.cards.get(0).upgrade();
             }
@@ -72,8 +75,7 @@ public class ImprobabilityDriveSpecialtyInfo extends AbstractAnomalyBlight {
     private static float getSingleCardChoiceChance(int initialCounter) {
         if (initialCounter < SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM) {
             return 0.0F;
-        }
-        else {
+        } else {
             return (-6.0F / 5.0F) + ((2.0F * initialCounter) / ((float) initialCounter + 10.0F));
         }
     }

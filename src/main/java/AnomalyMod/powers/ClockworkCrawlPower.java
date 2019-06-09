@@ -36,16 +36,13 @@ public class ClockworkCrawlPower extends AbstractAnomalyTwoAmountPower implement
         if (this.amount == 1) {
             if (this.amount2 == 1) {
                 this.description = DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[4];
-            }
-            else {
+            } else {
                 this.description = DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[5];
             }
-        }
-        else {
+        } else {
             if (this.amount2 == 1) {
                 this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.cardInterval + DESCRIPTIONS[2] + DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[4];
-            }
-            else {
+            } else {
                 this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.cardInterval + DESCRIPTIONS[2] + DESCRIPTIONS[3] + this.amount2 + DESCRIPTIONS[5];
             }
         }

@@ -1,7 +1,7 @@
 package AnomalyMod.cards.wistful;
 
-import AnomalyMod.actions.common.VanillaImprovements.ApplyDebuffAndInverseAction;
 import AnomalyMod.actions.common.ChangeImprobabilityAction;
+import AnomalyMod.actions.common.VanillaImprovements.ApplyDebuffAndInverseAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -33,10 +33,10 @@ public class BlastPipe extends AbstractAnomalyCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int IMPROBABILITY_NUMBER = 2;
-    private static final int ATTACK_DAMAGE = 22;
+    private static final int ATTACK_DAMAGE = 24;
     private static final int UPGRADE_PLUS_ATTACK_DAMAGE = 8;
-    private static final int MAGIC_NUMBER = 8;
-    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 2;
+    private static final int MAGIC_NUMBER = 9;
+    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 3;
     private static final int SECOND_MAGIC_NUMBER = 2;
     private static final int UPGRADE_PLUS_SECOND_MAGIC_NUMBER = 1;
 

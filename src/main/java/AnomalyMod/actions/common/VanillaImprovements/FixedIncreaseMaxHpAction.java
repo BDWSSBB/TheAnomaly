@@ -15,10 +15,9 @@ public class FixedIncreaseMaxHpAction extends IncreaseMaxHpAction {
 
     @Override
     public void update() {
-        if (MathUtils.round((float)this.target.maxHealth * this.increasePercent) > 0) {
+        if (MathUtils.round((float) this.target.maxHealth * this.increasePercent) > 0) {
             super.update();
-        }
-        else {
+        } else {
             this.isDone = true;
         }
     }

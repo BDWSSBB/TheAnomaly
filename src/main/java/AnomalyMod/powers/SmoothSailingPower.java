@@ -1,5 +1,6 @@
 package AnomalyMod.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,22 +9,21 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SmoothSailingPower extends AbstractAnomalyTwoAmountPower {
+public class SmoothSailingPower extends AbstractAnomalyTwoAmountPower implements NonStackablePower {
 
     public static final String POWER_ID = "anomalyMod:SmoothSailing";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = POWER_STRINGS.NAME;
     public static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
-    private static final int BASE_PRIORITY = -5;
 
     public SmoothSailingPower(AbstractCreature owner, int amount, int amount2) {
-        this.ID = POWER_ID + amount2;
+        this.ID = POWER_ID;
         this.name = NAME;
         this.type = AbstractPower.PowerType.BUFF;
         this.owner = owner;
         this.amount = amount;
         this.amount2 = amount2;
-        this.priority = BASE_PRIORITY + amount2;
+        this.priority = -5;
         updateDescription();
         loadRegion("energized_blue");
     }
@@ -32,9 +32,17 @@ public class SmoothSailingPower extends AbstractAnomalyTwoAmountPower {
     public void updateDescription() {
         if (this.amount2 == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2] + this.amount2 + DESCRIPTIONS[3];
+        }
+    }
+
+    @Override
+    public boolean isStackable(AbstractPower power) {
+        if (power instanceof SmoothSailingPower && this.amount2 == ((SmoothSailingPower) power).amount2) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -49,8 +57,6 @@ public class SmoothSailingPower extends AbstractAnomalyTwoAmountPower {
 
     private void changeAmount2(int amount) {
         this.amount2 += amount;
-        this.ID = POWER_ID + this.amount2;
-        this.priority = BASE_PRIORITY + this.amount2;
         this.updateDescription();
     }
 }

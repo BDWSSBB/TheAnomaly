@@ -1,6 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class RedFlagPower extends AbstractAnomalyTwoAmountPower {
+public class RedFlagPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:RedFlag";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,12 +37,7 @@ public class RedFlagPower extends AbstractAnomalyTwoAmountPower {
 
     @Override
     public void updateDescription() {
-        if (this.amount > 0) {
-            this.description = DESCRIPTIONS[0] + ATTACKS_PER_ANGERY + DESCRIPTIONS[1] + DESCRIPTIONS[2] + this.amount * 50 + DESCRIPTIONS[3];
-        }
-        else {
-            this.description = DESCRIPTIONS[0] + ATTACKS_PER_ANGERY + DESCRIPTIONS[1];
-        }
+        this.description = DESCRIPTIONS[0] + ATTACKS_PER_ANGERY + DESCRIPTIONS[1];
     }
 
     @Override
@@ -82,8 +78,7 @@ public class RedFlagPower extends AbstractAnomalyTwoAmountPower {
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL && this.amount > 0) {
             return damage * (1.0F + (float) this.amount * 0.5F);
-        }
-        else {
+        } else {
             return damage;
         }
     }
@@ -92,8 +87,7 @@ public class RedFlagPower extends AbstractAnomalyTwoAmountPower {
         updateDescription();
         if (this.owner instanceof AbstractMonster) {
             ((AbstractMonster) this.owner).applyPowers();
-        }
-        else {
+        } else {
             AnomalyMod.logger.info("Hey what the hell are you doing putting this on other people? Get outta here.");
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, null, this));
         }

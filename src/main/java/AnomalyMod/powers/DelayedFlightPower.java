@@ -34,8 +34,7 @@ public class DelayedFlightPower extends AbstractAnomalyTwoAmountPower implements
     public void updateDescription() {
         if (this.amount2 == 1) {
             this.description = DESCRIPTIONS[0] + this.amount2 + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[3];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount2 + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
         }
     }

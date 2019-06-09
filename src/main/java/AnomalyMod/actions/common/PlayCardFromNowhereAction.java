@@ -1,8 +1,8 @@
 package AnomalyMod.actions.common;
 
-import AnomalyMod.patches.PurgeOnUseLaterPatch;
+import AnomalyMod.actions.common.VanillaImprovements.BetterQueueCardAction;
+import AnomalyMod.patches.correction.PurgeOnUseLaterPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,9 +10,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class PlayCardFromNowhereAction extends AbstractGameAction {
 
     private AbstractCard card;
+    private boolean putInFrontOfQueue;
+
+    public PlayCardFromNowhereAction(AbstractCard card, boolean putInFrontOfQueue) {
+        this.card = card;
+        this.putInFrontOfQueue = putInFrontOfQueue;
+    }
 
     public PlayCardFromNowhereAction(AbstractCard card) {
-        this.card = card;
+        this(card, true);
     }
 
     @Override
@@ -23,7 +29,7 @@ public class PlayCardFromNowhereAction extends AbstractGameAction {
         this.card.freeToPlayOnce = true;
         PurgeOnUseLaterPatch.PurgeOnUseLaterField.anomalyModPurgeOnUseLater.set(this.card, true);
         this.card.applyPowers();
-        AbstractDungeon.actionManager.addToTop(new QueueCardAction(this.card, AbstractDungeon.getRandomMonster()));
+        AbstractDungeon.actionManager.addToTop(new BetterQueueCardAction(this.card, true, this.putInFrontOfQueue));
         this.isDone = true;
     }
 }

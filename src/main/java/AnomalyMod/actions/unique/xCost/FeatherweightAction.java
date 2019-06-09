@@ -1,5 +1,6 @@
 package AnomalyMod.actions.unique.xCost;
 
+import AnomalyMod.powers.SmoothSailingPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -8,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
@@ -45,8 +45,7 @@ public class FeatherweightAction extends AbstractGameAction {
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], effect, true, true);
                 tickDuration();
                 return;
-            }
-            else {
+            } else {
                 this.isDone = true;
                 return;
             }
@@ -60,7 +59,7 @@ public class FeatherweightAction extends AbstractGameAction {
                 GameActionManager.incrementDiscard(false);
             }
             if (numberOfCardsDiscarded > 0) {
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new EnergizedPower(this.player, numberOfCardsDiscarded * this.energyPerDiscard), numberOfCardsDiscarded * this.energyPerDiscard));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new SmoothSailingPower(this.player, numberOfCardsDiscarded * this.energyPerDiscard, 1), numberOfCardsDiscarded * this.energyPerDiscard));
             }
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

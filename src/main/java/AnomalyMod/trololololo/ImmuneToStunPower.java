@@ -1,12 +1,10 @@
 package AnomalyMod.trololololo;
 
 import AnomalyMod.powers.AbstractAnomalyPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ImmuneToStunPower extends AbstractAnomalyPower implements OnReceivePowerPower {
+public class ImmuneToStunPower extends AbstractAnomalyPower /*implements OnReceivePowerPower*/ {
 
     public static final String POWER_ID = "anomalyMod:ImmuneToStun";
     public static final String NAME = "Stun Immunity";
@@ -28,12 +26,12 @@ public class ImmuneToStunPower extends AbstractAnomalyPower implements OnReceive
         this.description = DESCRIPTIONS[0];
     }
 
-    @Override
-    public boolean onReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power instanceof StunMonsterPower) {
-            flashWithoutSound();
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+//        if (power instanceof StunMonsterPower) {
+//            flashWithoutSound();
+//            return false;
+//        }
+//        return true;
+//    }
 }

@@ -27,13 +27,12 @@ public class DeimosCap extends AbstractAnomalyRelic {
         ImprobabilityDrive drive;
         if (AbstractDungeon.player.hasBlight(ImprobabilityDrive.ID)) {
             drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
-        }
-        else {
+        } else {
             drive = new ImprobabilityDrive();
             AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, drive);
         }
         drive.counter = 2 * AbstractDungeon.floorNum;
-        drive.checkForSpawnInfoBlights();
+        ImprobabilityDrive.checkForSpawnInfoBlights();
     }
 
     @Override
@@ -46,13 +45,12 @@ public class DeimosCap extends AbstractAnomalyRelic {
         ImprobabilityDrive drive;
         if (AbstractDungeon.player.hasBlight(ImprobabilityDrive.ID)) {
             drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
-        }
-        else {
+        } else {
             drive = new ImprobabilityDrive();
             AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, drive);
         }
         drive.counter = 2 * AbstractDungeon.floorNum;
-        drive.checkForSpawnInfoBlights();
+        ImprobabilityDrive.checkForSpawnInfoBlights();
     }
 
     @Override

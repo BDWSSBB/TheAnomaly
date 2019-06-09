@@ -37,8 +37,7 @@ public class Collision extends AbstractAnomalyCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new RemovePercentBlockAction(p, p, 0.5F));
-        }
-        else {
+        } else {
             AbstractDungeon.actionManager.addToBottom(new RemoveAllBlockAction(p, p));
         }
     }
@@ -49,8 +48,7 @@ public class Collision extends AbstractAnomalyCard {
         super.applyPowers();
         if (this.upgraded) {
             this.rawDescription = UPGRADE_DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-        }
-        else {
+        } else {
             this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         }
         this.initializeDescription();
@@ -60,8 +58,7 @@ public class Collision extends AbstractAnomalyCard {
     public void onMoveToDiscard() {
         if (this.upgraded) {
             this.rawDescription = UPGRADE_DESCRIPTION;
-        }
-        else {
+        } else {
             this.rawDescription = DESCRIPTION;
         }
         this.initializeDescription();

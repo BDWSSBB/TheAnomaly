@@ -33,7 +33,7 @@ public class Dedmos extends AbstractImageEvent {
             case INTRO: {
                 switch (buttonPressed) {
                     case 0: {
-                        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH * 0.5F, Settings.HEIGHT * 0.5F,  RelicLibrary.getRelic(DeimosCap.ID).makeCopy());
+                        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH * 0.5F, Settings.HEIGHT * 0.5F, RelicLibrary.getRelic(DeimosCap.ID).makeCopy());
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         this.screen = CurScreen.END;
                         this.imageEventText.clearAllDialogs();
@@ -62,8 +62,7 @@ public class Dedmos extends AbstractImageEvent {
     public static boolean canSpawn() {
         if (AbstractDungeon.player instanceof AnomalyCharacter) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

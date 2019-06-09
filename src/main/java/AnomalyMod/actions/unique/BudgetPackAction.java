@@ -30,18 +30,16 @@ public class BudgetPackAction extends AbstractGameAction {
         for (AbstractCard c : this.player.hand.group) {
             if (c.freeToPlayOnce) {
                 totalCost += 0;
-            }
-            else if (c.costForTurn == -1) {
+            } else if (c.costForTurn == -1) {
                 totalCost += EnergyPanel.getCurrentEnergy();
-            }
-            else if (c.costForTurn > 0) {
+            } else if (c.costForTurn > 0) {
                 totalCost += c.costForTurn;
             }
         }
         if (totalCost < this.maxTotalCost && this.player.hand.size() != BaseMod.MAX_HAND_SIZE && !this.player.hasPower(NoDrawPower.POWER_ID) && this.failsafeCounter < 100) {
             this.failsafeCounter++;
             AbstractDungeon.actionManager.addToTop(new BudgetPackAction(this.maxTotalCost, this.failsafeCounter));
-            AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.player,1));
+            AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.player, 1));
         }
         this.isDone = true;
     }

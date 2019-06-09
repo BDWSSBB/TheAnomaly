@@ -1,5 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
-public class DefensorSyntaxPower extends AbstractAnomalyTwoAmountPower {
+public class DefensorSyntaxPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:DefensorSyntax";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -47,8 +48,7 @@ public class DefensorSyntaxPower extends AbstractAnomalyTwoAmountPower {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount), this.amount));
                 }
             }
-        }
-        else {
+        } else {
             if (this.isActive) {
                 flash();
                 this.isActive = false;

@@ -1,7 +1,7 @@
 package AnomalyMod.actions.unique;
 
 import AnomalyMod.actions.common.PlayCardFromNowhereAction;
-import AnomalyMod.patches.FreeFormPatch;
+import AnomalyMod.patches.hardcodes.FreeFormPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

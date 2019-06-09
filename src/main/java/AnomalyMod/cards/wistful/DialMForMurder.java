@@ -18,8 +18,8 @@ public class DialMForMurder extends AbstractAnomalyCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/dialMForMurder.png";
-    private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
+    private static final int COST = 1;
+    private static final int UPGRADE_COST = 0;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
@@ -35,7 +35,7 @@ public class DialMForMurder extends AbstractAnomalyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(this.improbabilityNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DialMForMurderPower(p)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DialMForMurderPower(p, 1), 1));
     }
 
     @Override

@@ -1,9 +1,12 @@
 package AnomalyMod.helpers.improbabilityDriveBuffs.enemy;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.actions.unique.ScaleInvincibilityAction;
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 
 public class IncreasedMaxHPBuffModule extends AbstractImprobabilityDriveBuffModule {
 
@@ -19,11 +22,14 @@ public class IncreasedMaxHPBuffModule extends AbstractImprobabilityDriveBuffModu
 
     public void doAction() {
         if (this.target instanceof AbstractMonster) {
-            if (this.totalAmount > 0 && this.target.currentHealth > 1 && MathUtils.round((float)this.target.maxHealth * this.totalAmount) > 0) {
-                this.target.increaseMaxHp((int) ((float)this.target.maxHealth * this.totalAmount), false);
+            int hpIncrease = MathUtils.floor((float) this.target.maxHealth * this.totalAmount);
+            if (this.totalAmount > 0 && this.target.currentHealth > 1 && hpIncrease > 0) {
+                this.target.increaseMaxHp(hpIncrease, false);
             }
-        }
-        else {
+            if (this.target instanceof CorruptHeart) {
+                AbstractDungeon.actionManager.addToBottom(new ScaleInvincibilityAction(this.target));
+            }
+        } else {
             AnomalyMod.logger.info("Why does a non-monster have the HP module?");
         }
     }

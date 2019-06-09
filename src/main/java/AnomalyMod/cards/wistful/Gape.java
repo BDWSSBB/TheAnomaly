@@ -27,9 +27,9 @@ public class Gape extends AbstractAnomalyCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int IMPROBABILITY_NUMBER = 1;
-    private static final int ATTACK_DAMAGE = 10;
+    private static final int ATTACK_DAMAGE = 6;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
-    private static final int MAGIC_NUMBER = 2;
+    private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     public Gape() {

@@ -31,8 +31,7 @@ public class AuditingHijack extends AbstractAnomalyRelic {
     public void obtain() {
         if (AbstractDungeon.player.hasRelic(ControlHijack.ID)) {
             instantObtain(AbstractDungeon.player, AbstractDungeon.player.relics.indexOf(AbstractDungeon.player.getRelic(ControlHijack.ID)), true);
-        }
-        else {
+        } else {
             super.obtain();
         }
     }

@@ -26,8 +26,7 @@ public class DrawPileToDiscardPileAction extends AbstractGameAction { // Basical
             if (this.player.drawPile.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : this.player.drawPile.group) {
                     temp.addToTop(c);
@@ -36,8 +35,7 @@ public class DrawPileToDiscardPileAction extends AbstractGameAction { // Basical
                 temp.sortByRarityPlusStatusCardType(false);
                 if (this.numberOfCards == 1) {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
-                }
-                else {
+                } else {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
                 }
                 tickDuration();

@@ -1,5 +1,6 @@
 package AnomalyMod.actions.unique;
 
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,8 +29,7 @@ public class TrenchWarfareAction extends AbstractGameAction {
             if (this.player.hand.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 3, true, true);
                 tickDuration();
                 return;
@@ -48,9 +48,7 @@ public class TrenchWarfareAction extends AbstractGameAction {
             for (int i = 0; i < typesOfCardsDiscarded.size(); i++) {
                 AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.player, this.player, this.blockPerCardType));
             }
-            AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            this.player.hand.refreshHandLayout();
+            CardPlayHelper.standardHandActionResetProtocol();
         }
         tickDuration();
     }

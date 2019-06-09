@@ -1,6 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
 import AnomalyMod.actions.correction.ShellLoadedPowerCorrectionAction;
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ShellLoadedPower extends AbstractAnomalyPower {
+public class ShellLoadedPower extends AbstractAnomalyPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:ShellLoaded";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -44,8 +45,7 @@ public class ShellLoadedPower extends AbstractAnomalyPower {
                     flashWithoutSound();
                 }
             }
-        }
-        else {
+        } else {
             if (this.shouldGainDoubleBlock) {
                 flash();
             }
@@ -58,8 +58,7 @@ public class ShellLoadedPower extends AbstractAnomalyPower {
     public final float modifyBlock(float block) {
         if (this.shouldGainDoubleBlock) {
             return block * 2.0F;
-        }
-        else {
+        } else {
             return block;
         }
     }

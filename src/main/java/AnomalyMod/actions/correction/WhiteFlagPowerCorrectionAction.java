@@ -18,14 +18,12 @@ public class WhiteFlagPowerCorrectionAction extends AbstractGameAction {
     public void update() {
         if (this.powerInstance.amount > 0) {
             this.powerInstance.shouldTakeNoDamage = true;
-        }
-        else {
+        } else {
             this.powerInstance.shouldTakeNoDamage = false;
         }
         if (this.powerInstance.owner instanceof AbstractMonster) {
             ((AbstractMonster) this.powerInstance.owner).applyPowers();
-        }
-        else {
+        } else {
             AnomalyMod.logger.info("Hey what the hell are you doing putting this on other people? Get outta here.");
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.powerInstance.owner, null, this.powerInstance));
         }

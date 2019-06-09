@@ -1,12 +1,20 @@
 {
   "modid": "AnomalyMod",
   "name": "The Anomaly",
-  "author_list": ["BDWSSBB"],
+  "author_list": [
+    "BDWSSBB"
+  ],
   "description": "A challenging character, fighting in a world he does not belong in.",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "sts_version": "01-23-2019",
   "mts_version": "3.9.2",
   "credits": "Cheshyre: Anomaly soundtracks.\nPatreon: https://www.patreon.com/cheshyre\nYouTube: https://www.youtube.com/c/Cheshyre\nBandcamp: https://cheshyre.bandcamp.com\nReddit: https://www.reddit.com/r/Cheshyre\nDiscord: https://discord.gg/KZfXbWd\n\nMagnus \"SoulEye\" Pålsson: Anomaly boss victory stinger (Path Complete).\n\nFay Silverwood: Anomaly character and portrait artwork basis.",
-  "dependencies": ["basemod", "stslib"],
-  "optional_dependencies": ["TheJungle"]
+  "dependencies": [
+    "basemod",
+    "stslib"
+  ],
+  "optional_dependencies": [
+    "TheJungle",
+    "coloredPowerTips"
+  ]
 }

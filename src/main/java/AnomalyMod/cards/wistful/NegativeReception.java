@@ -43,8 +43,7 @@ public class NegativeReception extends AbstractAnomalyCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         if (this.isStupidVersion) {
             AbstractDungeon.actionManager.addToBottom(new EveryCardIsDecoyToYouAction());
-        }
-        else {
+        } else {
             AbstractDungeon.actionManager.addToBottom(new NegativeReceptionAction());
         }
     }
@@ -62,8 +61,7 @@ public class NegativeReception extends AbstractAnomalyCard {
                 this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
                 initializeDescription();
                 this.isStupidVersion = true;
-            }
-            else {
+            } else {
                 this.upgradeDamage(UPGRADE_PLUS_DAMAGE);
             }
         }

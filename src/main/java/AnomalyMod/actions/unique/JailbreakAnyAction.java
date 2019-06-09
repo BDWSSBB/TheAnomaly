@@ -1,6 +1,7 @@
 package AnomalyMod.actions.unique;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.patches.ux.JailbreakRenderPreviewPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -27,34 +28,40 @@ public class JailbreakAnyAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractCard c : this.player.drawPile.group) {
-                temp.addToTop(c);
+                if (canSelect(c)) {
+                    temp.addToTop(c);
+                }
             }
             temp.sortAlphabetically(true);
             temp.sortByRarityPlusStatusCardType(false);
             for (AbstractCard c : this.player.hand.group) {
-                c.angle = 0.0F;
-                temp.addToTop(c);
-                c.beginGlowing();
+                if (canSelect(c)) {
+                    c.angle = 0.0F;
+                    temp.addToTop(c);
+                    c.beginGlowing();
+                }
             }
             for (AbstractCard c : this.player.discardPile.group) {
-                temp.addToTop(c);
+                if (canSelect(c)) {
+                    temp.addToTop(c);
+                }
             }
             if (temp.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else if (temp.size() == 1) {
+            } else if (temp.size() == 1) {
                 for (AbstractCard c : temp.group) {
                     if (c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0) {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-this.improbReductionAmount, true);
-                    }
-                    else if (c.canUpgrade()) {
+                    } else if (c.canUpgrade()) {
                         c.upgrade();
                     }
                 }
-            }
-            else {
+            } else {
+                JailbreakRenderPreviewPatch.GridCardSelectScreenPatch.doingForJailbreakGrid = true;
+                JailbreakRenderPreviewPatch.GridCardSelectScreenPatch.jailbreakReduction = improbReductionAmount;
                 AbstractDungeon.gridSelectScreen.open(temp, 1, TEXT[0], true);
+                JailbreakRenderPreviewPatch.GridCardSelectScreenPatch.doingForJailbreakGrid = false;
             }
             tickDuration();
             return;
@@ -63,8 +70,7 @@ public class JailbreakAnyAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 if (c instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) c).baseImprobabilityNumber > 0) {
                     ((AbstractAnomalyCard) c).changeImprobabilityNumber(-this.improbReductionAmount, true);
-                }
-                else if (c.canUpgrade()) {
+                } else if (c.canUpgrade()) {
                     c.upgrade();
                 }
             }
@@ -73,5 +79,13 @@ public class JailbreakAnyAction extends AbstractGameAction {
             this.player.hand.glowCheck();
         }
         this.tickDuration();
+    }
+
+    private boolean canSelect(AbstractCard card) {
+        if (card.canUpgrade() || (card instanceof AbstractAnomalyCard && ((AbstractAnomalyCard) card).baseImprobabilityNumber > 0)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
 
-public class ImitatorSyntax extends AbstractAnomalyTwoAmountPower {
+public class ImitatorSyntax extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:ImitatorSyntax";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -40,14 +41,11 @@ public class ImitatorSyntax extends AbstractAnomalyTwoAmountPower {
         this.description = DESCRIPTIONS[0] + this.cardIntervalAmount + PlayerTurnEffect.getOrdinalNaming(this.cardIntervalAmount) + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3] + DESCRIPTIONS[4];
         if (this.currentMode == null) {
             this.description += DESCRIPTIONS[7];
-        }
-        else if (this.currentMode == ImitatorSyntaxMode.STRENGTH) {
+        } else if (this.currentMode == ImitatorSyntaxMode.STRENGTH) {
             this.description += DESCRIPTIONS[5];
-        }
-        else if (this.currentMode == ImitatorSyntaxMode.DEXTERITY) {
+        } else if (this.currentMode == ImitatorSyntaxMode.DEXTERITY) {
             this.description += DESCRIPTIONS[6];
-        }
-        else {
+        } else {
             AnomalyMod.logger.info("WTF? What happened to Imitator Syntax?");
         }
     }
@@ -59,18 +57,15 @@ public class ImitatorSyntax extends AbstractAnomalyTwoAmountPower {
             if (card.type == AbstractCard.CardType.SKILL) {
                 if (this.currentMode == null) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount), this.amount));
-                }
-                else if (this.currentMode == ImitatorSyntaxMode.STRENGTH) {
+                } else if (this.currentMode == ImitatorSyntaxMode.STRENGTH) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.amount), -this.amount));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount), this.amount));
                 }
                 this.currentMode = ImitatorSyntaxMode.DEXTERITY;
-            }
-            else {
+            } else {
                 if (this.currentMode == null) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
-                }
-                else if (this.currentMode == ImitatorSyntaxMode.DEXTERITY) {
+                } else if (this.currentMode == ImitatorSyntaxMode.DEXTERITY) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, -this.amount), -this.amount));
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
                 }

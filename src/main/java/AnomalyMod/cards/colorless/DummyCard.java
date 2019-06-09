@@ -1,6 +1,7 @@
 package AnomalyMod.cards.colorless;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.actions.common.ExhaustFromAnywhereAction;
 import AnomalyMod.actions.common.VanillaImprovements.FasterExhaustSpecificCardAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -35,12 +36,15 @@ public class DummyCard extends AbstractAnomalyCard {
         if (cardType == CardType.ATTACK) {
             this.loadCardImage(ATTACK_IMAGE_PATH);
             this.textureImg = ATTACK_IMAGE_PATH;
-        }
-        else if (cardType == CardType.POWER) {
+        } else if (cardType == CardType.POWER) {
             this.loadCardImage(POWER_IMAGE_PATH);
             this.textureImg = POWER_IMAGE_PATH;
         }
-        this.exhaust = true;
+        if (cardType != CardType.POWER) {
+            this.exhaust = true;
+        } else {
+            this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        }
     }
 
     public DummyCard() {
@@ -52,8 +56,7 @@ public class DummyCard extends AbstractAnomalyCard {
         if (this.type == CardType.CURSE) {
             if (p.hasRelic(BlueCandle.ID)) {
                 useBlueCandle(p);
-            }
-            else {
+            } else {
                 AbstractDungeon.actionManager.addToBottom(new UseCardAction(this));
             }
         }
@@ -74,18 +77,7 @@ public class DummyCard extends AbstractAnomalyCard {
 
     @Override
     public void triggerAtEndOfTurnFromAnywhere() {
-        if (AbstractDungeon.player.drawPile.contains(this)) {
-            AbstractDungeon.actionManager.addToTop(new FasterExhaustSpecificCardAction(this, AbstractDungeon.player.drawPile));
-        }
-        else if (AbstractDungeon.player.hand.contains(this)) {
-            AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-        }
-        else if (AbstractDungeon.player.discardPile.contains(this)) {
-            AbstractDungeon.actionManager.addToTop(new FasterExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        }
-        else {
-            AnomalyMod.logger.info("WARNING: Couldn't find Dummy to exhaust.");
-        }
+        AbstractDungeon.actionManager.addToBottom(new ExhaustFromAnywhereAction(this));
     }
 
     @Override

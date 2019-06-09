@@ -53,5 +53,10 @@
       "Choose ",
       " Cards to Revise."
     ]
+  },
+  "anomalyMod:AnomalyTheEnding": {
+    "TEXT": [
+      "The End"
+    ]
   }
 }

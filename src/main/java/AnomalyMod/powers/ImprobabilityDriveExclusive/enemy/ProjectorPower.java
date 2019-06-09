@@ -1,6 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
 import AnomalyMod.AnomalyMod;
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ProjectorPower extends AbstractAnomalyTwoAmountPower {
+public class ProjectorPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:Projector";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -34,8 +35,7 @@ public class ProjectorPower extends AbstractAnomalyTwoAmountPower {
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }
     }
@@ -60,16 +60,17 @@ public class ProjectorPower extends AbstractAnomalyTwoAmountPower {
 
     @Override
     public void atEndOfRound() {
-        this.amount2 = amount;
-        updateThings();
+        if (this.amount2 == 0) {
+            this.amount2 = amount;
+            updateThings();
+        }
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL && this.amount2 > 0) {
             return damage * 1.5F;
-        }
-        else {
+        } else {
             return damage;
         }
     }
@@ -78,8 +79,7 @@ public class ProjectorPower extends AbstractAnomalyTwoAmountPower {
         updateDescription();
         if (this.owner instanceof AbstractMonster) {
             ((AbstractMonster) this.owner).applyPowers();
-        }
-        else {
+        } else {
             AnomalyMod.logger.info("Hey what the hell are you doing putting this on other people? Get outta here.");
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, null, this));
         }

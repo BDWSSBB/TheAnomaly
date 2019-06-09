@@ -2,6 +2,7 @@ package AnomalyMod.powers;
 
 import AnomalyMod.actions.correction.AddActionLaterAction;
 import AnomalyMod.actions.correction.ApexPowerCorrectionAction;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -14,23 +15,22 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class ApexPower extends AbstractAnomalyTwoAmountPower {
+public class ApexPower extends AbstractAnomalyTwoAmountPower implements NonStackablePower {
 
     public static final String POWER_ID = "anomalyMod:Apex";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = POWER_STRINGS.NAME;
     public static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
-    private static final int BASE_PRIORITY = 0;
     public boolean shouldDebuff = false;
 
     public ApexPower(AbstractCreature owner, int amount, int amount2) {
-        this.ID = POWER_ID + amount2;
+        this.ID = POWER_ID;
         this.name = NAME;
         this.type = AbstractPower.PowerType.DEBUFF;
         this.owner = owner;
         this.amount = amount;
         this.amount2 = amount2;
-        this.priority = BASE_PRIORITY + amount2;
+        this.priority = 0;
         updateDescription();
         loadRegion("rupture");
     }
@@ -39,9 +39,17 @@ public class ApexPower extends AbstractAnomalyTwoAmountPower {
     public void updateDescription() {
         if (this.amount2 == 1) {
             this.description = DESCRIPTIONS[0] + this.amount2 + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[4];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount2 + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[4];
+        }
+    }
+
+    @Override
+    public boolean isStackable(AbstractPower power) {
+        if (power instanceof ApexPower && this.amount2 == ((ApexPower) power).amount2) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -65,8 +73,6 @@ public class ApexPower extends AbstractAnomalyTwoAmountPower {
 
     private void changeAmount2(int amount) {
         this.amount2 += amount;
-        this.ID = POWER_ID + this.amount2;
-        this.priority = BASE_PRIORITY + this.amount2;
         this.updateDescription();
     }
 }

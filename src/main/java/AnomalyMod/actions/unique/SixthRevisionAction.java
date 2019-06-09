@@ -26,8 +26,7 @@ public class SixthRevisionAction extends AbstractGameAction {
             if (this.player.discardPile.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : this.player.discardPile.group) {
                     if (c.canUpgrade()) {
@@ -42,8 +41,7 @@ public class SixthRevisionAction extends AbstractGameAction {
                 }
                 if (this.numberOfCards == 1) {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
-                }
-                else {
+                } else {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
                 }
                 tickDuration();

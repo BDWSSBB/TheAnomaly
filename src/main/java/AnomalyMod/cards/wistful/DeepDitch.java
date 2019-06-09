@@ -50,16 +50,13 @@ public class DeepDitch extends AbstractAnomalyCard {
         if (this.upgraded) {
             if (power.atDamageGive(tmp, damageTypeForTurn) > tmp) {
                 return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return tmp;
             }
-        }
-        else {
+        } else {
             if (power.ID.equals(StrengthPower.POWER_ID)) {
                 return power.atDamageGive(power.atDamageGive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return super.atDamageGiveWithPower(tmp, damageTypeForTurn, power);
             }
         }
@@ -70,16 +67,13 @@ public class DeepDitch extends AbstractAnomalyCard {
         if (this.upgraded) {
             if (power.atDamageReceive(tmp, damageTypeForTurn) > tmp) {
                 return power.atDamageReceive(power.atDamageReceive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return tmp;
             }
-        }
-        else {
+        } else {
             if (power.ID.equals(VulnerablePower.POWER_ID)) {
                 return power.atDamageReceive(power.atDamageReceive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return super.atDamageReceiveWithPower(tmp, damageTypeForTurn, power);
             }
         }
@@ -90,12 +84,10 @@ public class DeepDitch extends AbstractAnomalyCard {
         if (this.upgraded) {
             if (power.atDamageFinalGive(tmp, damageTypeForTurn) > tmp) {
                 return power.atDamageFinalGive(power.atDamageFinalGive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return tmp;
             }
-        }
-        else {
+        } else {
             return super.atDamageFinalGiveWithPower(tmp, damageTypeForTurn, power);
         }
     }
@@ -105,12 +97,10 @@ public class DeepDitch extends AbstractAnomalyCard {
         if (this.upgraded) {
             if (power.atDamageFinalReceive(tmp, damageTypeForTurn) > tmp) {
                 return power.atDamageFinalReceive(power.atDamageFinalReceive(tmp, damageTypeForTurn), damageTypeForTurn);
-            }
-            else {
+            } else {
                 return tmp;
             }
-        }
-        else {
+        } else {
             return super.atDamageFinalReceiveWithPower(tmp, damageTypeForTurn, power);
         }
     }

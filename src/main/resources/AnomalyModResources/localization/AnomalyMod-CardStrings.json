@@ -104,16 +104,17 @@
   },
   "anomalyMod:DialMForMurder": {
     "NAME": "Dial M for Murder",
-    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Attacks that cost 2 or more are played twice."
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL The first Attack you play each turn that costs 2 or more is played twice."
   },
   "anomalyMod:Disable": {
     "NAME": "Disable",
-    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage, apply !M! Weak, and apply !M! Vulnerable to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Enemy receives double effects from Weak and Vulnerable this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Enemy receives double effects from Weak and Vulnerable for !M! turns. NL Exhaust."
   },
   "anomalyMod:Discontinuity": {
     "NAME": "Discontinuity",
-    "DESCRIPTION": "After you play !M! cards, play a copy of the last card you played this combat from now.",
-    "UPGRADE_DESCRIPTION": "Retain. NL After you play !M! cards, play a copy of the last card you played this combat from now.",
+    "DESCRIPTION": "After you play !M! cards, play a copy of the last card you played this combat.",
+    "UPGRADE_DESCRIPTION": "Retain. NL After you play !M! cards, play a copy of the last card you played this combat.",
     "EXTENDED_DESCRIPTION": [
       " NL (Play ",
       ".)"
@@ -125,7 +126,10 @@
   },
   "anomalyMod:DummyCard": {
     "NAME": "Dummy",
-    "DESCRIPTION": "Ethereal. NL Exhaust. NL Exhausts at the end of your turn from anywhere."
+    "DESCRIPTION": "NL Exhaust. NL Exhausts at the end of your turn from anywhere.",
+    "EXTENDED_DESCRIPTION": [
+      "Exhausts at the end of your turn from anywhere."
+    ]
   },
   "anomalyMod:DumpsterDive": {
     "NAME": "Dumpster Dive",
@@ -142,6 +146,10 @@
   "anomalyMod:Excavate": {
     "NAME": "Excavate",
     "DESCRIPTION": "Put all but up to !M! cards from your draw pile into your discard pile. NL Exhaust."
+  },
+  "anomalyMod:ExpirationDate": {
+    "NAME": "Xpiration Date",
+    "DESCRIPTION": "Xprobability !anomalyMod:I!. NL Gain !M! Strength. NL Gain !M! Dexterity. NL After !anomalyMod:M2! turns, lose !M! Strength and !M! Dexterity."
   },
   "anomalyMod:ExtraPockets": {
     "NAME": "Extra Pockets",
@@ -188,6 +196,11 @@
     "NAME": "Gravekeep",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage !M! times."
   },
+  "anomalyMod:Hellegance": {
+    "NAME": "Hellegance",
+    "DESCRIPTION": "Whenever you gain Improbability, gain [E] and draw !anomalyMod:M2! cards.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain Improbability, gain [E] and draw !anomalyMod:M2! cards."
+  },
   "anomalyMod:Hook": {
     "NAME": "Hook",
     "DESCRIPTION": "Deal !D! damage. NL Put a card from your discard pile into your hand. NL Exhaustive !stslib:ex!.",
@@ -198,7 +211,8 @@
   },
   "anomalyMod:Hurdle": {
     "NAME": "Hurdle",
-    "DESCRIPTION": "Unplayable. NL Retain. NL If this card is discarded from your hand, gain !B! Block and gain !B! Block next turn.",
+    "DESCRIPTION": "Unplayable. NL If this card is discarded from your hand, gain !B! Block and gain !B! Block next turn.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Retain. NL If this card is discarded from your hand, gain !B! Block and gain !B! Block next turn.",
     "EXTENDED_DESCRIPTION": [
       "I can't play this card."
     ]
@@ -241,13 +255,10 @@
     "NAME": "Maladaptation",
     "DESCRIPTION": "Discard a card. NL If you discard a Skill, apply !M! Vulnerable. NL Otherwise, apply !M! Weak."
   },
-  "anomalyMod:Minimalist": {
-    "NAME": "Minimalist",
-    "DESCRIPTION": "At the start of your turn, gain [E] and discard 1 card."
-  },
   "anomalyMod:Multithreading": {
     "NAME": "Multithreading",
-    "DESCRIPTION": "Exhaust a card. NL At the start of your next !M! turns, play a copy of it."
+    "DESCRIPTION": "Exhaust a card. NL At the start of your next !M! turns, play a copy of it.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust a card. NL At the start of your next !M! turns, play a copy of it."
   },
   "anomalyMod:NegativeReception": {
     "NAME": "Negative Reception",
@@ -276,7 +287,7 @@
   "anomalyMod:Preloader": {
     "NAME": "Preloader",
     "DESCRIPTION": "Exhaust. NL Startup: Gain [E] and draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Exhaust. NL Startup: Gain [E] and draw !M! cards."
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Exhaust. NL Startup: Gain [E] and draw !M! card."
   },
   "anomalyMod:Procrastinate": {
     "NAME": "Procrastinate",
@@ -333,8 +344,8 @@
   },
   "anomalyMod:TelomereFlake": {
     "NAME": "Telomere Flake",
-    "DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Put the top card and bottom card of your draw pile into your hand and Upgrade them."
+    "DESCRIPTION": "Put the top and bottom cards of your draw pile into your hand and Upgrade them. NL Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put the top and bottom cards of your draw pile into your hand and Upgrade them. NL Exhaustive !stslib:ex!."
   },
   "anomalyMod:Timeslip": {
     "NAME": "Timeslip",
@@ -354,8 +365,7 @@
   },
   "anomalyMod:TrashChute": {
     "NAME": "Trash Chute",
-    "DESCRIPTION": "At the start of your turn, put up to !M! card from your draw pile into your discard pile.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, put up to !M! cards from your draw pile into your discard pile."
+    "DESCRIPTION": "At the start of your turn, put up to !M! cards from your draw pile into your discard pile."
   },
   "anomalyMod:TrenchWarfare": {
     "NAME": "Trench Warfare",

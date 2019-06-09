@@ -34,8 +34,7 @@ public class MultithreadingPower extends AbstractAnomalyPower implements NonStac
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[1];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3];
         }
     }
@@ -43,7 +42,7 @@ public class MultithreadingPower extends AbstractAnomalyPower implements NonStac
     @Override
     public void atStartOfTurnPostDraw() {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new PlayCardFromNowhereAction(this.card.makeStatEquivalentCopy()));
+        AbstractDungeon.actionManager.addToBottom(new PlayCardFromNowhereAction(this.card.makeStatEquivalentCopy(), false));
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, 1));
     }
 }

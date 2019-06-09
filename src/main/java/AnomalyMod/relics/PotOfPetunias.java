@@ -42,15 +42,14 @@ public class PotOfPetunias extends AbstractAnomalyRelic implements CustomSavable
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action){
+    public void onUseCard(AbstractCard card, UseCardAction action) {
         this.lastCardPlayed = card;
     }
 
     public CardSave onSave() {
         if (this.lastCardPlayed != null) {
             return new CardSave(this.lastCardPlayed.cardID, this.lastCardPlayed.timesUpgraded, this.lastCardPlayed.misc);
-        }
-        else {
+        } else {
             return null;
         }
     }

@@ -1,5 +1,6 @@
 package AnomalyMod.actions.unique;
 
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.powers.DiscontinuityPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,12 +20,9 @@ public class DiscontinuityAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        for (int i = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2; i >= 0; i--) {
-            if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).dontTriggerOnUseCard) {
-                AbstractCard tmp = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).makeStatEquivalentCopy();
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new DiscontinuityPower(this.player, this.numberOfCards, tmp)));
-                break;
-            }
+        if (CardPlayHelper.cardsActuallyPlayedThisCombat.size() > 1) {
+            AbstractCard tmp = CardPlayHelper.cardsActuallyPlayedThisCombat.get(CardPlayHelper.cardsActuallyPlayedThisCombat.size() - 2).makeStatEquivalentCopy();
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new DiscontinuityPower(this.player, this.numberOfCards, tmp)));
         }
         this.isDone = true;
     }

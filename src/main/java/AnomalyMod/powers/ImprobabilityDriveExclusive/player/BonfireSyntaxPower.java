@@ -1,5 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class BonfireSyntaxPower extends AbstractAnomalyTwoAmountPower {
+public class BonfireSyntaxPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:BonfireSyntax";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -38,8 +39,7 @@ public class BonfireSyntaxPower extends AbstractAnomalyTwoAmountPower {
         this.description = DESCRIPTIONS[0] + this.cardSetupAmount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[3] + DESCRIPTIONS[4];
         if (this.lastCardType == null) {
             this.description += DESCRIPTIONS[11];
-        }
-        else {
+        } else {
             switch (this.lastCardType) {
                 case ATTACK: {
                     this.description += DESCRIPTIONS[5];
@@ -78,8 +78,7 @@ public class BonfireSyntaxPower extends AbstractAnomalyTwoAmountPower {
                     switchActivity();
                 }
             }
-        }
-        else {
+        } else {
             if (this.isActive) {
                 switchActivity();
             }
@@ -98,8 +97,7 @@ public class BonfireSyntaxPower extends AbstractAnomalyTwoAmountPower {
             this.isActive = false;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, -this.amount), -this.amount));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, -this.amount), -this.amount));
-        }
-        else {
+        } else {
             this.isActive = true;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount), this.amount));

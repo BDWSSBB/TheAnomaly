@@ -1,9 +1,10 @@
 package AnomalyMod.actions.unique;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.helpers.config.ConfigHelper;
-import AnomalyMod.relics.ControlHijack;
 import AnomalyMod.relics.AuditingHijack;
+import AnomalyMod.relics.ControlHijack;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -33,8 +34,7 @@ public class PortableTerminalAction extends AbstractGameAction {
             if (this.player.hand.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 if (ConfigHelper.makePortableTerminalMoveCards) {
                     ArrayList<AbstractCard> nonImprobableCards = new ArrayList<>();
                     for (AbstractCard c : this.player.hand.group) {
@@ -59,28 +59,22 @@ public class PortableTerminalAction extends AbstractGameAction {
                 if (c instanceof AbstractAnomalyCard) {
                     if (AbstractDungeon.player.hasRelic(AuditingHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-AuditingHijack.AUDITING_HIJACK_IMPROBABILITY_LOSS, true);
-                    }
-                    else if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
+                    } else if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-ControlHijack.CONTROL_HIJACK_IMPROBABILITY_LOSS, true);
-                    }
-                    else {
+                    } else {
                         ((AbstractAnomalyCard) c).changeImprobabilityNumber(-this.improbabilityReductionAmount, true);
                     }
                 }
                 if (AbstractDungeon.player.hasRelic(AuditingHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() == 1) {
                     this.player.hand.addToTop(c);
-                }
-                else {
+                } else {
                     this.player.hand.moveToBottomOfDeck(c);
                 }
             }
             if (AbstractDungeon.player.hasRelic(ControlHijack.ID) && AbstractDungeon.handCardSelectScreen.selectedCards.group.size() >= 2) {
                 AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.player, 1));
             }
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            this.player.hand.refreshHandLayout();
-            this.player.hand.glowCheck();
+            CardPlayHelper.standardHandActionResetProtocol();
         }
         this.tickDuration();
     }

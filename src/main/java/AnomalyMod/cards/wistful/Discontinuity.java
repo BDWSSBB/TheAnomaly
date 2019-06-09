@@ -2,6 +2,7 @@ package AnomalyMod.cards.wistful;
 
 import AnomalyMod.actions.unique.DiscontinuityAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,7 +17,7 @@ public class Discontinuity extends AbstractAnomalyCard {
     public static final String ID = "anomalyMod:Discontinuity";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
-    public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/continuityMishap.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/discontinuity.png";
     private static final int COST = 1;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -39,25 +40,19 @@ public class Discontinuity extends AbstractAnomalyCard {
     @Override
     public void applyPowers() {
         String cardName = null;
-        for (int i = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1; i >= 0; i--) {
-            if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).dontTriggerOnUseCard) {
-                cardName = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).name;
-                break;
-            }
+        if (!CardPlayHelper.cardsActuallyPlayedThisCombat.isEmpty()) {
+            cardName = CardPlayHelper.cardsActuallyPlayedThisCombat.get(CardPlayHelper.cardsActuallyPlayedThisCombat.size() - 1).name;
         }
         if (cardName != null) {
             if (this.upgraded) {
                 this.rawDescription = UPGRADE_DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + cardName + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-            }
-            else {
+            } else {
                 this.rawDescription = DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + cardName + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
             }
-        }
-        else {
+        } else {
             if (this.upgraded) {
                 this.rawDescription = UPGRADE_DESCRIPTION;
-            }
-            else {
+            } else {
                 this.rawDescription = DESCRIPTION;
             }
         }
@@ -69,8 +64,7 @@ public class Discontinuity extends AbstractAnomalyCard {
     public void onMoveToDiscard() {
         if (this.upgraded) {
             this.rawDescription = UPGRADE_DESCRIPTION;
-        }
-        else {
+        } else {
             this.rawDescription = DESCRIPTION;
         }
         this.initializeDescription();

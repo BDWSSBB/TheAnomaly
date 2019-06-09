@@ -25,10 +25,10 @@ public class Torment extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final int IMPROBABILITY_NUMBER = 3;
+    private static final int IMPROBABILITY_NUMBER = 4;
     private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
-    private static final int SECOND_MAGIC_NUMBER = 2;
+    private static final int SECOND_MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_SECOND_MAGIC_NUMBER = 1;
 
     public Torment() {

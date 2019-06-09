@@ -34,18 +34,15 @@ public class ClusterCrunchAction extends AbstractGameAction {
                 if (!m.isDeadOrEscaped() && (leastHpMonster.isEmpty() || m.currentHealth < leastHpMonster.get(0).currentHealth)) {
                     leastHpMonster.clear();
                     leastHpMonster.add(m);
-                }
-                else if (!leastHpMonster.isEmpty() && m.currentHealth == leastHpMonster.get(0).currentHealth) {
+                } else if (!leastHpMonster.isEmpty() && m.currentHealth == leastHpMonster.get(0).currentHealth) {
                     leastHpMonster.add(m);
                 }
             }
             if (leastHpMonster.isEmpty()) {
                 AnomalyMod.logger.info("Why's there no target for Cluster Crunch?");
-            }
-            else if (leastHpMonster.size() == 1) {
+            } else if (leastHpMonster.size() == 1) {
                 this.target = leastHpMonster.get(0);
-            }
-            else {
+            } else {
                 this.target = leastHpMonster.get(AbstractDungeon.cardRandomRng.random(0, leastHpMonster.size() - 1));
             }
         }

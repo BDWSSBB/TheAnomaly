@@ -1,0 +1,52 @@
+v0.3
+
+ART: Slowly adding art for different things. Working on card art and experimenting with different styles.
+BUG FIX: Testing better implementation of waiting for intents to load.
+BUG FIX: Testing fix to cards queueing out of order from various effects (such as Free Form and Dial M for Murder).
+BUG FIX: Fixed Backdoor, Discontinuity, and Socket Slice registering cards like Burn and Regret under certain conditions.
+BUG FIX: Fixed Hyperdrift not accounting for hand size.
+BUG FIX: Fixed card rewards having more rare cards than normal (due to a bug in Fatten Up).
+BUG FIX: Fixed Save and Load issues with Improbability effects. I hope.
+BUG FIX: Fixed Fatten Up not counting bonus gold from Golden Idol.
+BUG FIX: Fixed Surprise Elites changing improbability too early, messing up expectations for Random Buffs.
+GAMEPLAY: Random Buffs buff level equation increased by constant 0.5.
+GAMEPLAY: Player Buff Modules Aggressor Syntax and Defensor Syntax buffed. Power/level buffed to 3 (from 2).
+GAMEPLAY: Player Buff Modules Bonfire Syntax and Imitator Syntax are mutually exclusive.
+GAMEPLAY: Enemy Buff Module Increase HP nerfed. Max HP/level nerfed to about 37.5% (from 44.4%).
+GAMEPLAY: Card Blast Pipe buffed. Damage buffed to 24 -> 32 damage (from 22 -> 30). Strength loss buffed to 9 -> 12 (from 8 -> 10).
+GAMEPLAY: Card Deep Ditch+ buffed. Damage buffed to 24 (from 20).
+GAMEPLAY: Card Dial M for Murder nerfed. Only affects 1 Attack per turn. Costs 1 -> 0 (from 2 -> 1) to compensate.
+GAMEPLAY: Card Disable reworked. Is an Uncommon Attack that temporarily makes Weak and Vulnerable more effective on an enemy.
+GAMEPLAY: Card Dummy is no longer Ethereal as it is redundant.
+GAMEPLAY: Card Excavate+ changed. Costs 0 (from Exhaust -> Exhaustive 2).
+GAMEPLAY: Card Fak3 buffed. Block buffed to 11 -> 15 (from 10 -> 14).
+GAMEPLAY: Card Gape changed. Damage nerfed to 6 -> 8 (from 10 -> 12). Stapled amount buffed to 3 -> 4 (from 2 -> 3).
+GAMEPLAY: Card Hellegance added. Is a Rare Power that gains energy and draws cards whenever you gain Improbability.
+GAMEPLAY: Card Hurdle changed. Block buffed to 5 (from 3), but no longer Retains. Upgrade to Retain. Upgraded version unchanged.
+GAMEPLAY: Card Invalidate buffed. Gains 1 Improbability (from 1 Improbability / debuff).
+GAMEPLAY: Card Jailbreak reworked. Gains 5 -> 7 Block and reduces Improbability of a (any) card by 1, Upgrades it if cannot.
+GAMEPLAY: Card Minimalist removed.
+GAMEPLAY: Card Multithreading+ changed. Has Retain (from Cost 1).
+GAMEPLAY: Card Preloader+ changed. Draws 1 card on use (from gaining 2 energy vs. 1). Unupgraded version unchanged.
+GAMEPLAY: Card Riftwalk buffed. Block buffed to 6x3 -> 6x4 Block (from 5x3 -> 5x4).
+GAMEPLAY: Card Saw Bones buffed. Damage buffed to 15 -> 20 (from 14 -> 18).
+GAMEPLAY: Card Telomere Flake buffed. Has Exhaustive 2. Upgrade to Retain (still has Exhaustive on upgrade).
+GAMEPLAY: Card Torment nerfed. Improbability raised to 4 (from 3). Weak buffed from 3 -> 4 (from 2 -> 3) to compensate.
+GAMEPLAY: Card Trash Chute changed. Costs 1 (from 0). Cards to put buffed from 2 -> 3 (from 1 -> 2).
+GAMEPLAY: Card Warp Drive buffed. Costs 3 (from 4). Improbability lowered to 1 (from 2). Block nerfed to 35 -> 50 (from 45 -> 60) to compensate.
+GAMEPLAY: Card Xpiration Date added. Is an Uncommon Power that temporarily gives you Strength and Dexterity.
+GAMEPLAY: Power Projector nerfed. Hits to cancel Projector carry over turns and reset only if Projector is cancelled.
+GAMEPLAY: Powers Stitched and Starched buffed/simplified. Every 5th Attack/Skill is free.
+GAMEPLAY: Relic Green Rock nerfed. Block per Improbability nerfed to 3 (from 4).
+GAMEPLAY: Relic Ratchet nerfed. Gains 2 Improbability every 3 turns (from 1 every 2 turns).
+GAMEPLAY: Corrupt Heart scales Invincibility according to its health if necessary.
+GAMEPLAY: Anomaly can no longer find Card Apotheosis.
+GAMEPLAY: Anomaly can no longer find Event Knowing Skull.
+GAMEPLAY: Anomaly can no longer find Potion Poison Potion.
+GAMEPLAY: Anomaly can no longer find Relic Dead Branch.
+GAMEPLAY: Mummified hand is a rare relic when playing The Anomaly.
+UX: Certain power descriptions have been shortened.
+UX: Certain wording fixes and improvements.
+UX: Config added to organize cards for Portable Terminal.
+UX: Improbability effects now show if they decay Improbability, and if so, by how much.
+UX: Random Buffs have purple powertips. Try it with Colored Powertips from erasels!

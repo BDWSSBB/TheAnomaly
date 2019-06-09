@@ -2,23 +2,23 @@ package AnomalyMod.blights;
 
 import AnomalyMod.AnomalyMod;
 import AnomalyMod.blights.improbabilityDriveInfo.*;
-import AnomalyMod.helpers.WaitForIntentsToLoad;
-import AnomalyMod.powers.*;
+import AnomalyMod.powers.AbstractAnomalyPower;
+import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import AnomalyMod.relics.AbstractAnomalyRelic;
 import AnomalyMod.vfx.ObtainBlightLater;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.*;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.BlightHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.BlightStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitForIntentsToLoad {
+public class ImprobabilityDrive extends AbstractAnomalyBlight {
 
     public final static String ID = "anomalyMod:ImprobabilityDrive";
     private static final BlightStrings BLIGHT_STRINGS = CardCrawlGame.languagePack.getBlightString(ID);
@@ -26,6 +26,7 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitFor
     public static final String[] DESCRIPTION = BLIGHT_STRINGS.DESCRIPTION;
     public static final String IMAGE_PATH = "AnomalyModResources/relics/placeholder.png";
     public static final String IMAGE_OUTLINE_PATH = "AnomalyModResources/relics/outline/placeholderOutline.png";
+    private static int queuedImprobability = 0;
 
     public ImprobabilityDrive() {
         super(ID, NAME, getDescription(), IMAGE_PATH, IMAGE_OUTLINE_PATH, true);
@@ -35,7 +36,7 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitFor
     }
 
     @Override
-    public void onEnterRoom(AbstractRoom room) {
+    public void updateDescriptionFromImprobabilityChange() {
         changeDescription();
     }
 
@@ -70,6 +71,25 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitFor
 
     public static void changeImprobability(int improbabilityNumber) {
         ImprobabilityDrive drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
+        queueChangeImprobability(improbabilityNumber);
+        if (drive != null && queuedImprobability != 0) {
+            drive.counter += queuedImprobability;
+            queuedImprobability = 0;
+            drive.flash();
+        }
+        if (drive.counter < 0) {
+            drive.counter = 0;
+        }
+        checkForSpawnInfoBlights();
+        drive.changeDescription();
+        for (AbstractBlight b : AbstractDungeon.player.blights) {
+            if (b instanceof AbstractAnomalyBlight) {
+                ((AbstractAnomalyBlight) b).updateDescriptionFromImprobabilityChange();
+            }
+        }
+    }
+
+    public static void queueChangeImprobability(int improbabilityNumber) {
         int calculatedImprobabilityNumber = (int) doOnGainImprobabilityStageOne((float) improbabilityNumber);
         if (calculatedImprobabilityNumber != 0) {
             int finalImprobabilityNumber = doAfterFinalImprobabilityCalculations(calculatedImprobabilityNumber);
@@ -77,20 +97,10 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitFor
                 if (!AbstractDungeon.player.hasBlight(ImprobabilityDrive.ID) && finalImprobabilityNumber > 0) {
                     AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, new ImprobabilityDrive());
                 }
-                if (drive == null) {
-                    AnomalyMod.logger.info("WTF? YOU SHOULD HAVE A DRIVE! THAT DRIVES ME NUTS");
-                    return;
-                }
-                drive.counter += finalImprobabilityNumber;
-                drive.flash();
+                queuedImprobability += finalImprobabilityNumber;
                 doOnActuallyGainImprobability(finalImprobabilityNumber);
             }
         }
-        if (drive.counter < 0) {
-            drive.counter = 0;
-        }
-        checkForSpawnInfoBlights();
-        drive.changeDescription();
     }
 
     private static float doOnGainImprobabilityStageOne(float calculatingImprobabilityNumber) {
@@ -127,7 +137,7 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight implements WaitFor
         return calculatingImprobabilityNumber;
     }
 
-    private static int doAfterFinalImprobabilityCalculations (int finalImprobabilityNumber) {
+    private static int doAfterFinalImprobabilityCalculations(int finalImprobabilityNumber) {
         for (AbstractRelic r : AbstractDungeon.player.relics) {
             if (r instanceof AbstractAnomalyRelic) {
                 finalImprobabilityNumber = ((AbstractAnomalyRelic) r).afterFinalImprobabilityCalculations(finalImprobabilityNumber);

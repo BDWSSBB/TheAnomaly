@@ -17,14 +17,13 @@ public class TrashChute extends AbstractAnomalyCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/trashChute.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = CARD_STRINGS.UPGRADE_DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int MAGIC_NUMBER = 1;
+    private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     public TrashChute() {
@@ -46,8 +45,6 @@ public class TrashChute extends AbstractAnomalyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
             this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
         }
     }

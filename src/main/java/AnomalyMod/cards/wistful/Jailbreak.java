@@ -4,7 +4,6 @@ import AnomalyMod.actions.unique.JailbreakAction;
 import AnomalyMod.actions.unique.JailbreakAnyAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -41,8 +40,7 @@ public class Jailbreak extends AbstractAnomalyCard {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(new JailbreakAnyAction(this.magicNumber));
-        }
-        else {
+        } else {
             AbstractDungeon.actionManager.addToBottom(new JailbreakAction(this.magicNumber));
         }
     }

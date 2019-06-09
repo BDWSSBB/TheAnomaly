@@ -30,8 +30,7 @@ public class ExcavateAction extends AbstractGameAction {
             if (this.player.drawPile.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : this.player.drawPile.group) {
                     temp.addToTop(c);
@@ -40,8 +39,7 @@ public class ExcavateAction extends AbstractGameAction {
                 temp.sortByRarityPlusStatusCardType(false);
                 if (this.numberOfCards == 1) {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[0]);
-                }
-                else {
+                } else {
                     AbstractDungeon.gridSelectScreen.open(temp, this.numberOfCards, true, TEXT[1] + numberOfCards + TEXT[2]);
                 }
                 tickDuration();
@@ -53,8 +51,7 @@ public class ExcavateAction extends AbstractGameAction {
             for (AbstractCard c : this.player.drawPile.group) {
                 if (!AbstractDungeon.gridSelectScreen.selectedCards.contains(c)) {
                     temp.add(c);
-                }
-                else {
+                } else {
                     c.stopGlowing();
                 }
             }

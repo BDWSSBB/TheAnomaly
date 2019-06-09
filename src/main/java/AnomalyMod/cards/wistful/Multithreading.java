@@ -3,6 +3,7 @@ package AnomalyMod.cards.wistful;
 import AnomalyMod.actions.unique.MultithreadingAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,8 +18,8 @@ public class Multithreading extends AbstractAnomalyCard {
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/multithreading.png";
     private static final int COST = 2;
-    private static final int UPGRADE_COST = 1;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = CARD_STRINGS.UPGRADE_DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -44,7 +45,9 @@ public class Multithreading extends AbstractAnomalyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_COST);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            initializeDescription();
+            AlwaysRetainField.alwaysRetain.set(this, true);
         }
     }
 }

@@ -47,7 +47,7 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     }
 
     @Override
-    public void onActuallyGainImprobability(int improbabilityGained) {
+    public void updateDescriptionFromImprobabilityChange() {
         changeDescription();
     }
 
@@ -59,7 +59,7 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     }
 
     private static String getDescription() {
-        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.#").format(getPercent()) + DESCRIPTION[2] + getEligibleRooms();
+        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.#").format(getPercent()) + DESCRIPTION[2] + getEligibleRooms() + DESCRIPTION[3];
     }
 
     private static float getPercent() {
@@ -94,29 +94,31 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
 
     public static void rollSurpriseElite() {
         int initialCounter = ImprobabilityDrive.getImprobability();
+
+        // We actually lie to the player, it can't actually happen at 15% or less. Humans don't really understand probability.
+        if (initialCounter <= 15) {
+            return;
+        }
+
         if (isValidRoomForSurpriseElite(initialCounter)) {
             ImprobabilityDriveSurpriseElitesInfo blight = (ImprobabilityDriveSurpriseElitesInfo) AbstractDungeon.player.getBlight(ImprobabilityDriveSurpriseElitesInfo.ID);
             if (AnomalyMod.anomalyRNG.randomBoolean(getSurpriseElitesChance())) {
                 blight.counter /= 5;
-                blight.counter -= 4;
+                blight.counter -= 5;
                 if (blight.counter < 0) {
                     blight.counter = 0;
                 }
-                ImprobabilityDrive.changeImprobability(getSurpriseElitesImprobabilityChange(initialCounter));
+                ImprobabilityDrive.queueChangeImprobability(getSurpriseElitesImprobabilityChange(initialCounter));
                 AbstractDungeon.nextRoom.room = new MonsterRoomElite();
-            }
-            else {
+            } else {
                 if (AbstractDungeon.nextRoom.room instanceof EventRoom) {
-                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM - 7;
-                }
-                else if (AbstractDungeon.nextRoom.room.getClass().equals(MonsterRoom.class)) {
-                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_MONSTER_ROOM_IMPROBABILITY_MINIMUM - 7;
-                }
-                else if (AbstractDungeon.nextRoom.room instanceof ShopRoom) {
-                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_SHOP_ROOM_IMPROBABILITY_MINIMUM - 7;
-                }
-                else if (AbstractDungeon.nextRoom.room instanceof RestRoom) {
-                    blight.counter += 12 * ImprobabilityDrive.getImprobability() / SURPRISE_ELITES_REST_ROOM_IMPROBABILITY_MINIMUM - 7;
+                    blight.counter += 12 * initialCounter / SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM - 7;
+                } else if (AbstractDungeon.nextRoom.room.getClass().equals(MonsterRoom.class)) {
+                    blight.counter += 12 * initialCounter / SURPRISE_ELITES_MONSTER_ROOM_IMPROBABILITY_MINIMUM - 7;
+                } else if (AbstractDungeon.nextRoom.room instanceof ShopRoom) {
+                    blight.counter += 12 * initialCounter / SURPRISE_ELITES_SHOP_ROOM_IMPROBABILITY_MINIMUM - 7;
+                } else if (AbstractDungeon.nextRoom.room instanceof RestRoom) {
+                    blight.counter += 12 * initialCounter / SURPRISE_ELITES_REST_ROOM_IMPROBABILITY_MINIMUM - 7;
                 }
                 if (blight.counter > 100) {
                     blight.counter = 100;

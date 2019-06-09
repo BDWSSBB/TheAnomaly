@@ -20,14 +20,12 @@ public class PolyrhythmPowerCorrectionAction extends AbstractGameAction {
     public void update() {
         if (this.powerInstance.amount == 1) {
             this.powerInstance.shouldDoDoubleDamage = true;
-        }
-        else {
+        } else {
             this.powerInstance.shouldDoDoubleDamage = false;
         }
         if (this.powerInstance.amount2 == 1) {
             this.powerInstance.shouldGainDoubleBlock = true;
-        }
-        else {
+        } else {
             this.powerInstance.shouldGainDoubleBlock = false;
         }
         for (AbstractCard c : this.player.hand.group) {

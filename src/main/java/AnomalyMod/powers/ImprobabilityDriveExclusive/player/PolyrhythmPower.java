@@ -1,6 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
 import AnomalyMod.actions.correction.PolyrhythmPowerCorrectionAction;
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class PolyrhythmPower extends AbstractAnomalyTwoAmountPower {
+public class PolyrhythmPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:Polyrhythm";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -48,15 +49,13 @@ public class PolyrhythmPower extends AbstractAnomalyTwoAmountPower {
         this.amount2--;
         if (this.amount == 1) {
             flashWithoutSound();
-        }
-        else if (this.amount == 0) {
+        } else if (this.amount == 0) {
             flash();
             this.amount = 7;
         }
         if (this.amount2 == 1) {
             flashWithoutSound();
-        }
-        else if (this.amount2 == 0) {
+        } else if (this.amount2 == 0) {
             flash();
             this.amount2 = 8;
         }
@@ -67,8 +66,7 @@ public class PolyrhythmPower extends AbstractAnomalyTwoAmountPower {
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL && this.shouldDoDoubleDamage) {
             return damage * 2.0F;
-        }
-        else {
+        } else {
             return damage;
         }
     }
@@ -77,8 +75,7 @@ public class PolyrhythmPower extends AbstractAnomalyTwoAmountPower {
     public final float modifyBlock(float block) {
         if (this.shouldGainDoubleBlock) {
             return block * 2.0F;
-        }
-        else {
+        } else {
             return block;
         }
     }

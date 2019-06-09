@@ -1,5 +1,6 @@
 package AnomalyMod.actions.unique;
 
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.powers.ProcrastinatePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -27,14 +28,12 @@ public class ProcrastinateAction extends AbstractGameAction {
             if (this.player.hand.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else if (this.player.hand.size() == 1) {
+            } else if (this.player.hand.size() == 1) {
                 AbstractCard card = this.player.hand.getTopCard();
                 AbstractDungeon.effectList.add(new ExhaustCardEffect(card));
                 this.player.hand.removeCard(card);
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new ProcrastinatePower(this.player, card)));
-            }
-            else {
+            } else {
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
                 tickDuration();
                 return;
@@ -45,9 +44,7 @@ public class ProcrastinateAction extends AbstractGameAction {
                 AbstractDungeon.effectList.add(new ExhaustCardEffect(c));
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new ProcrastinatePower(this.player, c)));
             }
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-            AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            this.player.hand.refreshHandLayout();
+            CardPlayHelper.standardHandActionResetProtocol();
         }
         this.tickDuration();
     }

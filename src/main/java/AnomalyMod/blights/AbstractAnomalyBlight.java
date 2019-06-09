@@ -28,6 +28,10 @@ public abstract class AbstractAnomalyBlight extends AbstractBlight {
 
     }
 
+    public void updateDescriptionFromImprobabilityChange() {
+
+    }
+
     public void onSetupItemRewards() {
 
     }

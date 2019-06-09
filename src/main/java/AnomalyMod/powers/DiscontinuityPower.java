@@ -1,6 +1,7 @@
 package AnomalyMod.powers;
 
 import AnomalyMod.actions.common.PlayCardFromNowhereAction;
+import AnomalyMod.patches.correction.PurgeOnUseLaterPatch;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -37,8 +38,7 @@ public class DiscontinuityPower extends AbstractAnomalyPower implements NonStack
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[3];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2] + FontHelper.colorString(this.card.name, "y") + DESCRIPTIONS[3];
         }
     }
@@ -51,13 +51,12 @@ public class DiscontinuityPower extends AbstractAnomalyPower implements NonStack
             failsafeCounter = 0;
             AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DESCRIPTIONS[4], 0.5F, 2.0F));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-        }
-        else if (this.amount == 0) {
+        } else if (this.amount == 0) {
             failsafeCounter++;
             AbstractDungeon.actionManager.addToBottom(new PlayCardFromNowhereAction(this.card.makeStatEquivalentCopy()));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
-        if (!card.purgeOnUse) {
+        if (!(card.purgeOnUse || PurgeOnUseLaterPatch.PurgeOnUseLaterField.anomalyModPurgeOnUseLater.get(card))) {
             failsafeCounter = 0;
         }
     }

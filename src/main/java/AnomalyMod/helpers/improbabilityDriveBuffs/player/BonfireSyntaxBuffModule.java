@@ -12,7 +12,7 @@ public class BonfireSyntaxBuffModule extends AbstractImprobabilityDriveBuffModul
 
     public void doAction() {
         if (this.totalAmount > 0) {
-            this.target.addPower(new BonfireSyntaxPower(this.target,(int) this.totalAmount, 2));
+            this.target.addPower(new BonfireSyntaxPower(this.target, (int) this.totalAmount, 2));
         }
     }
 }

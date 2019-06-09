@@ -1,8 +1,8 @@
 package AnomalyMod.powers;
 
 import AnomalyMod.actions.correction.AddActionLaterAction;
-import AnomalyMod.actions.unique.UseFreeFormAction;
 import AnomalyMod.actions.correction.HandApplyPowersAction;
+import AnomalyMod.actions.unique.UseFreeFormAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,8 +30,7 @@ public class FreeFormPower extends AbstractAnomalyPower {
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0];
-        }
-        else {
+        } else {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
     }

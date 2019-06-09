@@ -1,6 +1,7 @@
 package AnomalyMod.cards.wistful;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
+import AnomalyMod.helpers.cardPlay.CardPlayHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -41,11 +42,10 @@ public class Backdoor extends AbstractAnomalyCard {
     public void applyPowers() {
         this.isDamageModified = false;
         int skillsInARow = 0;
-        for (int i = AbstractDungeon.actionManager.cardsPlayedThisTurn.size() - 1; i >= 0; i--) {
-            if (AbstractDungeon.actionManager.cardsPlayedThisTurn.get(i).type == CardType.SKILL) {
+        for (int i = CardPlayHelper.cardsActuallyPlayedThisTurn.size() - 1; i >= 0; i--) {
+            if (CardPlayHelper.cardsActuallyPlayedThisTurn.get(i).type == CardType.SKILL) {
                 skillsInARow++;
-            }
-            else if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i).dontTriggerOnUseCard) {
+            } else {
                 break;
             }
         }

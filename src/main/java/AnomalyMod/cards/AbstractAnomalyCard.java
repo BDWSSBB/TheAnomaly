@@ -82,22 +82,22 @@ public abstract class AbstractAnomalyCard extends CustomCard {
 
         @Override
         public int baseValue(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).baseSecondMagicNumber;
+            return ((AbstractAnomalyCard) card).baseSecondMagicNumber;
         }
 
         @Override
         public int value(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).secondMagicNumber;
+            return ((AbstractAnomalyCard) card).secondMagicNumber;
         }
 
         @Override
         public boolean isModified(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).isSecondMagicNumberModified;
+            return ((AbstractAnomalyCard) card).isSecondMagicNumberModified;
         }
 
         @Override
         public boolean upgraded(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).upgradedSecondMagicNumber;
+            return ((AbstractAnomalyCard) card).upgradedSecondMagicNumber;
         }
     }
 
@@ -110,22 +110,22 @@ public abstract class AbstractAnomalyCard extends CustomCard {
 
         @Override
         public int baseValue(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).baseImprobabilityNumber;
+            return ((AbstractAnomalyCard) card).baseImprobabilityNumber;
         }
 
         @Override
         public int value(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).improbabilityNumber;
+            return ((AbstractAnomalyCard) card).improbabilityNumber;
         }
 
         @Override
         public boolean isModified(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).isImprobabilityNumberModified;
+            return ((AbstractAnomalyCard) card).isImprobabilityNumberModified;
         }
 
         @Override
         public boolean upgraded(AbstractCard card) {
-            return ((AbstractAnomalyCard)card).upgradedImprobabilityNumber;
+            return ((AbstractAnomalyCard) card).upgradedImprobabilityNumber;
         }
     }
 }

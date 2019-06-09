@@ -1,7 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
+import AnomalyMod.helpers.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
-import AnomalyMod.powers.ImprobabilityDriveExclusive.player.ViscosityDamagePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ViscosityPower extends AbstractAnomalyTwoAmountPower {
+public class ViscosityPower extends AbstractAnomalyTwoAmountPower implements RandomBuff {
 
     public static final String POWER_ID = "anomalyMod:Viscosity";
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -47,8 +47,7 @@ public class ViscosityPower extends AbstractAnomalyTwoAmountPower {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new ViscosityDamagePower(this.owner, this.amount2), this.amount2));
                 this.amount2 = 0;
                 return newDamage;
-            }
-            else {
+            } else {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new ViscosityDamagePower(this.owner, damageAmount), damageAmount));
                 this.amount2 -= damageAmount;
                 return 0;

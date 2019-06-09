@@ -49,8 +49,7 @@ public class ConfigHelper {
             defaults.put("fightMe", Boolean.toString(false));
             defaults.put("foughtAprilFoolsMe", Boolean.toString(false));
             modConfig = new SpireConfig("TheAnomaly", "config", defaults);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         switch (modConfig.getString("customMusic")) {
@@ -101,11 +100,13 @@ public class ConfigHelper {
         settingsPanel = new ModPanel();
 
         // Custom Music
-        settingsPanel.addUIElement(new ModLabel("Custom Music", currentX, currentY, settingsPanel, label -> {}));
+        settingsPanel.addUIElement(new ModLabel("Custom Music", currentX, currentY, settingsPanel, label -> {
+        }));
         spaceY();
         customMusicOffButton = new ModLabeledToggleButton("Off",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                useCustomMusic == CustomMusicConfig.OFF, settingsPanel, label -> {},
+                useCustomMusic == CustomMusicConfig.OFF, settingsPanel, label -> {
+        },
                 button -> {
                     useCustomMusic = CustomMusicConfig.OFF;
                     resetCustomMusicButtons();
@@ -114,8 +115,7 @@ public class ConfigHelper {
                         modConfig.setString("customMusic", "OFF");
                         try {
                             modConfig.save();
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
@@ -124,7 +124,8 @@ public class ConfigHelper {
         if (LoadedModsHelper.jungleModLoaded) {
             overrideJungleMusicOffButton = new ModLabeledToggleButton("Jungle: Off",
                     currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                    overrideJungleMusic == CustomMusicConfig.OFF, settingsPanel, label -> {},
+                    overrideJungleMusic == CustomMusicConfig.OFF, settingsPanel, label -> {
+            },
                     button -> {
                         overrideJungleMusic = CustomMusicConfig.OFF;
                         resetOverrideJungleMusicButtons();
@@ -133,8 +134,7 @@ public class ConfigHelper {
                             modConfig.setString("customJungleMusic", "OFF");
                             try {
                                 modConfig.save();
-                            }
-                            catch (IOException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -144,7 +144,8 @@ public class ConfigHelper {
         spaceY();
         customMusicAnomalyOnlyButton = new ModLabeledToggleButton("Anomaly only",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                useCustomMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {},
+                useCustomMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {
+        },
                 button -> {
                     useCustomMusic = CustomMusicConfig.ANOMALY;
                     resetCustomMusicButtons();
@@ -153,8 +154,7 @@ public class ConfigHelper {
                         modConfig.setString("customMusic", "ANOMALY_ONLY");
                         try {
                             modConfig.save();
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
@@ -163,7 +163,8 @@ public class ConfigHelper {
         if (LoadedModsHelper.jungleModLoaded) {
             overrideJungleMusicAnomalyOnlyButton = new ModLabeledToggleButton("Jungle: Anomaly only",
                     currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                    overrideJungleMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {},
+                    overrideJungleMusic == CustomMusicConfig.ANOMALY, settingsPanel, label -> {
+            },
                     button -> {
                         overrideJungleMusic = CustomMusicConfig.ANOMALY;
                         resetOverrideJungleMusicButtons();
@@ -172,8 +173,7 @@ public class ConfigHelper {
                             modConfig.setString("customJungleMusic", "ANOMALY_ONLY");
                             try {
                                 modConfig.save();
-                            }
-                            catch (IOException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -183,7 +183,8 @@ public class ConfigHelper {
         spaceY();
         customMusicOnButton = new ModLabeledToggleButton("On",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                useCustomMusic == CustomMusicConfig.ON, settingsPanel, label -> {},
+                useCustomMusic == CustomMusicConfig.ON, settingsPanel, label -> {
+        },
                 button -> {
                     useCustomMusic = CustomMusicConfig.ON;
                     resetCustomMusicButtons();
@@ -192,8 +193,7 @@ public class ConfigHelper {
                         modConfig.setString("customMusic", "ON");
                         try {
                             modConfig.save();
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
@@ -202,7 +202,8 @@ public class ConfigHelper {
         if (LoadedModsHelper.jungleModLoaded) {
             overrideJungleMusicOnButton = new ModLabeledToggleButton("Jungle: On",
                     currentX + 250.0F, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                    overrideJungleMusic == CustomMusicConfig.ON, settingsPanel, label -> {},
+                    overrideJungleMusic == CustomMusicConfig.ON, settingsPanel, label -> {
+            },
                     button -> {
                         overrideJungleMusic = CustomMusicConfig.ON;
                         resetOverrideJungleMusicButtons();
@@ -211,8 +212,7 @@ public class ConfigHelper {
                             modConfig.setString("customJungleMusic", "ON");
                             try {
                                 modConfig.save();
-                            }
-                            catch (IOException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -225,15 +225,15 @@ public class ConfigHelper {
         spaceY();
         upgradeNamesButton = new ModLabeledToggleButton("Use special upgrade names for certain Anomaly cards.",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                useSpecialUpgradeNames, settingsPanel, label -> {},
+                useSpecialUpgradeNames, settingsPanel, label -> {
+        },
                 button -> {
                     useSpecialUpgradeNames = button.enabled;
                     if (modConfig != null) {
                         modConfig.setBool("upgradeNames", button.enabled);
                         try {
                             modConfig.save();
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
@@ -244,15 +244,15 @@ public class ConfigHelper {
         // Portable Terminal moves Improb cards to the left (for easy sorting)
         portableTerminalMovesCardsButton = new ModLabeledToggleButton("Have Portable Terminal move cards with Improbability to the left for sorting.",
                 currentX, currentY, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                makePortableTerminalMoveCards, settingsPanel, label -> {},
+                makePortableTerminalMoveCards, settingsPanel, label -> {
+        },
                 button -> {
                     makePortableTerminalMoveCards = button.enabled;
                     if (modConfig != null) {
                         modConfig.setBool("portableTerminalMoveCards", button.enabled);
                         try {
                             modConfig.save();
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }

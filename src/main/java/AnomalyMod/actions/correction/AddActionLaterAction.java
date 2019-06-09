@@ -16,8 +16,7 @@ public class AddActionLaterAction extends AbstractGameAction { // See Strawberry
     public void update() {
         if (this.actionPriority > 0) {
             AbstractDungeon.actionManager.addToBottom(new AddActionLaterAction(this.actionToQueue, this.actionPriority - 1));
-        }
-        else {
+        } else {
             AbstractDungeon.actionManager.addToBottom(this.actionToQueue);
         }
         this.isDone = true;
