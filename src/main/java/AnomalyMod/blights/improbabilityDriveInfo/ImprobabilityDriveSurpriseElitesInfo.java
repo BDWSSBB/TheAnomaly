@@ -59,7 +59,7 @@ public class ImprobabilityDriveSurpriseElitesInfo extends AbstractAnomalyBlight 
     }
 
     private static String getDescription() {
-        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.#").format(getPercent()) + DESCRIPTION[2] + getEligibleRooms() + DESCRIPTION[3];
+        return DESCRIPTION[0] + DESCRIPTION[1] + new DecimalFormat("#.#").format(getPercent()) + DESCRIPTION[2] + getEligibleRooms() + DESCRIPTION[9];
     }
 
     private static float getPercent() {

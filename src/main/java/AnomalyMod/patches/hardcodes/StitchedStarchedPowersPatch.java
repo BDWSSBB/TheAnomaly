@@ -1,17 +1,17 @@
 package AnomalyMod.patches.hardcodes;
 
-import AnomalyMod.AnomalyMod;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StarchedPower;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StitchedPower;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderFixSwitches;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 
 public class StitchedStarchedPowersPatch {
@@ -32,11 +32,13 @@ public class StitchedStarchedPowersPatch {
                 localvars = {"costColor"}
         )
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef Color[] costColor) {
-            if (__instance.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasPower(StitchedPower.POWER_ID) && AbstractDungeon.player.getPower(StitchedPower.POWER_ID).amount == 1) {
-                costColor[0] = Color.PURPLE.cpy();
-            }
-            if (__instance.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasPower(StarchedPower.POWER_ID) && AbstractDungeon.player.getPower(StarchedPower.POWER_ID).amount == 1) {
-                costColor[0] = Color.PURPLE.cpy();
+            if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+                if (__instance.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasPower(StitchedPower.POWER_ID) && AbstractDungeon.player.getPower(StitchedPower.POWER_ID).amount == 1) {
+                    costColor[0] = Color.PURPLE.cpy();
+                }
+                if (__instance.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasPower(StarchedPower.POWER_ID) && AbstractDungeon.player.getPower(StarchedPower.POWER_ID).amount == 1) {
+                    costColor[0] = Color.PURPLE.cpy();
+                }
             }
         }
 
@@ -68,21 +70,17 @@ public class StitchedStarchedPowersPatch {
     }
 
     @SpirePatch(
-            clz = UseCardAction.class,
-            method = SpirePatch.CONSTRUCTOR,
-            paramtypez = {
-                    AbstractCard.class,
-                    AbstractCreature.class
-            }
+            clz = AbstractPlayer.class,
+            method = "useCard"
     )
     public static class SetFreeToPlayOnceAtCorrectTime {
 
-        public static void Prefix(UseCardAction __instance, AbstractCard card, AbstractCreature target) {
-            if (card.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasPower(StitchedPower.POWER_ID) && AbstractDungeon.player.getPower(StitchedPower.POWER_ID).amount == 1) {
-                card.freeToPlayOnce = true;
+        public static void Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
+            if (c.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasPower(StitchedPower.POWER_ID) && AbstractDungeon.player.getPower(StitchedPower.POWER_ID).amount == 1) {
+                c.freeToPlayOnce = true;
             }
-            if (card.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasPower(StarchedPower.POWER_ID) && AbstractDungeon.player.getPower(StarchedPower.POWER_ID).amount == 1) {
-                card.freeToPlayOnce = true;
+            if (c.type == AbstractCard.CardType.SKILL && AbstractDungeon.player.hasPower(StarchedPower.POWER_ID) && AbstractDungeon.player.getPower(StarchedPower.POWER_ID).amount == 1) {
+                c.freeToPlayOnce = true;
             }
         }
     }

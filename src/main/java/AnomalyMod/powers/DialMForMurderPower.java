@@ -63,10 +63,10 @@ public class DialMForMurderPower extends AbstractAnomalyTwoAmountPower {
             tmp.purgeOnUse = true;
             tmp.applyPowers();
             if (!AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-                AbstractDungeon.actionManager.cardQueue.add(1, new CardQueueItem(tmp, m, card.energyOnUse, true));
+                AbstractDungeon.actionManager.cardQueue.add(1, new CardQueueItem(tmp, m, card.energyOnUse/*, true*/));
             } else {
                 AnomalyMod.logger.info("Why is cardQueue empty for Dial M For Murder?");
-                AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse, true));
+                AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse/*, true*/));
             }
         }
     }

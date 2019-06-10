@@ -1,5 +1,6 @@
 package AnomalyMod.powers;
 
+import AnomalyMod.actions.correction.DisabledDescriptionUpdateAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,6 +39,11 @@ public class DisablePower extends AbstractAnomalyPower {
     }
 
     @Override
+    public void onRemove() {
+        updateWeakAndVuln();
+    }
+
+    @Override
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = DESCRIPTIONS[0];
@@ -49,9 +55,10 @@ public class DisablePower extends AbstractAnomalyPower {
     @Override
     public void atEndOfRound() {
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, 1));
+        AbstractDungeon.actionManager.addToBottom(new DisabledDescriptionUpdateAction(this));
     }
 
-    private void updateWeakAndVuln() {
+    public void updateWeakAndVuln() {
         if (this.owner.hasPower(VulnerablePower.POWER_ID)) {
             this.owner.getPower(VulnerablePower.POWER_ID).updateDescription();
         }
