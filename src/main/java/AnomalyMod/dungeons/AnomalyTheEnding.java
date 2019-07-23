@@ -1,5 +1,10 @@
 package AnomalyMod.dungeons;
 
+import AnomalyMod.AnomalyMod;
+import AnomalyMod.helpers.modSaveData.AnomalyModDungeonData;
+import AnomalyMod.helpers.modSaveData.EdgeData;
+import AnomalyMod.helpers.monsterEncounters.AnomalyMonsterHelper;
+import AnomalyMod.helpers.nodeManagement.NodeManagementHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +18,8 @@ import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.map.RoomTypeAssigner;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.rooms.*;
+import com.megacrit.cardcrawl.rooms.EventRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.scenes.TheEndingScene;
 
@@ -24,6 +30,9 @@ public class AnomalyTheEnding extends AbstractDungeon {
     public static final String ID = "anomalyMod:AnomalyTheEnding";
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(ID).TEXT;
     public static final String NAME = TEXT[0];
+
+    public static MapRoomNode launchTerminalNode;
+    public static ArrayList<MapRoomNode> questNodes;
 
     public AnomalyTheEnding(AbstractPlayer p, ArrayList<String> theList) {
         super(NAME, ID, p, theList);
@@ -81,7 +90,7 @@ public class AnomalyTheEnding extends AbstractDungeon {
                             for (int b = j - 1; b < j + 2; b++) {
                                 targetNode = map.get(a).get(b);
                                 if (isNodeInMap(targetNode) && !(a == i && b == j)) {
-                                    connectNode(sourceNode, targetNode);
+                                    NodeManagementHelper.connectNode(sourceNode, targetNode);
                                 }
                             }
                         }
@@ -91,7 +100,7 @@ public class AnomalyTheEnding extends AbstractDungeon {
                             for (int b = j - 1; b < j + 2; b++) {
                                 targetNode = map.get(a).get(b);
                                 if (isNodeInMap(targetNode) && !(a == i && b == j) && (a == i || b == j)) {
-                                    connectNode(sourceNode, targetNode);
+                                    NodeManagementHelper.connectNode(sourceNode, targetNode);
                                 }
                             }
                         }
@@ -105,13 +114,87 @@ public class AnomalyTheEnding extends AbstractDungeon {
             RoomTypeAssigner.assignRowAsRoomType(r, MonsterRoom.class);
         }
 
-        // TODO: Work on the rest of the rooms
+        // Add Launch Terminal.
+        try {
+            // We'll use a rest room for the portable terminal and configure it to our needs.
+            MapRoomNode node = map.get(3).get(3);
+            node.setRoom(new EventRoom());
+            node.room.setMapSymbol("R");
+            node.room.setMapImg(ImageMaster.MAP_NODE_REST, ImageMaster.MAP_NODE_REST_OUTLINE);
+            launchTerminalNode = node;
+        } catch (Exception e) {
+            e.printStackTrace();
+            AnomalyMod.logger.info("WARNING: Failed to assign Launch Terminal in the map.");
+        }
+
+        // Add component locations.
+        questNodes = new ArrayList<>();
+        try {
+            MapRoomNode node = map.get(1).get(mapRng.random(2, 4));
+            node.setRoom(new EventRoom());
+            node.hasEmeraldKey = true;
+            questNodes.add(node);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AnomalyMod.logger.info("WARNING: Failed to assign an objective room in the map.");
+        }
+        try {
+            MapRoomNode node = map.get(5).get(mapRng.random(2, 4));
+            node.setRoom(new EventRoom());
+            node.hasEmeraldKey = true;
+            questNodes.add(node);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AnomalyMod.logger.info("WARNING: Failed to assign an objective room in the map.");
+        }
+        try {
+            MapRoomNode node = map.get(mapRng.random(2, 4)).get(1);
+            node.setRoom(new EventRoom());
+            node.hasEmeraldKey = true;
+            questNodes.add(node);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AnomalyMod.logger.info("WARNING: Failed to assign an objective room in the map.");
+        }
+        try {
+            MapRoomNode node = map.get(mapRng.random(2, 4)).get(5);
+            node.setRoom(new EventRoom());
+            node.hasEmeraldKey = true;
+            questNodes.add(node);
+        } catch (Exception e) {
+            e.printStackTrace();
+            AnomalyMod.logger.info("WARNING: Failed to assign an objective room in the map.");
+        }
+
+        // Use Save File edges if loading from save.
+        if (AnomalyModDungeonData.loadedEdgeData != null && !AnomalyModDungeonData.loadedEdgeData.isEmpty()) {
+
+            for (ArrayList<MapRoomNode> aM : map) {
+                for (MapRoomNode n : aM) {
+                    ArrayList<MapEdge> edgesToDelete = new ArrayList<>();
+                    for (MapEdge e : n.getEdges()) {
+                        edgesToDelete.add(e);
+                    }
+                    for (MapEdge e : edgesToDelete) {
+                        n.delEdge(e);
+                    }
+                }
+            }
+
+            for (EdgeData edgeData : AnomalyModDungeonData.loadedEdgeData) {
+                try {
+                    NodeManagementHelper.connectNode(map.get(edgeData.srcY).get(edgeData.srcX), map.get(edgeData.dstY).get(edgeData.dstX));
+                    NodeManagementHelper.connectNode(map.get(edgeData.dstY).get(edgeData.dstX), map.get(edgeData.srcY).get(edgeData.srcX));
+                    if (edgeData.durability != -1) {
+                        NodeManagementHelper.destabilizeNodePath(map.get(edgeData.srcY).get(edgeData.srcX), map.get(edgeData.dstY).get(edgeData.dstX), edgeData.durability);
+                    }
+                } catch (IndexOutOfBoundsException exception) {
+                    AnomalyMod.logger.info("WARNING: Save data could not connect nodes properly.");
+                }
+            }
+        }
 
         fadeIn();
-    }
-
-    private void connectNode(MapRoomNode src, MapRoomNode dst) {
-        src.addEdge(new MapEdge(src.x, src.y, src.offsetX, src.offsetY, dst.x, dst.y, dst.offsetX, dst.offsetY, false));
     }
 
     private boolean isNodeInMap(MapRoomNode node) {
@@ -157,23 +240,20 @@ public class AnomalyTheEnding extends AbstractDungeon {
 
     protected void generateWeakEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo(MonsterHelper.THREE_DARKLINGS_ENC, 2f));
-        monsters.add(new MonsterInfo(MonsterHelper.ORB_WALKER_ENC, 2f));
-        monsters.add(new MonsterInfo(MonsterHelper.THREE_SHAPES_ENC, 2f));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.SLIME_HORDE_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.THUG_HORDE_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.SNECKO_CULT_ENC, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         populateMonsterList(monsters, count, false);
     }
 
     protected void generateStrongEnemies(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo(MonsterHelper.SPIRE_GROWTH_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.TRANSIENT_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.FOUR_SHAPES_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.MAW_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.SPHERE_TWO_SHAPES_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.JAW_WORMS_HORDE, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.THREE_DARKLINGS_ENC, 1f));
-        monsters.add(new MonsterInfo(MonsterHelper.WRITHING_MASS_ENC, 1f));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.CONSTRUCT_HORDE_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.WILDLIFE_HORDE_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.MAW_AND_FRIENDS_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.THE_REMINDER_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.BLUE_CREW_ENC, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         populateFirstStrongEnemy(monsters, generateExclusions());
         populateMonsterList(monsters, count, false);
@@ -181,9 +261,9 @@ public class AnomalyTheEnding extends AbstractDungeon {
 
     protected void generateElites(int count) {
         ArrayList<MonsterInfo> monsters = new ArrayList<>();
-        monsters.add(new MonsterInfo(MonsterHelper.GIANT_HEAD_ENC, 2f));
-        monsters.add(new MonsterInfo(MonsterHelper.NEMESIS_ENC, 2f));
-        monsters.add(new MonsterInfo(MonsterHelper.REPTOMANCER_ENC, 2f));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.ACT_1_ELITE_MIX_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.ACT_2_ELITE_MIX_ENC, 1.0F));
+        monsters.add(new MonsterInfo(AnomalyMonsterHelper.ACT_3_ELITE_MIX_ENC, 1.0F));
         MonsterInfo.normalizeWeights(monsters);
         populateMonsterList(monsters, count, true);
     }

@@ -1,17 +1,19 @@
 package AnomalyMod.patches.balance;
 
-import AnomalyMod.AnomalyMod;
 import AnomalyMod.character.AnomalyCharacter;
 import AnomalyMod.events.exordium.Dedmos;
-import basemod.ReflectionHacks;
+import AnomalyMod.events.theEnd.CoolantFanQuest;
+import AnomalyMod.events.theEnd.DataDecoderQuest;
+import AnomalyMod.events.theEnd.NeuralCablesQuest;
+import AnomalyMod.events.theEnd.PhaseControllerChipQuest;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.beyond.MysteriousSphere;
-import com.megacrit.cardcrawl.events.city.*;
-import com.megacrit.cardcrawl.events.exordium.Cleric;
+import com.megacrit.cardcrawl.events.city.BackToBasics;
+import com.megacrit.cardcrawl.events.city.Ghosts;
+import com.megacrit.cardcrawl.events.city.KnowingSkull;
 import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.events.shrines.GremlinWheelGame;
-import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.random.Random;
 import javassist.CtBehavior;
 
@@ -32,25 +34,12 @@ public class EventAndShrineSpawnPatch {
         public static void Insert(Random rng, ArrayList<String> tmp) {
             // Changes to vanilla spawning:
             if (AbstractDungeon.player instanceof AnomalyCharacter) {
-                // Act 1 changes:
-                if (AbstractDungeon.player.gold < (int) ReflectionHacks.getPrivateStatic(Cleric.class, "HEAL_COST")) {
-                    tmp.remove(Cleric.ID);
-                }
-
                 // Act 2 changes:
                 tmp.remove(Ghosts.ID);
                 tmp.remove(BackToBasics.ID);
-                if (AbstractDungeon.player.gold < (int) ReflectionHacks.getPrivateStatic(Beggar.class, "GOLD_COST")) {
-                    tmp.remove(Beggar.ID);
-                }
-
-                if (AbstractDungeon.currMapNode != null && AbstractDungeon.currMapNode.y < getHalfOfHighestRelativeFloor()) {
-                    // This thing should really only be seen top half of act 2. Double slavers for no reward is cancer.
-                    tmp.remove(Colosseum.ID);
-                }
 
                 // Act 3 changes:
-                if (AbstractDungeon.currMapNode != null && AbstractDungeon.currMapNode.y < getHalfOfHighestRelativeFloor()) {
+                if (AbstractDungeon.currMapNode != null && AbstractDungeon.currMapNode.y < AbstractDungeon.map.size() / 2) {
                     // Same issue with Colosseum.
                     tmp.remove(MysteriousSphere.ID);
                 }
@@ -60,22 +49,12 @@ public class EventAndShrineSpawnPatch {
             if (!Dedmos.canSpawn()) {
                 tmp.remove(Dedmos.ID);
             }
-        }
 
-        private static int getHalfOfHighestRelativeFloor() {
-            int highestRelativeFloor = -1;
-            for (ArrayList<MapRoomNode> aM : AbstractDungeon.map) {
-                for (MapRoomNode m : aM) {
-                    if (highestRelativeFloor < m.y) {
-                        highestRelativeFloor = m.y;
-                    }
-                }
-            }
-            if (highestRelativeFloor == -1) {
-                AnomalyMod.logger.info("Hey, what happened to the map?");
-                return 0;
-            }
-            return highestRelativeFloor / 2;
+            // Remove the quest events from normal generation, use a manual one for The End.
+            tmp.remove(PhaseControllerChipQuest.ID);
+            tmp.remove(NeuralCablesQuest.ID);
+            tmp.remove(DataDecoderQuest.ID);
+            tmp.remove(CoolantFanQuest.ID);
         }
 
         private static class Locator extends SpireInsertLocator {

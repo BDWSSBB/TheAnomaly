@@ -1,6 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
-import AnomalyMod.helpers.RandomBuff;
+import AnomalyMod.helpers.interfaces.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;

@@ -15,7 +15,7 @@ public class ExpirationDate extends AbstractAnomalyCard {
     public static final String ID = "anomalyMod:ExpirationDate";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
-    public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/minimalist.png";
+    public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/xpirationDate.png";
     private static final int COST = -1;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.POWER;

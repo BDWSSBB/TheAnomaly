@@ -3,6 +3,7 @@ package AnomalyMod.helpers.improbabilityDriveBuffs.enemy;
 import AnomalyMod.AnomalyMod;
 import AnomalyMod.actions.unique.ScaleInvincibilityAction;
 import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuffModule;
+import AnomalyMod.patches.correction.HideIncreaseMaxHPEffectPatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,7 +25,9 @@ public class IncreasedMaxHPBuffModule extends AbstractImprobabilityDriveBuffModu
         if (this.target instanceof AbstractMonster) {
             int hpIncrease = MathUtils.floor((float) this.target.maxHealth * this.totalAmount);
             if (this.totalAmount > 0 && this.target.currentHealth > 1 && hpIncrease > 0) {
+                HideIncreaseMaxHPEffectPatch.hideEffect = true;
                 this.target.increaseMaxHp(hpIncrease, false);
+                HideIncreaseMaxHPEffectPatch.hideEffect = false;
             }
             if (this.target instanceof CorruptHeart) {
                 AbstractDungeon.actionManager.addToBottom(new ScaleInvincibilityAction(this.target));

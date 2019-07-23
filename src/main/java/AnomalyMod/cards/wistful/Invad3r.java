@@ -26,7 +26,7 @@ public class Invad3r extends AbstractAnomalyCard {
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int ATTACK_DAMAGE = 6;
     private static final int UPGRADE_PLUS_DAMAGE = 2;

@@ -55,8 +55,8 @@
     ]
   },
   "anomalyMod:MowsetrapCar": {
-    "NAME": "Mowsetrap Car",
-    "FLAVOR": "A little wind-up car powered by a mowsetrap. Must be someone's project.",
+    "NAME": "Mousetrap Car",
+    "FLAVOR": "It's your old broken Physics project. You'd rather not think about its failure.",
     "DESCRIPTIONS": [
       "Every time you draw #b",
       " cards with #yImprobability, draw #b",

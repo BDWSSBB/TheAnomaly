@@ -15,7 +15,7 @@ import javassist.expr.MethodCall;
 )
 public class FluxCapacitorPowerPatch {
 
-    public static ExprEditor Instrument() { // Thanks kio!
+    public static ExprEditor Instrument() {
         return new ExprEditor() {
             @Override
             public void edit(MethodCall m) throws CannotCompileException {

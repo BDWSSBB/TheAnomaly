@@ -13,6 +13,11 @@
       " Cards to Put into Your Discard Pile."
     ]
   },
+  "anomalyMod:EscapeAttemptAction": {
+    "TEXT": [
+      "Keep"
+    ]
+  },
   "anomalyMod:ExcavateAction": {
     "TEXT": [
       "Choose a Card to Keep in Your Draw Pile.",
@@ -57,6 +62,13 @@
   "anomalyMod:AnomalyTheEnding": {
     "TEXT": [
       "The End"
+    ]
+  },
+  "anomalyMod:BackupQueue": {
+    "TEXT": [
+      "Backup Queueππ",
+      " (Red)",
+      " (Blue)"
     ]
   }
 }

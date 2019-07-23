@@ -26,7 +26,7 @@ public class Hurdle extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
-    private static final int BLOCK_AMOUNT = 5;
+    private static final int BLOCK_AMOUNT = 4;
 
     public Hurdle() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

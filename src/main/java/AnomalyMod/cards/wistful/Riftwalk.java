@@ -28,11 +28,10 @@ public class Riftwalk extends AbstractAnomalyCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int IMPROBABILITY_NUMBER = 3;
-    private static final int BLOCK_AMOUNT = 6;
-    private static final int MAGIC_NUMBER = 3;
+    private static final int BLOCK_AMOUNT = 7;
+    private static final int MAGIC_NUMBER = 2;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
     private static final int SECOND_MAGIC_NUMBER = 3;
-    private static final int UPGRADE_PLUS_SECOND_MAGIC_NUMBER = 1;
 
     public Riftwalk() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -65,7 +64,6 @@ public class Riftwalk extends AbstractAnomalyCard {
                 initializeTitle();
             }
             this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
-            this.upgradeSecondMagicNumber(UPGRADE_PLUS_SECOND_MAGIC_NUMBER);
         }
     }
 }

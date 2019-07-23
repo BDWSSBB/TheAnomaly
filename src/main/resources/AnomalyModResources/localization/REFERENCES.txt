@@ -10,7 +10,7 @@ CARDS
     Fak3: Open Hexagon level name, again.
     Filter: I got a lot of names from Open Hexagon.
     Flux Capacitor: Reference to Flux Capacitors from Thermal Expansion, a Minecraft mod.
-    Hyperdrift: Reference to the game Hyperdrift.
+    Hyperdrift: Reference to the game Hyper Light Drifter.
     Popcorn Function: Open Hexagon.
     Saw Bones: The name of a unit in Calculords.
     Smooth Sailing: Reference to the room "Plain Sailing From Here" in VVVVVV.
@@ -27,4 +27,4 @@ RELICS
     Mowsetrap Car: I had to make one of these for a Physics class.
     Nightshirt: The only thing I ever wear in university, along with some pants. At least 90% of the time.
     Overrider: Reference to @Override, a java annotation.
-    Whee Remote: Reference to the room "Whee Sports" in VVVVVV.
+    Whee Remote: Reference to the room "Whee Sports" in VVVVVV and basically a pun on Wii Remote.

@@ -58,7 +58,7 @@ public class FreeFormPatch {
                     if (m.getMethodName().equals("add")) {
                         m.replace(
                                 "{" +
-                                        "if (" + FreeFormPatch.NoUnplayablesFromFreeForm.Nested.class.getName() + ".notUnplayable($$)) {$_ = $proceed($$);}" +
+                                        "if (" + Nested.class.getName() + ".notUnplayable($$)) {$_ = $proceed($$);}" +
                                         "}");
                     }
                 }

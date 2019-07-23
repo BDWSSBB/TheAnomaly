@@ -1,7 +1,7 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.enemy;
 
 import AnomalyMod.AnomalyMod;
-import AnomalyMod.helpers.RandomBuff;
+import AnomalyMod.helpers.interfaces.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;

@@ -10,5 +10,176 @@
       "[Take] #gObtain #gDeimos's #gCap. #rPrepare #rto #rdie.",
       "[Leave]"
     ]
+  },
+  "anomalyMod:PhaseControllerChipQuest": {
+    "NAME": "Phase Controller Chip",
+    "DESCRIPTIONS": [
+      "You arrive at a control panel decorated with many screens. This seems to be where the phase controller program was written. The compilation seems to work, but you also find a build version in development. It seems to iron out the kinks of the main version, but it was never finished.",
+      "You clearly don't have time to make the improved version. You quickly compile the program and store it into a chip.",
+      "You've worked a bit in programming, so you have an idea on what's up. Fortunately, the program was near complete, so it didn't take as long as you'd think to finish this build. You quickly compile the program and store it into a chip.",
+      "You have a hack on your portable terminal to boost program development, but it was often dangerous to use and prone to corruption. You don't have time though. The hack seems to have worked, but you have a bad feeling about using it. You quickly compile the program and store it into a chip."
+    ],
+    "OPTIONS": [
+      "[Don't Bother] #gObtain #gPhase #gController #gChip.",
+      "[Finish It] #rLose #r",
+      " #rturns. #gObtain #gPerfect #gChip.",
+      "[Make It \"Work\"] #rGain #r",
+      " #rImprobability. #gObtain #gPerfect #gChip.",
+      "[Leave]"
+    ]
+  },
+  "anomalyMod:NeuralCablesQuest": {
+    "NAME": "Neural Cables",
+    "DESCRIPTIONS": [
+      "There are many wooden crates scattered across the area. While searching for anything useful, you find a couple labeled \"Neural Cables\". One is already open, but the other is jammed shut. A label on the locked crate reads \"FOR TOP-PRIORITY, RESOURCES TO CREATE ARE LIMITED.\"",
+      "Time is short. You might as well just take the cables that are already unlocked. You dig through and take enough to wire yourself to the launch terminal.",
+      "Best to take the quality cables. Unfortunately, there's no crowbar to be found nearby, so you carefully leverage the top open with your shovel. After finally getting a good lever position and too many attempts, you open the crate. You dig through and tale enough to wire yourself to the terminal.",
+      "Crates don't have a sentience, so they're pretty easy to delete from existence. It's still a horrible idea 99% of the time, but this is the 1%. You carefully label the crate for deletion on your portable terminal, and it simply pops out of the world, cables left on the floor. You dig through and take enough to wire yourself to the launch terminal."
+    ],
+    "OPTIONS": [
+      "[Take Standard] #gObtain #gNeural #gCables.",
+      "[Pry Open] #rLose #r",
+      " #rturns. #gObtain #gPerfect #gCables.",
+      "[Delete Crate] #rGain #r",
+      " #rImprobability. #gObtain #gPerfect #gCables.",
+      "[Leave]"
+    ]
+  },
+  "anomalyMod:DataDecoderQuest": {
+    "NAME": "Data Decoder",
+    "DESCRIPTIONS": [
+      "Out in this limbo-like world are cabinets of floppy drives, each containing helper programs for certain main programs. While searching for anything useful, you find one labeled \"Data Decoder v1.0.1a\". Seems likes an alpha version. It has a sticky note on it saying, \"Dev Note: Some operations a little fuzzy. Send to others for help.\"",
+      "You don't have time to repair this decoder to full function. The note says it does work, more or less. You store the floppy drive into your pocket and leave.",
+      "Conveniently, your portable terminal has a slot for floppy drives. You though this was an obsolete addon, but it proves to be useful now. You look through the stored data and analyze the bugs, They're fortunately labeled and commented, so you easily patch them all. You store the floppy drive into your pocket and leave.",
+      "Your portable terminal does a quick scan on the floppy drive and detects some weird fuzz. It seems to be quite literal too; turns out a physical damage corrupted the data a bit. With a bit of black magic, you simply let the terminal repair the floppy, both physically and internally. You store the floppy drive into your pocket and leave."
+    ],
+    "OPTIONS": [
+      "[Don't Bother] #gObtain #gData #gDecoder.",
+      "[Fix It] #rLose #r",
+      " #rturns. #gObtain #gPerfect #gDecoder.",
+      "[\"Fix\" It] #rGain #r",
+      " #rImprobability. #gObtain #gPerfect #gDecoder.",
+      "[Leave]"
+    ]
+  },
+  "anomalyMod:CoolantFanQuest": {
+    "NAME": "Coolant Fan",
+    "DESCRIPTIONS": [
+      "It was getting chilly as you approached the warehouse, but inside, it became freezing cold. Some of the nitrogen tanks must have leaked out before you got here. From the low temperature, you sensed a coolant fan would be nearby. You found one, but the nitrogen filter attached seems a bit busted.",
+      "The filter is mostly optional anyway. The fan supposedly works well enough on its own, with nitrogen as a supplement. You carry the filter and take a nitrogen tank with you as well.",
+      "These filters are pretty hard to install properly. You find another fan that seems completely broken, but it has a functional filter. You salvage it and attach it to the other fan. It should work now. You carry the filter and take a nitrogen tank with you as well.",
+      "If the filter doesn't work, just make the rest of the fan cold. Ice-cold, even. Normally a bad idea to conduct such anti-entropic processes with your portable terminal, but you don't have much of a choice. The fan's temperature has been set so low that it should cool the launch terminal effectively. You carry the filter and take a nitrogen tank with you as well."
+    ],
+    "OPTIONS": [
+      "[Good Enough] #gObtain #gCoolant #gFan.",
+      "[Repair Filter] #rLose #r",
+      " #rturns. #gObtain #gPerfect #gFan.",
+      "[Just Freeze It] #rGain #r",
+      " #rImprobability. #gObtain #gPerfect #gFan.",
+      "[Leave]"
+    ]
+  },
+  "anomalyMod:LaunchTerminal": {
+    "NAME": "The Launch Terminal",
+    "DESCRIPTIONS": [
+      "Your portable terminal's coordinates were correct. This is where the launch terminal is, and it's your only way to escape the Spire. The end is near, and it's very near... NL NL A fragment of the sky drops in front of you. The Spireverse is on the brink of collapse. What's worse is the launch terminal seems a little defunct. It's missing some key components for a safe ride home.",
+      "From a quick inspection, you can see it needs",
+      " a phase controller chip",
+      " neural cables",
+      " a data decoder",
+      " a coolant fan",
+      ",",
+      " and",
+      " They must be somewhere around here... NL NL You don't have much time.",
+      "You return to the launch terminal. It still needs",
+      "You return to the launch terminal. You were able to find all the missing parts of the launch terminal. Hopefully this will ensure a safe ride back home, but you can't help but think you've been followed...",
+      "The world continues to batter you to death as it falls apart, so you take a quick rest. Time is your life, however, so you get back to work the moment you feel a bit better.",
+      "The Spire rumbles around you, debris falling from the sky. The stability of this place decreasing, you prepare to launch your consciousness back home. NL NL With the launch terminal initiating sequence, it sounds a loud alarm. The denizens of the Spire know your escape plan and want to drag you along with the falling world. You just need to hold them off for just enough...",
+      "You have vanquished the initial wave, but that was only the beginning. The launch terminal still needs more time to set up. Hold your ground for a little longer, their numbers look thinner at least..."
+    ],
+    "OPTIONS": [
+      "[Next]",
+      "[Rest] #rLose #r",
+      " #rturns. #gHeal #g",
+      " #gHP.",
+      "[Initiate] #rHold #ryour #rlast #rstand. #pHope #pfor #pthe #pbest.",
+      "[Leave]",
+      "[Survive]"
+    ]
+  },
+  "anomalyMod:LaunchTerminalResults": {
+    "NAME": "Abandon World",
+    "DESCRIPTIONS": [
+      "The launch terminal is ready for you. The horde has been quelled, but it won't be long until more come. It's time to get out of this hell. NL NL You prepare yourself for launch. All systems green? You hope they are considering the limited time you had to fill in the holes. Hopefully it was enough to get back home in once piece...",
+      "#yLAUNCH #ySTABILITY: ",
+      "% NL NL ",
+      "You couldn't find a phase controller chip. Without it, the terminal had to resort to a built-in emergency program, but it was much less effective in aiming your memories at your body back home.",
+      "You found a phase controller chip. The terminal was able to carry and coordinate your memories to your body. Most memories will make it back home.",
+      "You found an updated phase controller chip. The terminal had a bug-free program to store all your memories and carry them across space.",
+      "You couldn't find any neural cables. You had to use the wireless system provided to register your consciousness, but it proved much less effective.",
+      "You found some neural cables. They were easy to hook onto yourself, and they transmitted your consciousness through the wires rather painlessly.",
+      "You found some neural cables made from a special material. It was specifically designed for transmitting memories, so you were able to upload your whole consciousness.",
+      "You couldn't find a data decoder. Your memories were left encrypted, meaning a lot of noise was left, making them fuzzy and damaged.",
+      "You found a data decoder. It was useful for removing the fuzzy encryption of your memories before preparing them for launch.",
+      "You found a data decoder and fixed it. It removed all the noise your memories came with, making the uploading process completely clean.",
+      "You couldn't find a coolant fan. The terminal was prone to overheating during the launch process, severely reducing its efficiency.",
+      "You found a coolant fan. It helped keep the terminal's temperature at a fair level, though intensive parts of the program were a bit slow.",
+      "You found a freezing-cold coolant fan. The terminal's temperature remained below room temperature, creating no risk of overheating.",
+      "The terminal goes on overdrive. It is time. The whirring sounds only intensify, and before the last of the Spireverse crumbles beneath you, a white light flashes in your eyes. You feel weightless and hollow..."
+    ],
+    "OPTIONS": [
+      "[Next]",
+      "[Wake Up]"
+    ]
+  },
+  "anomalyMod:LaunchTerminalSadEnding": {
+    "NAME": "Hollow",
+    "DESCRIPTIONS": [
+      "You wake up from a patient's bed in a hospital. You can't remember anything that happened, so you ask a doctor in the room why you're here. NL NL #g\"You #gwere #gknocked #gout #gat #gwork, #gas #gif #gyou #ghad #gno #gconsciousness. #gYour #gboss #gcalled #gour #gemergency #gline #gand #gtook #gyou #ghere.\" NL NL This doesn't make sense. Nothing does. Why are you here? What even happened?",
+      "#g\"Do #gyour #gremember?\" NL NL You don't. Something doesn't seem right about this.",
+      "A girl runs through the door. NL NL #b\"",
+      ", #bare #byou #bokay?\" NL NL Who is she? You can only guess you lost your memories while you were unconscious, but how did this happen in the first place? The frustration only becomes worse.",
+      "#g\"This #gisn't #ggood. #gHe #ghas #gto #ggo #gback.\" NL NL #b\"But #bisn't #bthat #bdangerous? #bHe #bcould #bhave #bdied! #bNo #bone #belse #bhas #bbeen #bknocked #bout #blike #bthat!\" NL NL #g\"It #gseems #gto #gbe #gthe #gonly #gway. #gWe'll #gsend #ghim #gback #gtomorrow.\" NL NL What is this about going back?"
+    ],
+    "OPTIONS": [
+      "[Next]",
+      "[Skip]",
+      "[The End]"
+    ]
+  },
+  "anomalyMod:LaunchTerminalPartialEnding": {
+    "NAME": "Anamnesis",
+    "DESCRIPTIONS": [
+      "You wake up from a patient's bed in a hospital, vaguely remembering a terrible nightmare. You ask a doctor in the room why you're here. NL NL #g\"You #gwere #gknocked #gout #gat #gwork, #gas #gif #gyou #ghad #gno #gconsciousness. #gYour #gboss #gcalled #gour #gemergency #gline #gand #gtook #gyou #ghere.\" NL NL This seems a little familiar. Something happened at work, you remember that...",
+      "#g\"Do #gyour #gremember?\" NL NL You don't. Something doesn't seem right about this.",
+      "A girl runs through the door. NL NL #b\"",
+      ", #bare #byou #bokay?\" NL NL You can recognize her face, but you can't quite remember her name. NL NL #p\"I #pthink, #pbut #pwho #pare #pyou #pagain?\"",
+      "#b\"It's #bme, #b[REDACTED], #bdon't #byour #bremember?\" NL NL The name doesn't seem to ring a bell. NL NL #p\"I #pdon't...\" NL NL You seem to have lost some crucial memories. Is there a way to get them back?",
+      "#g\"This #gisn't #ggood. #gHe #ghas #gto #ggo #gback.\" NL NL #b\"But #bisn't #bthat #bdangerous? #bHe #bcould #bhave #bdied! #bNo #bone #belse #bhas #bbeen #bknocked #bout #blike #bthat!\" NL NL #g\"It #gseems #gto #gbe #gthe #gonly #gway. #gWe'll #gsend #ghim #gback #gtomorrow.\" NL NL Going back... this seems a little familiar. Is this related to your nightmare?"
+    ],
+    "OPTIONS": [
+      "[Next]",
+      "[Skip]",
+      "[The End]"
+    ]
+  },
+  "anomalyMod:LaunchTerminalTrueEnding": {
+    "NAME": "Awakening",
+    "DESCRIPTIONS": [
+      "You wake up from a patient's bed in a hospital, vividly remembering the horrors of the Spireverse. Your face holds a traumatic experience as a doctor walks into the room. NL NL #g\"Oh, #gyou're #gawake. #gDo #gyou #gremember #gwhat #ghappened?\" NL NL #p\"Yes. #pI #pwas #palone #pin #panother #pworld. #pIt #pwas #pout #pto #pkill #pme. #pI #phad #pto #pfight #pmy #pway #pthrough #pto #pget #pback.\"",
+      "#g\"But #gdo #gyou #gremember #ghow #gall #gof #gthis #ghappened?\" NL NL You remember a few details. Something happened at work when you were meddling with connections to other worlds. NL NL #p\"I #premember #pI #pwas #pworking, #pthen #pI #pjust #pwoke #pup #pin #panother #pworld.\" NL NL #g\"You #gwere #gknocked #gout #gat #gwork, #gas #gif #gyou #ghad #gno #gconsciousness. #gYour #gboss #gcalled #gour #gemergency #gline #gand #gtook #gyou #ghere.\"",
+      "A girl runs through the door. NL NL #b\"",
+      ", #bare #byou #bokay?\" NL NL #p\"[REDACTED]?\" NL NL #b\"You #bremember, #boh #bthank #bgoodness #byou're #bokay...\" NL NL #p\"How #pdid #pyou #pknow #pwhat #phappened?\"",
+      "#b\"It #bwas #ball #bover #bthe #bnews #bthat #bafternoon. #bNo #bone's #bmind #bhas #bever #bjust #bbeen #bzapped #bout #blike #bthat. #bWhat #bwere #byou #bdoing?\" NL NL #p\"I #pthink #pI #pwas #pmaintaining #pconnections #pacross #pdifference #pworlds, #pand #psuddenly, #pI #pwas #pjust #pgrabbed #pinto #pone...\" NL NL You don't want to think about this more than you have to. NL NL #p\"I'm #psorry, #pI #pdon't #pwant #pto #plook #pback.\"",
+      "#b\"That's #bokay. #bWhat's #bimportant #bis #bthat #byou're #balive #band #bwell.\" NL NL #p\"Thanks #pfor #pcaring #pabout #pme.\" NL NL #b\"Of #bcourse #bI #bwould, #bI'd #bnever #bleave #byou #bbehind #bas #ba #bfriend!\" NL NL #p\"Hey #pdoctor, #pis #pit #pfine #pto #pgo #pnow?\" NL NL #g\"Just #gcheck #gin #gwith #gus #gto #gmake #gsure #gyou #ghave #gall #gyour #gmemories #gintact.\"",
+      "After a brief interview and questionnaire, the doctors confirmed no memory loss, but they recommended visiting a psychiatrist and going through rehabilitation due to severe PTSD. It took many months and some powerful prescriptions to even somewhat silence your nightmares. NL NL Your boss offered you a paid leave from the company, seeing you were unable to come back with a straight head. You of course took that deal and used a couple months to relax until you found a different job, one that hopefully doesn't suck you into another dreadful world.",
+      "Sitting at a table in the milk tea store [REDACTED] works at, you and she drink and chat together after her shift is over. NL NL #b\"So #byou #bthink #byou're #bokay #bnow?\" NL NL #p\"Maybe. #pYou #pknow #pI #pdon't #pdo #pwell #pwith #pthis #pstuff. #pRemember #pwhen #pwe #pwere #pkids?\" NL NL #b\"Yeah, #bI #bremember.\"",
+      "#p\"Wasn't #palways #pgood. #pAlways #pbeing #pbullied, #phating #pmy #pgrades #pin #pschool, #pall #pthat #pstuff.\" NL NL #b\"You #bdidn't #beven #bdo #bthat #bbad, #band #byou #beven #bhave #ba #bgreat #bjob! #bErr... #bhad. #bSorry.\" NL NL #p\"Thanks #pfor #pbeing #pthere #pfor #pme #pback #pthen #pas #pwell.\" NL NL #b\"See, #bI'd #bnever #bleave #byou #bbehind.\" NL NL You can't help but force a bashful smile."
+    ],
+    "OPTIONS": [
+      "[Next]",
+      "[Skip]",
+      "[The True End] Congratulations!"
+    ]
   }
 }

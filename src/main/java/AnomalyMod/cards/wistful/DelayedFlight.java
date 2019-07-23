@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 
 public class DelayedFlight extends AbstractAnomalyCard {
 
@@ -23,7 +25,7 @@ public class DelayedFlight extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int BLOCK_AMOUNT = 12;
+    private static final int BLOCK_AMOUNT = 11;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int MAGIC_NUMBER = 8;
 
@@ -36,6 +38,15 @@ public class DelayedFlight extends AbstractAnomalyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DelayedFlightPower(p, this.block, this.magicNumber), this.block));
+    }
+
+    @Override
+    public float modifyBlockWithPower(float tmp, AbstractPower power) {
+        if (power.ID.equals(DexterityPower.POWER_ID)) {
+            return power.modifyBlock(power.modifyBlock(tmp));
+        } else {
+            return power.modifyBlock(tmp);
+        }
     }
 
     @Override

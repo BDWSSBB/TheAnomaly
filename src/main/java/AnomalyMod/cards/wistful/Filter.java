@@ -32,7 +32,7 @@ public class Filter extends AbstractAnomalyCard {
     public Filter() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         // For some reason, the main menu upgrade screen creates new instances of the card per frame. Why are you like this game.
-        if (ConfigHelper.useSpecialUpgradeNames && MathUtils.randomBoolean(0.02F) && AbstractDungeon.id != null) {
+        if (ConfigHelper.useSpecialUpgradeNames && MathUtils.randomBoolean(0.02F) && CardCrawlGame.isInARun()) {
             this.name = JOKE_NAME;
         }
         this.magicNumber = this.baseMagicNumber = MAGIC_NUMBER;

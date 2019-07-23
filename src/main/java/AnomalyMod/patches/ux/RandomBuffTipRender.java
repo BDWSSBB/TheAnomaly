@@ -1,6 +1,6 @@
 package AnomalyMod.patches.ux;
 
-import AnomalyMod.helpers.RandomBuff;
+import AnomalyMod.helpers.interfaces.RandomBuff;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

@@ -38,14 +38,6 @@ public class BadSector extends AbstractAnomalyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(this.improbabilityNumber));
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
-        }
-    }
-
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return true;
     }
 
     @Override

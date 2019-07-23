@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.ShellLoadedPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
+import java.util.Collections;
+
 public class ShellLoadedBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public ShellLoadedBuffModule(AbstractPlayer target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class ShellLoadedBuffModule extends AbstractImprobabilityDriveBuffModule 
 
     public void doAction() {
         this.target.addPower(new ShellLoadedPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

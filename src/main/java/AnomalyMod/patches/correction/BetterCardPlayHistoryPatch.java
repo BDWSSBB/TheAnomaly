@@ -66,7 +66,7 @@ public class BetterCardPlayHistoryPatch {
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(GameActionManager.class, "damageReceivedThisTurn");
                 int[] found = LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
-                return new int[] {found[found.length - 1]};
+                return new int[]{found[found.length - 1]};
             }
         }
     }

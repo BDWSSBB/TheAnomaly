@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.WhiteFlagPower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.Collections;
+
 public class WhiteFlagBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public WhiteFlagBuffModule(AbstractMonster target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class WhiteFlagBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public void doAction() {
         this.target.addPower(new WhiteFlagPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

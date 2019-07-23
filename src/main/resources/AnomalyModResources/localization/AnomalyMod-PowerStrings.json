@@ -54,11 +54,10 @@
   "anomalyMod:ConicSands": {
     "NAME": "Conic Sands",
     "DESCRIPTIONS": [
-      "After you play #b1 card, ALL enemies lose #b1 #yStrength and gain #b",
-      "The next #b",
-      " times you play a card, ALL enemies lose #b1 #yStrength. After you play #b",
-      " cards, ALL enemies gain #b",
-      " #yStrength."
+      "Lose #b",
+      " [E] and draw #b",
+      " less card next turn.",
+      " less cards next turn."
     ]
   },
   "anomalyMod:DefensorSyntax": {
@@ -102,6 +101,13 @@
       " card, gain #b",
       " cards, gain #b",
       " #yBlock."
+    ]
+  },
+  "anomalyMod:DelayedPower": {
+    "NAME": "Delayed",
+    "DESCRIPTIONS": [
+      "At the end of this turn, gain #b",
+      "At the end of its turn, gains #b"
     ]
   },
   "anomalyMod:DialMForMurder": {
@@ -152,6 +158,14 @@
       " [E] is conserved between turns."
     ]
   },
+  "anomalyMod:FourEyes": {
+    "NAME": "Four Eyes",
+    "DESCRIPTIONS": [
+      "At the start of your turn, play the bottom card of your draw pile.",
+      "At the start of your turn, play the bottom #b",
+      " cards of your draw pile."
+    ]
+  },
   "anomalyMod:FreeForm": {
     "NAME": "Free Form",
     "DESCRIPTIONS": [
@@ -160,25 +174,16 @@
       " times to play."
     ]
   },
-  "anomalyMod:Hellegance": {
-    "NAME": "Hellegance",
+  "anomalyMod:GravitronSyntax": {
+    "NAME": "Gravitron Syntax",
     "DESCRIPTIONS": [
-      "Whenever you gain #yImprobability, gain #b",
-      " [E] and draw #b",
-      " cards."
-    ]
-  },
-  "anomalyMod:ImitatorSyntax": {
-    "NAME": "Imitator Syntax",
-    "DESCRIPTIONS": [
-      "Register every #b",
-      " card you play. While you have registered a #ySkill, you have #b",
-      " additional #yDexterity. Otherwise, you have #b",
-      " additional #yStrength.",
+      "Switches on and off every #b",
+      " card you play. While on, you have #b",
+      " additional #yStrength and #b",
+      " #yDexterity.",
       " NL NL Current Mode:",
-      " #yStrength",
-      " #yDexterity",
-      " None"
+      " #gON",
+      " #rOFF"
     ]
   },
   "anomalyMod:Improblemble": {
@@ -261,7 +266,7 @@
     "NAME": "Spike Strip",
     "DESCRIPTIONS": [
       "Whenever you play a #ynon-Attack card, gains #b",
-      " #yBlock. When attacked while having leftover #yBlock, deals #b",
+      " #yBlock. When attacked and has leftover #yBlock, deals #b",
       " damage back."
     ]
   },
@@ -282,7 +287,7 @@
     "NAME": "Starched",
     "DESCRIPTIONS": [
       "Every #b",
-      "th #ySkill you play is free."
+      " #ySkill you play is free."
     ]
   },
   "anomalyMod:Stapled": {
@@ -296,14 +301,7 @@
     "NAME": "Stitched",
     "DESCRIPTIONS": [
       "Every #b",
-      "th #yAttack you play is free."
-    ]
-  },
-  "anomalyMod:Stutter": {
-    "NAME": "Stutter",
-    "DESCRIPTIONS": [
-      "Whenever you play a card this turn, gain #b",
-      " #yBlock."
+      " #yAttack you play is free."
     ]
   },
   "anomalyMod:SystemHack": {

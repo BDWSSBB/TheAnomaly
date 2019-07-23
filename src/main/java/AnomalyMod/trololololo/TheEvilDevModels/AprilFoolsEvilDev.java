@@ -98,7 +98,7 @@ public class AprilFoolsEvilDev extends AbstractEvilDev {
     public void usePreBattleAction() {
         shouldUseSpecialMessage = true;
         ConfigHelper.foughtAprilFoolsMe = true;
-        ConfigHelper.modConfig.setBool("foughtAprilFoolsMe", true);
+        ConfigHelper.modConfig.setBool(ConfigHelper.APRIL_FOOLS_KEY, true);
         try {
             ConfigHelper.modConfig.save();
         } catch (IOException e) {

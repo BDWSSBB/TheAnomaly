@@ -274,7 +274,7 @@ public class JailbreakRenderPreviewPatch {
                     AbstractDungeon.overlayMenu.cancelButton.show(GridCardSelectScreen.TEXT[1]);
                     __instance.confirmButton.show();
                     __instance.confirmButton.isDisabled = false;
-                    ReflectionHacks.setPrivate(__instance, GridCardSelectScreen.class, "lastTip", (String) ReflectionHacks.getPrivate(__instance, GridCardSelectScreen.class, "tipMsg"));
+                    ReflectionHacks.setPrivate(__instance, GridCardSelectScreen.class, "lastTip", ReflectionHacks.getPrivate(__instance, GridCardSelectScreen.class, "tipMsg"));
                     ReflectionHacks.setPrivate(__instance, GridCardSelectScreen.class, "tipMsg", GridCardSelectScreen.TEXT[2]);
                     return SpireReturn.Return(null);
                 }

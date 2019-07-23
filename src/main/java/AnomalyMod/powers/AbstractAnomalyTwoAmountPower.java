@@ -1,7 +1,6 @@
 package AnomalyMod.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 
 public abstract class AbstractAnomalyTwoAmountPower extends TwoAmountPower {
 
@@ -23,9 +22,5 @@ public abstract class AbstractAnomalyTwoAmountPower extends TwoAmountPower {
 
     public void onActuallyGainImprobability(int improbabilityGained) {
 
-    }
-
-    public int onAttackedButCanActuallyChangeNumbers(DamageInfo info, int damageAmount) {
-        return damageAmount;
     }
 }

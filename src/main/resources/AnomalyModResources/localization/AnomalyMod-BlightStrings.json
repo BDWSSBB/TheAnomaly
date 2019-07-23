@@ -7,13 +7,13 @@
       " NL #yNext #yEffect: "
     ]
   },
-  "anomalyMod:ImprobabilityDriveMalfunctionInfo": {
+  "anomalyMod:Malfunction": {
     "NAME": "Malfunction",
     "DESCRIPTION": [
       "Whenever you defeat a Boss, add a #yBad #ySector card into your deck."
     ]
   },
-  "anomalyMod:ImprobabilityDrivePortableTerminalInfo": {
+  "anomalyMod:PortableTerminal": {
     "NAME": "Portable Terminal",
     "DESCRIPTION": [
       "At the start of your turn, put any number of cards from your hand to the bottom of your draw pile and reduce their #yImprobability by #b",
@@ -22,7 +22,7 @@
       "!"
     ]
   },
-  "anomalyMod:ImprobabilityDriveRandomBuffsInfo": {
+  "anomalyMod:RandomBuffs": {
     "NAME": "Random Buffs",
     "DESCRIPTION": [
       "At the start of each combat, EVERYONE receives random buffs. Higher #yImprobability increases the buff power and variety.",
@@ -30,7 +30,7 @@
       " NL #yImprobability #yDecay: #r10%"
     ]
   },
-  "anomalyMod:ImprobabilityDriveTryNewThingsInfo": {
+  "anomalyMod:FattenUp": {
     "NAME": "Fatten Up",
     "DESCRIPTION": [
       "Gold rewards may be converted into card rewards. These card rewards have #b2 less cards to choose from. Bigger conversions give better rewards.",
@@ -38,7 +38,7 @@
       "%"
     ]
   },
-  "anomalyMod:ImprobabilityDriveSpecialtyInfo": {
+  "anomalyMod:Specialty": {
     "NAME": "Specialty",
     "DESCRIPTION": [
       "Colored card rewards may have only #b1 card to choose from. These card rewards contain an #yupgraded card.",
@@ -46,7 +46,7 @@
       "%"
     ]
   },
-  "anomalyMod:ImprobabilityDriveSurpriseElitesInfo": {
+  "anomalyMod:SurpriseElites": {
     "NAME": "Surprise Elites",
     "DESCRIPTION": [
       "Certain rooms may contain an Elite combat instead. Higher #yImprobability allows more types of rooms to have Elite combats.",
@@ -61,10 +61,13 @@
       " NL #yImprobability #yDecay: #r10%"
     ]
   },
-  "anomalyMod:ImprobabilityDriveFutureInvadersInfo": {
-    "NAME": "Future Invaders (Deprecated)",
+  "anomalyMod:ToBeDeleted": {
+    "NAME": "To Be Deleted",
     "DESCRIPTION": [
-      "DEPRECATED. PLEASE IGNORE THIS."
+      "The world #rends next turn. Travelling to a room costs #b",
+      "The world #rends in #b",
+      " turns. Travelling to a room costs #b",
+      " turns."
     ]
   }
 }

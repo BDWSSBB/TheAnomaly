@@ -22,6 +22,7 @@ public class FreeFormPower extends AbstractAnomalyPower {
         this.type = AbstractPower.PowerType.BUFF;
         this.owner = owner;
         this.amount = amount;
+        this.priority = 0;
         updateDescription();
         loadRegion("shift");
     }

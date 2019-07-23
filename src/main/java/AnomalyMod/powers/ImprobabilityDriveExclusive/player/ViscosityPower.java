@@ -1,6 +1,6 @@
 package AnomalyMod.powers.ImprobabilityDriveExclusive.player;
 
-import AnomalyMod.helpers.RandomBuff;
+import AnomalyMod.helpers.interfaces.RandomBuff;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -39,7 +39,7 @@ public class ViscosityPower extends AbstractAnomalyTwoAmountPower implements Ran
     }
 
     @Override
-    public int onAttackedButCanActuallyChangeNumbers(DamageInfo info, int damageAmount) {
+    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
         if (damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && this.amount2 > 0) {
             flash();
             if (damageAmount >= this.amount2) {

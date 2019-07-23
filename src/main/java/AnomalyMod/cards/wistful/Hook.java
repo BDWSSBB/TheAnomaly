@@ -55,7 +55,7 @@ public class Hook extends AbstractAnomalyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            if (ConfigHelper.useSpecialUpgradeNames && MathUtils.randomBoolean(0.02F) && AbstractDungeon.id != null) {
+            if (ConfigHelper.useSpecialUpgradeNames && MathUtils.randomBoolean(0.02F) && CardCrawlGame.isInARun()) {
                 this.name = JOKE_UPGRADE_NAME;
                 initializeTitle();
             }

@@ -16,7 +16,11 @@ public class SixthRevisionAction extends AbstractGameAction {
 
     public SixthRevisionAction(int numberOfCards) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        if (Settings.FAST_MODE) {
+            this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
+        } else {
+            this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        }
         this.player = AbstractDungeon.player;
         this.numberOfCards = numberOfCards;
     }

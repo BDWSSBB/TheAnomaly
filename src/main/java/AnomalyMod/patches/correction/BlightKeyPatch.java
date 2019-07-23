@@ -1,7 +1,8 @@
 package AnomalyMod.patches.correction;
 
 import AnomalyMod.blights.ImprobabilityDrive;
-import AnomalyMod.blights.improbabilityDriveInfo.*;
+import AnomalyMod.blights.ToBeDeleted;
+import AnomalyMod.blights.driveEffects.*;
 import AnomalyMod.trololololo.AragoltsBane;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -17,20 +18,20 @@ public class BlightKeyPatch {
     public static SpireReturn<AbstractBlight> Prefix(String id) {
         if (id.equals(ImprobabilityDrive.ID)) {
             return SpireReturn.Return(new ImprobabilityDrive());
-        } else if (id.equals(ImprobabilityDrivePortableTerminalInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDrivePortableTerminalInfo());
-        } else if (id.equals(ImprobabilityDriveMalfunctionInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveMalfunctionInfo());
-        } else if (id.equals(ImprobabilityDriveRandomBuffsInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveRandomBuffsInfo());
-        } else if (id.equals(ImprobabilityDriveTryNewThingsInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveTryNewThingsInfo());
-        } else if (id.equals(ImprobabilityDriveSpecialtyInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveSpecialtyInfo());
-        } else if (id.equals(ImprobabilityDriveSurpriseElitesInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveSurpriseElitesInfo());
-        } else if (id.equals(ImprobabilityDriveFutureInvadersInfo.ID)) {
-            return SpireReturn.Return(new ImprobabilityDriveFutureInvadersInfo());
+        } else if (id.equals(PortableTerminal.ID)) {
+            return SpireReturn.Return(new PortableTerminal());
+        } else if (id.equals(Malfunction.ID)) {
+            return SpireReturn.Return(new Malfunction());
+        } else if (id.equals(RandomBuffs.ID)) {
+            return SpireReturn.Return(new RandomBuffs());
+        } else if (id.equals(FattenUp.ID)) {
+            return SpireReturn.Return(new FattenUp());
+        } else if (id.equals(Specialty.ID)) {
+            return SpireReturn.Return(new Specialty());
+        } else if (id.equals(SurpriseElites.ID)) {
+            return SpireReturn.Return(new SurpriseElites());
+        } else if (id.equals(ToBeDeleted.ID)) {
+            return SpireReturn.Return(new ToBeDeleted());
         } else if (id.equals(AragoltsBane.ID)) {
             return SpireReturn.Return(new AragoltsBane());
         }

@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.AuditorPower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.Collections;
+
 public class AuditorBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public AuditorBuffModule(AbstractMonster target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class AuditorBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public void doAction() {
         this.target.addPower(new AuditorPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

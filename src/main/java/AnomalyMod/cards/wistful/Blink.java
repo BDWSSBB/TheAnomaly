@@ -3,7 +3,6 @@ package AnomalyMod.cards.wistful;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.helpers.config.ConfigHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,7 +18,6 @@ public class Blink extends AbstractAnomalyCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = CARD_STRINGS.NAME;
     public static final String UPGRADE_NAME = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-    public static final String JOKE_UPGRADE_NAME = CARD_STRINGS.EXTENDED_DESCRIPTION[1];
     public static final String IMAGE_PATH = "AnomalyModResources/cards/wistful/blink.png";
     private static final int COST = 1;
     public static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
@@ -51,11 +49,7 @@ public class Blink extends AbstractAnomalyCard {
         if (!this.upgraded) {
             this.upgradeName();
             if (ConfigHelper.useSpecialUpgradeNames) {
-                if (MathUtils.randomBoolean(0.002F) && AbstractDungeon.id != null) {
-                    this.name = JOKE_UPGRADE_NAME;
-                } else {
-                    this.name = UPGRADE_NAME;
-                }
+                this.name = UPGRADE_NAME;
                 initializeTitle();
             }
             this.upgradeBlock(UPGRADE_PLUS_BLOCK_AMOUNT);

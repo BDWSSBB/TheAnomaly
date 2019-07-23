@@ -1,6 +1,6 @@
 package AnomalyMod.relics;
 
-import AnomalyMod.blights.improbabilityDriveInfo.ImprobabilityDrivePortableTerminalInfo;
+import AnomalyMod.blights.driveEffects.PortableTerminal;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -19,12 +19,12 @@ public class AuditingHijack extends AbstractAnomalyRelic {
         super(ID, IMAGE_PATH, IMAGE_OUTLINE_PATH, RelicTier.BOSS, LandingSound.MAGICAL);
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, getUpdatedDescription()));
-        this.tips.add(new PowerTip(DESCRIPTIONS[1], FontHelper.colorString(new ImprobabilityDrivePortableTerminalInfo().name, "y") + DESCRIPTIONS[2] + AUDITING_HIJACK_IMPROBABILITY_LOSS + DESCRIPTIONS[3]));
+        this.tips.add(new PowerTip(DESCRIPTIONS[1], FontHelper.colorString(new PortableTerminal().name, "y") + DESCRIPTIONS[2] + AUDITING_HIJACK_IMPROBABILITY_LOSS + DESCRIPTIONS[3]));
         initializeTips();
     }
 
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + FontHelper.colorString(new ImprobabilityDrivePortableTerminalInfo().name, "y");
+        return DESCRIPTIONS[0] + FontHelper.colorString(new PortableTerminal().name, "y");
     }
 
     @Override

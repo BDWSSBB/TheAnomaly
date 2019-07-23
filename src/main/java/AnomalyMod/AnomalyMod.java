@@ -5,8 +5,13 @@ import AnomalyMod.cards.colorless.DummyCard;
 import AnomalyMod.cards.status.BadSector;
 import AnomalyMod.cards.wistful.*;
 import AnomalyMod.character.AnomalyCharacter;
+import AnomalyMod.dungeons.AnomalyTheEnding;
 import AnomalyMod.events.exordium.Dedmos;
+import AnomalyMod.events.theEnd.*;
 import AnomalyMod.helpers.config.ConfigHelper;
+import AnomalyMod.helpers.modSaveData.AnomalyModDungeonData;
+import AnomalyMod.helpers.modSaveData.AnomalyModSaveFile;
+import AnomalyMod.helpers.monsterEncounters.AnomalyMonsterHelper;
 import AnomalyMod.patches.enums.CardColorEnum;
 import AnomalyMod.patches.enums.PlayerClassEnum;
 import AnomalyMod.relics.*;
@@ -21,12 +26,10 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,7 +47,7 @@ public class AnomalyMod implements
         EditKeywordsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
-        CustomSavable<Random> {
+        CustomSavable<AnomalyModSaveFile> {
 
     public static final Logger logger = LogManager.getLogger(AnomalyMod.class.getSimpleName());
 
@@ -59,8 +62,6 @@ public class AnomalyMod implements
     private static final String CHARACTER_BUTTON = "AnomalyModResources/character/placeholder/characterButton.png";
     private static final String CHARACTER_PORTRAIT = "AnomalyModResources/character/placeholder/simpleAnomalyPortrait.jpg";
     private static final String SMALL_ENERGY_SYMBOL = "AnomalyModResources/character/placeholder/manaSymbol.png";
-
-    public static Random anomalyRNG;
 
     public AnomalyMod() {
         BaseMod.subscribe(this);
@@ -114,6 +115,7 @@ public class AnomalyMod implements
         BaseMod.addCard(new Derail());
         BaseMod.addCard(new DialMForMurder());
         BaseMod.addCard(new Disable());
+        BaseMod.addCard(new Driller());
         BaseMod.addCard(new DualAction());
         BaseMod.addCard(new DummyCard());
         BaseMod.addCard(new DumpsterDive());
@@ -127,10 +129,10 @@ public class AnomalyMod implements
         BaseMod.addCard(new Featherweight());
         BaseMod.addCard(new Filter());
         BaseMod.addCard(new FluxCapacitor());
+        BaseMod.addCard(new FourEyes());
         BaseMod.addCard(new FreeForm());
         BaseMod.addCard(new Gravekeep());
         BaseMod.addCard(new Gape());
-        BaseMod.addCard(new Hellegance());
         BaseMod.addCard(new Hook());
         BaseMod.addCard(new Hurdle());
         BaseMod.addCard(new Hyperdrift());
@@ -155,7 +157,6 @@ public class AnomalyMod implements
         BaseMod.addCard(new SmoothSailing());
         BaseMod.addCard(new SocketSlice());
         BaseMod.addCard(new StrikeAnomaly());
-        BaseMod.addCard(new Stutter());
         BaseMod.addCard(new SystemHack());
         BaseMod.addCard(new TelomereFlake());
         BaseMod.addCard(new Timeslip());
@@ -222,6 +223,34 @@ public class AnomalyMod implements
 
         BaseMod.addEvent(Dedmos.ID, Dedmos.class, Exordium.ID);
 
+        // These don't naturally spawn, I use a manual way to spawn these.
+        BaseMod.addEvent(LaunchTerminal.ID, LaunchTerminal.class, AnomalyTheEnding.ID);
+        BaseMod.addEvent(PhaseControllerChipQuest.ID, PhaseControllerChipQuest.class, AnomalyTheEnding.ID);
+        BaseMod.addEvent(NeuralCablesQuest.ID, NeuralCablesQuest.class, AnomalyTheEnding.ID);
+        BaseMod.addEvent(DataDecoderQuest.ID, DataDecoderQuest.class, AnomalyTheEnding.ID);
+        BaseMod.addEvent(CoolantFanQuest.ID, CoolantFanQuest.class, AnomalyTheEnding.ID);
+
+        // Act 4 Easy Pool
+        BaseMod.addMonster(AnomalyMonsterHelper.SLIME_HORDE_ENC, "Slime Horde", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.SLIME_HORDE_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.THUG_HORDE_ENC, "Thug Horde", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.THUG_HORDE_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.SNECKO_CULT_ENC, "Snecko Cult", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.SNECKO_CULT_ENC));
+
+        // Act 4 Normal Pool
+        BaseMod.addMonster(AnomalyMonsterHelper.CONSTRUCT_HORDE_ENC, "Construct Horde", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.CONSTRUCT_HORDE_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.WILDLIFE_HORDE_ENC, "Wildlife Horde", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.WILDLIFE_HORDE_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.MAW_AND_FRIENDS_ENC, "Maw and Friends", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.MAW_AND_FRIENDS_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.THE_REMINDER_ENC, "The Reminder", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.THE_REMINDER_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.BLUE_CREW_ENC, "Blue Crew", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.BLUE_CREW_ENC));
+
+        // Act 4 Elite Pool
+        BaseMod.addMonster(AnomalyMonsterHelper.ACT_1_ELITE_MIX_ENC, "Exordium Elites", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.ACT_1_ELITE_MIX_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.ACT_2_ELITE_MIX_ENC, "City Elites", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.ACT_2_ELITE_MIX_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.ACT_3_ELITE_MIX_ENC, "Beyond Elites", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.ACT_3_ELITE_MIX_ENC));
+
+        // The Last Stand
+        BaseMod.addMonster(AnomalyMonsterHelper.LAUNCH_TERMINAL_HORDE_ENC, "The Last Stand", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.LAUNCH_TERMINAL_HORDE_ENC));
+        BaseMod.addMonster(AnomalyMonsterHelper.LAUNCH_TERMINAL_HORDE_ENC2, "The Last Stand", () -> AnomalyMonsterHelper.getMainMonsters(AnomalyMonsterHelper.LAUNCH_TERMINAL_HORDE_ENC2));
+
         BaseMod.addMonster(AprilFoolsEvilDev.ID, () -> new MonsterGroup(new AbstractMonster[]{
                 new AprilFoolsEvilDev(0.0F, 0.0F)
         }));
@@ -230,33 +259,16 @@ public class AnomalyMod implements
         map.put("JEVIL-BYEBYE", new Sfx("AnomalyModResources/trololololo/snd_joker_byebye.wav", false));
         map.put("CHOO-CHOO", new Sfx("AnomalyModResources/trololololo/ILikeTrains.ogg", false));
 
-        BaseMod.addSaveField("anomalyRNG", this);
+        BaseMod.addSaveField("anomalySaveData", this);
     }
 
     @Override
-    public Random onSave() {
-        logger.info("Saved integer: " + anomalyRNG.counter);
-        return anomalyRNG;
+    public AnomalyModSaveFile onSave() {
+        return AnomalyModDungeonData.createSaveData();
     }
 
     @Override
-    public void onLoad(Random loaded) {
-        generateSeeds();
-        if (loaded != null) {
-            logger.info("Loaded integer: " + loaded.counter);
-            anomalyRNG.counter = loaded.counter;
-        } else {
-            logger.info("loaded = null");
-        }
-    }
-
-    public static void generateSeeds() {
-        logger.info("generateSeeds was called");
-        if (Settings.seed != null) {
-            anomalyRNG = new Random(Settings.seed);
-        } else {
-            logger.info("generateSeeds called with null Settings.seed");
-            anomalyRNG = new Random();
-        }
+    public void onLoad(AnomalyModSaveFile loaded) {
+        AnomalyModDungeonData.loadSaveData(loaded);
     }
 }

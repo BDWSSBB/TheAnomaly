@@ -1,6 +1,6 @@
 package AnomalyMod.patches.driveEffects;
 
-import AnomalyMod.blights.improbabilityDriveInfo.ImprobabilityDriveSurpriseElitesInfo;
+import AnomalyMod.blights.driveEffects.SurpriseElites;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
@@ -20,7 +20,7 @@ public class ImprobabilityDriveSurpriseElitePatch {
             locator = Locator.class
     )
     public static void Insert(AbstractDungeon __instance, SaveFile saveFile) {
-        ImprobabilityDriveSurpriseElitesInfo.rollSurpriseElite();
+        SurpriseElites.rollSurpriseElite();
     }
 
     private static class Locator extends SpireInsertLocator {

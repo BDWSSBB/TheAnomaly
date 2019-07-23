@@ -28,15 +28,13 @@ public class MultithreadingAction extends AbstractGameAction {
             if (this.player.hand.group.isEmpty()) {
                 this.isDone = true;
                 return;
-            }
-            else if (this.player.hand.size() == 1) {
+            } else if (this.player.hand.size() == 1) {
                 AbstractCard card = this.player.hand.getTopCard();
                 AbstractDungeon.player.hand.moveToExhaustPile(card);
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.player, this.player, new MultithreadingPower(this.player, this.powerAmount, card)));
                 this.isDone = true;
                 return;
-            }
-            else {
+            } else {
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
                 tickDuration();
                 return;

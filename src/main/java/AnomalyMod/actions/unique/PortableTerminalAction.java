@@ -22,7 +22,11 @@ public class PortableTerminalAction extends AbstractGameAction {
     private int improbabilityReductionAmount;
 
     public PortableTerminalAction(int improbabilityReductionAmount) {
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        if (Settings.FAST_MODE) {
+            this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
+        } else {
+            this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        }
         this.actionType = ActionType.CARD_MANIPULATION;
         this.player = AbstractDungeon.player;
         this.improbabilityReductionAmount = improbabilityReductionAmount;

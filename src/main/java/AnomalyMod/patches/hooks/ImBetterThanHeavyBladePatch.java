@@ -19,7 +19,7 @@ public class ImBetterThanHeavyBladePatch {
             clz = AbstractCard.class,
             method = "calculateCardDamage"
     )
-    public static class atDamageGiveApplyPowersHook {
+    public static class AtDamageGiveApplyPowersHook {
 
         public static ExprEditor Instrument() {
             return new ExprEditor() {
@@ -66,7 +66,7 @@ public class ImBetterThanHeavyBladePatch {
             clz = AbstractCard.class,
             method = "calculateCardDamage"
     )
-    public static class atDamageReceiveHook {
+    public static class AtDamageReceiveHook {
 
         public static ExprEditor Instrument() {
             return new ExprEditor() {
@@ -116,7 +116,7 @@ public class ImBetterThanHeavyBladePatch {
             clz = AbstractCard.class,
             method = "calculateCardDamage"
     )
-    public static class atDamageFinalGiveApplyPowersHook {
+    public static class AtDamageFinalGiveApplyPowersHook {
 
         public static ExprEditor Instrument() {
             return new ExprEditor() {
@@ -162,7 +162,7 @@ public class ImBetterThanHeavyBladePatch {
             clz = AbstractCard.class,
             method = "calculateCardDamage"
     )
-    public static class atDamageFinalReceiveHook {
+    public static class AtDamageFinalReceiveHook {
 
         public static ExprEditor Instrument() {
             return new ExprEditor() {
@@ -199,6 +199,52 @@ public class ImBetterThanHeavyBladePatch {
                     return ((AbstractAnomalyCard) c).atDamageFinalReceiveWithPower(tmp, damageTypeForTurn, p);
                 } else {
                     return p.atDamageFinalReceive(tmp, damageTypeForTurn);
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowersToBlock"
+    )
+    public static class ModifyBlockHook {
+
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(AbstractPower.class.getName()) && m.getMethodName().equals("modifyBlock")) {
+                        m.replace(
+                                "{" +
+                                        "if (" + Nested.class.getName() + ".isAnomalyCard(this)) {" +
+                                        "$_ = " + Nested.class.getName() + ".doMagic(this, $$, $0);" +
+                                        "}" +
+                                        "else" +
+                                        "{" +
+                                        "$_ = $proceed($$);" +
+                                        "}" +
+                                        "}");
+                    }
+                }
+            };
+        }
+
+        public static class Nested {
+
+            public static boolean isAnomalyCard(AbstractCard c) {
+                if (c instanceof AbstractAnomalyCard) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            public static float doMagic(AbstractCard c, float tmp, AbstractPower p) {
+                if (c instanceof AbstractAnomalyCard) {
+                    return ((AbstractAnomalyCard) c).modifyBlockWithPower(tmp, p);
+                } else {
+                    return p.modifyBlock(tmp);
                 }
             }
         }

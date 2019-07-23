@@ -1,21 +1,13 @@
 package AnomalyMod.cards.colorless;
 
-import AnomalyMod.AnomalyMod;
 import AnomalyMod.actions.common.ExhaustFromAnywhereAction;
-import AnomalyMod.actions.common.VanillaImprovements.FasterExhaustSpecificCardAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EvolvePower;
-import com.megacrit.cardcrawl.powers.NoDrawPower;
-import com.megacrit.cardcrawl.relics.BlueCandle;
 
 public class DummyCard extends AbstractAnomalyCard {
 
@@ -53,26 +45,7 @@ public class DummyCard extends AbstractAnomalyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.type == CardType.CURSE) {
-            if (p.hasRelic(BlueCandle.ID)) {
-                useBlueCandle(p);
-            } else {
-                AbstractDungeon.actionManager.addToBottom(new UseCardAction(this));
-            }
-        }
-    }
 
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return true;
-    }
-
-    @Override
-    public void triggerWhenDrawn() {
-        if (this.type == CardType.STATUS && AbstractDungeon.player.hasPower(EvolvePower.POWER_ID) && !AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
-            AbstractDungeon.player.getPower(EvolvePower.POWER_ID).flash();
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, AbstractDungeon.player.getPower("Evolve").amount));
-        }
     }
 
     @Override

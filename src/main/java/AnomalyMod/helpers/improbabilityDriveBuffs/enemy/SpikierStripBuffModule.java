@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.SpikierStripPower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.Collections;
+
 public class SpikierStripBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public SpikierStripBuffModule(AbstractMonster target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class SpikierStripBuffModule extends AbstractImprobabilityDriveBuffModule
 
     public void doAction() {
         this.target.addPower(new SpikierStripPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

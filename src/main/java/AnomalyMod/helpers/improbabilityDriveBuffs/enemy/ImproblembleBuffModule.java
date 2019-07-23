@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.enemy.ImproblemblePower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.Collections;
+
 public class ImproblembleBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public ImproblembleBuffModule(AbstractMonster target, int amountPerSelect, float costPerSelect, float selectionWeight) {
@@ -13,6 +15,7 @@ public class ImproblembleBuffModule extends AbstractImprobabilityDriveBuffModule
     public void doAction() {
         if (this.totalAmount > 0) {
             this.target.addPower(new ImproblemblePower(this.target, (int) this.totalAmount));
+            Collections.sort(this.target.powers);
         }
     }
 }

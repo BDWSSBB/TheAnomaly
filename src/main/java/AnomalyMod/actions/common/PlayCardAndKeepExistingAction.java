@@ -10,11 +10,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class PlayCardAndKeepExistingAction extends AbstractGameAction {
 
-    private AbstractMonster target;
     private AbstractPlayer player;
     private AbstractCard card;
     private boolean putInFrontOfQueue;
@@ -40,13 +38,13 @@ public class PlayCardAndKeepExistingAction extends AbstractGameAction {
         this.card.lighten(false);
         this.card.drawScale = 0.12f;
         this.card.targetDrawScale = 0.75f;
-        this.card.freeToPlayOnce = true;
 
-        if (!this.card.canUse(AbstractDungeon.player, this.target)) {
+        if (!this.card.canUse(AbstractDungeon.player, null)) {
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(this.card));
             AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(this.card, AbstractDungeon.player.limbo));
             AbstractDungeon.actionManager.addToTop(new NoFastModeWaitAction(0.4f));
         } else {
+            this.card.freeToPlayOnce = true;
             this.card.applyPowers();
             AbstractDungeon.actionManager.addToTop(new BetterQueueCardAction(this.card, true, this.putInFrontOfQueue));
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(this.card));

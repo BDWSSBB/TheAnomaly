@@ -1,7 +1,7 @@
 package AnomalyMod.patches.driveEffects;
 
-import AnomalyMod.AnomalyMod;
-import AnomalyMod.blights.improbabilityDriveInfo.ImprobabilityDriveTryNewThingsInfo;
+import AnomalyMod.blights.driveEffects.FattenUp;
+import AnomalyMod.helpers.modSaveData.AnomalyModDungeonData;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,13 +20,13 @@ public class ImprobabilityDriveCardRewardPatch {
     public static class ConvertGoldToCardRemoveOneCard {
 
         public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result) {
-            if (ImprobabilityDriveTryNewThingsInfo.convertingGoldToCard) {
+            if (FattenUp.convertingGoldToCard) {
                 for (int i = 0; i < 2; i++) {
                     if (!__result.isEmpty()) {
-                        __result.remove(AnomalyMod.anomalyRNG.random(0, __result.size() - 1));
+                        __result.remove(AnomalyModDungeonData.anomalyRNG.random(0, __result.size() - 1));
                     }
                 }
-                if (ImprobabilityDriveTryNewThingsInfo.cardRewardStrength >= 25) {
+                if (FattenUp.cardRewardStrength >= 25) {
                     for (AbstractCard c : __result) {
                         c.upgrade();
                     }
@@ -64,7 +64,7 @@ public class ImprobabilityDriveCardRewardPatch {
         public static class Nested {
 
             public static boolean shouldGetRareCard() {
-                if (ImprobabilityDriveTryNewThingsInfo.cardRewardStrength >= 50) {
+                if (FattenUp.cardRewardStrength >= 50) {
                     return true;
                 } else {
                     return false;

@@ -1,8 +1,9 @@
 package AnomalyMod.patches.correction;
 
 import AnomalyMod.cards.AbstractAnomalyCard;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import javassist.CtBehavior;
 
 @SpirePatch(
         clz = AbstractCard.class,
@@ -10,16 +11,27 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 )
 public class MakeStatEquivalentCopyFieldCopyPatch {
 
-    public static AbstractCard Postfix(AbstractCard __result, AbstractCard __instance) {
-        __result.exhaust = __instance.exhaust;
-        __result.type = __instance.type;
-        if (__instance instanceof AbstractAnomalyCard && __result instanceof AbstractAnomalyCard) {
-            ((AbstractAnomalyCard) __result).loadCardImage(((AbstractAnomalyCard) __instance).textureImg);
-            ((AbstractAnomalyCard) __result).textureImg = ((AbstractAnomalyCard) __instance).textureImg;
-            ((AbstractAnomalyCard) __result).baseImprobabilityNumber = ((AbstractAnomalyCard) __instance).baseImprobabilityNumber;
-            ((AbstractAnomalyCard) __result).baseSecondMagicNumber = ((AbstractAnomalyCard) __instance).baseSecondMagicNumber;
+    @SpireInsertPatch(
+            locator = Locator.class,
+            localvars = {"card"}
+    )
+    public static void Insert(AbstractCard __instance, AbstractCard card) {
+        card.exhaust = __instance.exhaust;
+        card.type = __instance.type;
+        if (__instance instanceof AbstractAnomalyCard && card instanceof AbstractAnomalyCard) {
+            ((AbstractAnomalyCard) card).loadCardImage(((AbstractAnomalyCard) __instance).textureImg);
+            ((AbstractAnomalyCard) card).textureImg = ((AbstractAnomalyCard) __instance).textureImg;
+            ((AbstractAnomalyCard) card).baseImprobabilityNumber = ((AbstractAnomalyCard) __instance).baseImprobabilityNumber;
+            ((AbstractAnomalyCard) card).baseSecondMagicNumber = ((AbstractAnomalyCard) __instance).baseSecondMagicNumber;
         }
-        return __result;
+    }
+
+    private static class Locator extends SpireInsertLocator {
+        @Override
+        public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+            Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractCard.class, "name");
+            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+        }
     }
 }
 

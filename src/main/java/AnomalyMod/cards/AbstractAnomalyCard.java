@@ -73,6 +73,10 @@ public abstract class AbstractAnomalyCard extends CustomCard {
         return power.atDamageFinalReceive(tmp, damageTypeForTurn);
     }
 
+    public float modifyBlockWithPower(float tmp, AbstractPower power) {
+        return power.modifyBlock(tmp);
+    }
+
     public static class SecondMagicNumber extends DynamicVariable {
 
         @Override

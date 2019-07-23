@@ -46,8 +46,7 @@
     "NAME": "Blink",
     "DESCRIPTION": "Gain !B! Block. NL Put the bottom card of your draw pile into your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Blank",
-      "Blank The Evil"
+      "Blank"
     ]
   },
   "anomalyMod:BudgetPack": {
@@ -72,7 +71,8 @@
   },
   "anomalyMod:ConicSands": {
     "NAME": "Conic Sands",
-    "DESCRIPTION": "The next !M! times you play a card, ALL enemies lose 1 Strength. NL After you play !M! cards, ALL enemies gain !M! Strength."
+    "DESCRIPTION": "Gain [E]. NL Draw !M! cards. NL Next turn, lose [E] and draw 1 less card.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Draw !M! cards. NL Next turn, lose [E] and draw 1 less card."
   },
   "anomalyMod:Crank": {
     "NAME": "Crank",
@@ -89,7 +89,7 @@
   "anomalyMod:DeepDitch": {
     "NAME": "Deep Ditch",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL Strength and Vulnerable affect this card twice.",
-    "UPGRADE_DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL ALL and ONLY positive damage-modifying powers affect this card twice."
+    "UPGRADE_DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage. NL ONLY positive damage-modifying powers affect this card, twice."
   },
   "anomalyMod:DeimosDown": {
     "NAME": "Deimos Down",
@@ -100,7 +100,7 @@
   },
   "anomalyMod:DelayedFlight": {
     "NAME": "Delayed Flight",
-    "DESCRIPTION": "After you play !M! cards, gain !B! Block."
+    "DESCRIPTION": "After you play !M! cards, gain !B! Block. NL Dexterity affects this card twice."
   },
   "anomalyMod:DialMForMurder": {
     "NAME": "Dial M for Murder",
@@ -124,9 +124,13 @@
     "NAME": "Do-Over",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Shuffle ALL your cards into your draw pile. NL Put !M! cards from your draw pile into your hand. Exhaust."
   },
+  "anomalyMod:Driller": {
+    "NAME": "Driller",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has at least !anomalyMod:M2! Weak or !anomalyMod:M2! Vulnerable, deal !D! damage again !M! times."
+  },
   "anomalyMod:DummyCard": {
     "NAME": "Dummy",
-    "DESCRIPTION": "NL Exhaust. NL Exhausts at the end of your turn from anywhere.",
+    "DESCRIPTION": "Exhaust. NL Exhausts at the end of your turn from anywhere.",
     "EXTENDED_DESCRIPTION": [
       "Exhausts at the end of your turn from anywhere."
     ]
@@ -141,7 +145,7 @@
   },
   "anomalyMod:EscapeAttempt": {
     "NAME": "Escape Attempt",
-    "DESCRIPTION": "Gain !B! Block twice. NL Discard !M! cards."
+    "DESCRIPTION": "Discard all but up to !M! cards. NL If you discard at least !anomalyMod:M2! cards, gain !B! Block twice."
   },
   "anomalyMod:Excavate": {
     "NAME": "Excavate",
@@ -184,6 +188,10 @@
     "NAME": "Flux Capacitor",
     "DESCRIPTION": "Up to !M! Energy is conserved between turns."
   },
+  "anomalyMod:FourEyes": {
+    "NAME": "Four Eyes",
+    "DESCRIPTION": "Improbability !anomalyMod:I!. NL At the start of your turn, play the bottom card of your draw pile."
+  },
   "anomalyMod:FreeForm": {
     "NAME": "Free Form",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL At the start of your turn, choose 1 of 3 random cards with 1 less Improbability to play."
@@ -195,11 +203,6 @@
   "anomalyMod:Gravekeep": {
     "NAME": "Gravekeep",
     "DESCRIPTION": "Improbability !anomalyMod:I!. NL Deal !D! damage !M! times."
-  },
-  "anomalyMod:Hellegance": {
-    "NAME": "Hellegance",
-    "DESCRIPTION": "Whenever you gain Improbability, gain [E] and draw !anomalyMod:M2! cards.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain Improbability, gain [E] and draw !anomalyMod:M2! cards."
   },
   "anomalyMod:Hook": {
     "NAME": "Hook",
@@ -230,10 +233,7 @@
   },
   "anomalyMod:Invalidate": {
     "NAME": "Invalidate",
-    "DESCRIPTION": "Retain. NL Gain 1 Improbability. NL Remove all your debuffs.",
-    "EXTENDED_DESCRIPTION": [
-      "#rNOPE."
-    ]
+    "DESCRIPTION": "Retain. NL Gain !M! Improbability. NL Remove all your debuffs. NL Exhaust."
   },
   "anomalyMod:Invert": {
     "NAME": "Invert",
@@ -262,10 +262,8 @@
   },
   "anomalyMod:NegativeReception": {
     "NAME": "Negative Reception",
-    "DESCRIPTION": "Retain. NL Deal !D! damage. Discard all Status cards, Curses, and cards with Improbability. Draw 1 card for each card discarded.",
-    "EXTENDED_DESCRIPTION": [
-      "Retain. NL Deal !D! damage. Discard all Status cards, Curses, and cards with Improbability. Gain [E] and draw 1 card for each card discarded."
-    ]
+    "DESCRIPTION": "Retain. NL Deal !D! damage. NL Discard up to !M! cards. NL Draw 1 card for each type of card discarded.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal !D! damage. NL Discard up to !M! cards. NL Draw 1 card for each card discarded."
   },
   "anomalyMod:Overdrive": {
     "NAME": "Overdrive",
@@ -275,10 +273,6 @@
   "anomalyMod:Pincushion": {
     "NAME": "Pincushion",
     "DESCRIPTION": "Xprobability !anomalyMod:I!. NL Deal !D! damage !anomalyMod:M2! times. NL Apply !M! Stapled !anomalyMod:M2! times. NL Exhaust."
-  },
-  "anomalyMod:Polyrhythm": {
-    "NAME": "Polyrhythm",
-    "DESCRIPTION": "Improbability !anomalyMod:I!. NL Every 7th card played deals double damage. NL Every 8th card played gains double Block."
   },
   "anomalyMod:PopcornFunction": {
     "NAME": "Popcorn Function",
@@ -314,15 +308,12 @@
     "DESCRIPTION": "Deal !D! damage. NL Next turn, draw !M! additional card."
   },
   "anomalyMod:SixthRevision": {
-    "NAME": "Sixth Revision",
+    "NAME": "Seventh Revision",
     "DESCRIPTION": "At the start of your turn, you may shuffle an upgradable card from your discard pile into your draw pile and Upgrade it."
   },
   "anomalyMod:SmoothSailing": {
     "NAME": "Smooth Sailing",
-    "DESCRIPTION": "At the start of your next !M! turns, gain [E].",
-    "EXTENDED_DESCRIPTION": [
-      "Ha Ha Not Really"
-    ]
+    "DESCRIPTION": "At the start of your next !M! turns, gain [E]."
   },
   "anomalyMod:SocketSlice": {
     "NAME": "Socket Slice",
@@ -333,10 +324,6 @@
       " more Attack.)",
       " more Attacks.)"
     ]
-  },
-  "anomalyMod:Stutter": {
-    "NAME": "Stutter",
-    "DESCRIPTION": "Improbability !anomalyMod:I!. Whenever you play a card this turn, gain !M! Block."
   },
   "anomalyMod:SystemHack": {
     "NAME": "System Hack",

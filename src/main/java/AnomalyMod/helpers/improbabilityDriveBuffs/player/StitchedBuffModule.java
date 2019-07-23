@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StitchedPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
+import java.util.Collections;
+
 public class StitchedBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public StitchedBuffModule(AbstractPlayer target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class StitchedBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public void doAction() {
         this.target.addPower(new StitchedPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

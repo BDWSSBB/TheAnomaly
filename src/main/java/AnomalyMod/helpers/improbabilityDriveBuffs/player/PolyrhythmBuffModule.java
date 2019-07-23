@@ -4,6 +4,8 @@ import AnomalyMod.helpers.improbabilityDriveBuffs.AbstractImprobabilityDriveBuff
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.PolyrhythmPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
+import java.util.Collections;
+
 public class PolyrhythmBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public PolyrhythmBuffModule(AbstractPlayer target, float costPerSelect) {
@@ -12,5 +14,6 @@ public class PolyrhythmBuffModule extends AbstractImprobabilityDriveBuffModule {
 
     public void doAction() {
         this.target.addPower(new PolyrhythmPower(this.target));
+        Collections.sort(this.target.powers);
     }
 }

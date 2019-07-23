@@ -1,7 +1,7 @@
 package AnomalyMod.patches.driveEffects;
 
-import AnomalyMod.blights.improbabilityDriveInfo.ImprobabilityDriveSpecialtyInfo;
-import AnomalyMod.blights.improbabilityDriveInfo.ImprobabilityDriveTryNewThingsInfo;
+import AnomalyMod.blights.driveEffects.FattenUp;
+import AnomalyMod.blights.driveEffects.Specialty;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -17,8 +17,8 @@ public class ImprobabilityDriveSaveAndLoadPatch {
             locator = Locator.class
     )
     public static void Insert(AbstractRoom __instance) {
-        ImprobabilityDriveTryNewThingsInfo.convertGoldToRewards();
-        ImprobabilityDriveSpecialtyInfo.specializeCardRewards();
+        FattenUp.convertGoldToRewards();
+        Specialty.specializeCardRewards();
     }
 
     private static class Locator extends SpireInsertLocator {

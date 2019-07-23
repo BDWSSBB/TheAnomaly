@@ -2,7 +2,6 @@ package AnomalyMod.patches.hardcodes;
 
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StarchedPower;
 import AnomalyMod.powers.ImprobabilityDriveExclusive.player.StitchedPower;
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderFixSwitches;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
@@ -20,19 +19,14 @@ public class StitchedStarchedPowersPatch {
             clz = AbstractCard.class,
             method = "renderEnergy"
     )
-    // :angery:
-    @SpirePatch(
-            clz = RenderFixSwitches.RenderEnergySwitch.class,
-            method = "Prefix"
-    )
-    public static class renderPurpleCostBaseModVersion {
+    public static class renderPurpleCost {
 
         @SpireInsertPatch(
                 locator = Locator.class,
                 localvars = {"costColor"}
         )
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef Color[] costColor) {
-            if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (AbstractDungeon.id != null && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
                 if (__instance.type == AbstractCard.CardType.ATTACK && AbstractDungeon.player.hasPower(StitchedPower.POWER_ID) && AbstractDungeon.player.getPower(StitchedPower.POWER_ID).amount == 1) {
                     costColor[0] = Color.PURPLE.cpy();
                 }

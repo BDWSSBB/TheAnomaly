@@ -25,15 +25,18 @@ public class Invalidate extends AbstractAnomalyCard {
     private static final CardColor COLOR = CardColorEnum.ANOMALY_WISTFUL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
+    private static final int MAGIC_NUMBER = 2;
 
     public Invalidate() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = MAGIC_NUMBER;
+        this.exhaust = true;
         AlwaysRetainField.alwaysRetain.set(this, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(1));
+        AbstractDungeon.actionManager.addToBottom(new ChangeImprobabilityAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(p));
     }
 

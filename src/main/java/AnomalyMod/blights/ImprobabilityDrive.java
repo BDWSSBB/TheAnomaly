@@ -1,7 +1,6 @@
 package AnomalyMod.blights;
 
-import AnomalyMod.AnomalyMod;
-import AnomalyMod.blights.improbabilityDriveInfo.*;
+import AnomalyMod.blights.driveEffects.*;
 import AnomalyMod.powers.AbstractAnomalyPower;
 import AnomalyMod.powers.AbstractAnomalyTwoAmountPower;
 import AnomalyMod.relics.AbstractAnomalyRelic;
@@ -16,7 +15,6 @@ import com.megacrit.cardcrawl.localization.BlightStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class ImprobabilityDrive extends AbstractAnomalyBlight {
 
@@ -49,9 +47,9 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
 
     private static String getDescription() {
         String toEdit = "";
-        toEdit = upcomingInfoBlightCheck(toEdit, ImprobabilityDriveTryNewThingsInfo.ID, ImprobabilityDriveTryNewThingsInfo.CONVERT_GOLD_IMPROBABILITY_MINIMUM);
-        toEdit = upcomingInfoBlightCheck(toEdit, ImprobabilityDriveSpecialtyInfo.ID, ImprobabilityDriveSpecialtyInfo.SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM);
-        toEdit = upcomingInfoBlightCheck(toEdit, ImprobabilityDriveSurpriseElitesInfo.ID, ImprobabilityDriveSurpriseElitesInfo.SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM);
+        toEdit = upcomingInfoBlightCheck(toEdit, FattenUp.ID, FattenUp.CONVERT_GOLD_IMPROBABILITY_MINIMUM);
+        toEdit = upcomingInfoBlightCheck(toEdit, Specialty.ID, Specialty.SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM);
+        toEdit = upcomingInfoBlightCheck(toEdit, SurpriseElites.ID, SurpriseElites.SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM);
         return DESCRIPTION[0] + toEdit;
     }
 
@@ -71,6 +69,10 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
 
     public static void changeImprobability(int improbabilityNumber) {
         ImprobabilityDrive drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
+        if (drive == null) {
+            AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.scale * 64.0F, Settings.HEIGHT - Settings.scale * 176.0F, new ImprobabilityDrive());
+            drive = (ImprobabilityDrive) AbstractDungeon.player.getBlight(ImprobabilityDrive.ID);
+        }
         queueChangeImprobability(improbabilityNumber);
         if (drive != null && queuedImprobability != 0) {
             drive.counter += queuedImprobability;
@@ -205,13 +207,13 @@ public class ImprobabilityDrive extends AbstractAnomalyBlight {
     }
 
     public static void checkForSpawnInfoBlights() {
-        spawnInfoBlightCheck(ImprobabilityDrivePortableTerminalInfo.ID, 0, true);
-        spawnInfoBlightCheck(ImprobabilityDriveMalfunctionInfo.ID, 0, !Settings.isEndless);
-        spawnInfoBlightCheck(ImprobabilityDriveRandomBuffsInfo.ID, 0, true);
-        spawnInfoBlightCheck(ImprobabilityDriveTryNewThingsInfo.ID, ImprobabilityDriveTryNewThingsInfo.CONVERT_GOLD_IMPROBABILITY_MINIMUM, true);
-        spawnInfoBlightCheck(ImprobabilityDriveSpecialtyInfo.ID, ImprobabilityDriveSpecialtyInfo.SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM, true);
-        spawnInfoBlightCheck(ImprobabilityDriveSurpriseElitesInfo.ID, ImprobabilityDriveSurpriseElitesInfo.SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM, true);
-        if (Settings.isEndless && AbstractDungeon.player.hasBlight(ImprobabilityDriveMalfunctionInfo.ID)) { // BLAAAAAANK
+        spawnInfoBlightCheck(PortableTerminal.ID, 0, true);
+        spawnInfoBlightCheck(Malfunction.ID, 0, !Settings.isEndless);
+        spawnInfoBlightCheck(RandomBuffs.ID, 0, true);
+        spawnInfoBlightCheck(FattenUp.ID, FattenUp.CONVERT_GOLD_IMPROBABILITY_MINIMUM, true);
+        spawnInfoBlightCheck(Specialty.ID, Specialty.SINGLE_CARD_CHOICE_IMPROBABILITY_MINIMUM, true);
+        spawnInfoBlightCheck(SurpriseElites.ID, SurpriseElites.SURPRISE_ELITES_UNKNOWN_ROOM_IMPROBABILITY_MINIMUM, true);
+        if (Settings.isEndless && AbstractDungeon.player.hasBlight(Malfunction.ID)) { // BLAAAAAANK
             AbstractDungeon.player.blights.remove(AbstractDungeon.player.getBlight(ImprobabilityDrive.ID));
         }
     }

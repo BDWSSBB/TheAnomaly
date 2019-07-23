@@ -1,9 +1,8 @@
 package AnomalyMod.cards.wistful;
 
+import AnomalyMod.actions.unique.EscapeAttemptAction;
 import AnomalyMod.cards.AbstractAnomalyCard;
 import AnomalyMod.patches.enums.CardColorEnum;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,20 +24,19 @@ public class EscapeAttempt extends AbstractAnomalyCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int BLOCK_AMOUNT = 8;
     private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int MAGIC_NUMBER = 2;
+    private static final int MAGIC_NUMBER = 3;
+    private static final int SECOND_MAGIC_NUMBER = 2;
 
     public EscapeAttempt() {
         super(ID, NAME, IMAGE_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.block = this.baseBlock = BLOCK_AMOUNT;
         this.magicNumber = this.baseMagicNumber = MAGIC_NUMBER;
+        this.secondMagicNumber = this.baseSecondMagicNumber = SECOND_MAGIC_NUMBER;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < 2; i++) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        }
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
+        AbstractDungeon.actionManager.addToBottom(new EscapeAttemptAction(this.magicNumber, this.secondMagicNumber, this.block));
     }
 
     @Override
